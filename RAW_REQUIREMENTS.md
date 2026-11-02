@@ -14,6 +14,8 @@ Lý do dùng video làm nguồn: Google Maps và các bản đồ khác đôi kh
 
 **Phạm vi của dự án này chỉ là thu thập và chuẩn hóa dữ liệu.** Không xây app lập kế hoạch, không xây giao diện người dùng cuối. Dữ liệu phải **đầy đủ nhất có thể** để người dùng web app xem và đánh giá một địa điểm trước khi chọn.
 
+**Output của dự án là dữ liệu**: một bộ view chỉ đọc trong Postgres (schema `output`, R10) mà web app đọc trực tiếp. Web app là dự án phi thương mại.
+
 ### 1.1. Thông tin cần thu thập cho mỗi địa điểm
 
 Mỗi thuộc tính truy về một trường trong schema (mục 7) và bảng `places` (mục 6).
@@ -39,7 +41,7 @@ Mỗi thuộc tính truy về một trường trong schema (mục 7) và bảng 
 | Hình ảnh, video | `media` | Link YouTube nhảy tới đúng timestamp + thumbnail (xem C10) |
 | Giờ mở cửa (theo video) | `opening_hours_raw` | |
 
-**B. Dữ liệu Google** (web app lấy trực tiếp bằng `google_place_id`, **hệ thống này không lưu**, xem C7): số điện thoại, website, ảnh, rating, số lượt đánh giá, giờ mở cửa, địa chỉ chuẩn. Link Google Maps dựng từ `google_place_id` theo dạng Maps URLs (`https://www.google.com/maps/search/?api=1&query=<name>&query_place_id=<id>`).
+**B. Dữ liệu Google** (web app lấy trực tiếp bằng `google_place_id`, **hệ thống này không lưu**, xem C7): **tọa độ**, số điện thoại, website, ảnh, rating, số lượt đánh giá, giờ mở cửa, địa chỉ chuẩn. Output của hệ thống này không có tọa độ. Link Google Maps dựng từ `google_place_id` theo dạng Maps URLs (`https://www.google.com/maps/search/?api=1&query=<name>&query_place_id=<id>`).
 
 ---
 
@@ -50,11 +52,12 @@ Mỗi thuộc tính truy về một trường trong schema (mục 7) và bảng 
 - Nguồn video: **YouTube** (ưu tiên Shorts và video ngắn), video công khai.
 - Phân tích video: **Gemini API** qua YouTube URL (không tải video về máy).
 - Xác minh địa điểm: **Google Places API (New)**.
-- FastAPI để xem, lọc dữ liệu và kích hoạt job thủ công khi cần debug.
+- Output dữ liệu cho web app qua schema `output` (R10).
+- FastAPI là công cụ vận hành nội bộ: xem, lọc dữ liệu và kích hoạt job thủ công khi cần debug. Web app không dùng FastAPI.
 
 ### Ngoài phạm vi
 - App lập kế hoạch đi chơi, giao diện người dùng cuối.
-- Lấy và lưu nội dung Google Places ngoài `place_id` và tọa độ tạm thời (C7).
+- Lưu bất kỳ nội dung Google Places nào ngoài `place_id`, kể cả tọa độ (C7). Tọa độ do web app xử lý.
 - TikTok, Facebook, Instagram (xem ràng buộc C1).
 - Các tỉnh thành khác.
 - OpenStreetMap và mọi bộ dữ liệu dựng từ OSM.
@@ -72,11 +75,11 @@ Mỗi thuộc tính truy về một trường trong schema (mục 7) và bảng 
 | C4 | Tính năng YouTube URL của Gemini đang ở trạng thái **preview**: giá và giới hạn có thể thay đổi. Free tier giới hạn **8 giờ video YouTube mỗi ngày**. Hệ thống phải theo dõi tổng số giây video đã xử lý trong ngày quota. |
 | C5 | Quota YouTube Data API theo đơn vị mỗi ngày (mặc định khoảng 10.000; `search.list` tốn nhiều đơn vị hơn `playlistItems.list` và `videos.list`). Kiểm tra lại số liệu trên Google Cloud Console. |
 | C6 | **Địa giới hành chính mới**: cấp quận/huyện đã bị bỏ từ 1/7/2025. TP.HCM hiện có 168 đơn vị cấp xã (113 phường, 54 xã, 1 đặc khu). Người dùng và creator vẫn dùng tên quận cũ. |
-| C7 | **Điều khoản Google Maps Platform** (đã tra ngày 2026-11-02; xem lại khi Google cập nhật): `place_id` được lưu vô thời hạn (Places API Policies). Tọa độ lat/lng từ Places chỉ được cache tạm tối đa **30 ngày liên tiếp**, sau đó phải xóa hoặc làm mới (Service Specific Terms, bản 2023; chưa xác nhận bản hiện hành). Nội dung khác (tên, địa chỉ, SĐT, website, ảnh, rating, review, giờ mở cửa, `businessStatus`) **không lưu**: chỉ dùng trong lúc xử lý. Hiển thị ảnh/review của Google phải ghi công tác giả và có link về Google Maps — trách nhiệm của web app. |
+| C7 | **Điều khoản Google Maps Platform** (đã tra ngày 2026-11-02; xem lại khi Google cập nhật): `place_id` được lưu vô thời hạn (Places API Policies). Hệ thống này **chỉ lưu `place_id`**. Tọa độ và mọi nội dung khác (tên, địa chỉ, SĐT, website, ảnh, rating, review, giờ mở cửa, `businessStatus`) chỉ dùng trong bộ nhớ lúc xử lý một mention, không ghi vào DB hay log. Giá trị hệ thống tự suy ra (`legacy_district`, `ward`, `legacy_sub_area`, `match_status`, `closed_permanently`) được lưu. Hiển thị ảnh/review của Google phải ghi công tác giả và có link về Google Maps — trách nhiệm của web app. |
 | C8 | Không suy đoán dữ liệu **sự kiện** (tên, địa chỉ, quận, giá, giờ mở cửa, số người, liên hệ, thời gian ở lại, cần đặt chỗ): video không nói thì để `null` hoặc danh sách rỗng. Các trường **phân loại** (`vibes`, `suitable_for`, `time_slots`, `amenities`, `setting`) được phép suy ra từ nội dung video (lời nói, chữ trên màn hình, hình ảnh) nhưng phải có `evidence`; không có tín hiệu trong video thì để rỗng / `null`, không suy từ loại hình. |
 | C9 | API key chỉ lấy từ biến môi trường. Không commit key. |
 | C10 | **Điều khoản YouTube API Services** (Developer Policies §III.E.4, đã tra ngày 2026-11-02): dữ liệu lấy từ YouTube API (tiêu đề, mô tả, thumbnail, thống kê) chỉ lưu tối đa **30 ngày**, sau đó phải làm mới hoặc xóa, và phải giữ nhất quán với dữ liệu hiện tại trên YouTube. Kết quả phân tích của Gemini không phải dữ liệu YouTube API. |
-| C11 | **Giấy phép GADM** chỉ cho mục đích phi thương mại và không cho phân phối lại. Trước khi web app thương mại hóa phải xin phép GADM hoặc thay nguồn polygon (Q2 mục 13). |
+| C11 | **Giấy phép GADM** chỉ cho mục đích phi thương mại và không cho phân phối lại. Dự án và web app hiện phi thương mại nên dùng được (D19). Không đưa file polygon GADM ra ngoài; schema `output` chỉ chứa tên quận/phường, không chứa polygon. Nếu web app chuyển sang thương mại phải xin phép GADM hoặc thay nguồn polygon. |
 
 ---
 
@@ -86,12 +89,13 @@ Mỗi thuộc tính truy về một trường trong schema (mục 7) và bảng 
 Scheduler
   └─► [R1] Discovery     : sinh từ khóa → YouTube Data API → lưu video (status=discovered)
   └─► [R2] Analysis      : Gemini đọc YouTube URL → JSON theo schema → lưu analysis + mentions (status=analyzed | rejected)
-  └─► [R3] Enrichment    : Google Places xác minh từng mention → place_id, tọa độ tạm (status=enriched)
+  └─► [R3] Enrichment    : Google Places xác minh từng mention → place_id; dùng tọa độ tức thời để gán quận/phường, rồi bỏ tọa độ (status=enriched)
   └─► [R4] Resolution    : gộp mentions thành places chuẩn, tổng hợp thuộc tính, quyết định publish (status=resolved)
-  └─► [R1] Refresh       : làm mới metadata video (C10) và tọa độ / trạng thái Places (C7)
-[R5] Geography : thư viện dùng chung — R3 kiểm tra ranh giới, R4 gán ward / legacy_district
+  └─► Refresh            : làm mới metadata video (C10, R1) và kiểm tra quán đóng cửa (R3)
+[R5] Geography : thư viện dùng chung — R3 gọi để kiểm tra ranh giới và gán ward / legacy_district từ tọa độ tức thời
 [R9] Tags      : chuẩn hóa tag mở (vibes, amenities) — dùng ở R2 và R4
-FastAPI [R6] : đọc dữ liệu, thống kê, kích hoạt job
+[R10] Output   : schema `output` (view chỉ đọc) → web app đọc trực tiếp
+FastAPI [R6] : công cụ vận hành nội bộ — đọc dữ liệu, thống kê, kích hoạt job
 [R7] Quota & vận hành, [R8] Đánh giá chất lượng
 ```
 
@@ -158,7 +162,7 @@ discovered → analyzed → enriched → resolved
 ### R3. Enrichment (Google Places)
 
 - **FR-3.1** Với mỗi mention, gọi Places **Text Search (New)** với chuỗi `name + address_raw + "TP. Hồ Chí Minh"`, kèm location bias theo `legacy_district` của mention (tâm polygon quận) nếu có.
-- **FR-3.2** Field mask: `places.id, places.displayName, places.formattedAddress, places.location, places.businessStatus, places.types` (nhóm SKU Pro; kiểm tra lại phân nhóm SKU trước khi cài đặt). Không gọi Place Details trong hệ thống này.
+- **FR-3.2** Field mask: `places.id, places.displayName, places.formattedAddress, places.location, places.businessStatus, places.types` (nhóm SKU Pro; kiểm tra lại phân nhóm SKU trước khi cài đặt). Place Details chỉ được gọi cho FR-3.6.
 - **FR-3.3** Xét tối đa `PLACES_TOP_N` (mặc định 5) kết quả. Một kết quả là ứng viên khi độ giống tên ≥ `NAME_MATCH_THRESHOLD` (mặc định 0.8). Độ giống tên tính trên tên đã chuẩn hóa (NFC, lowercase, bỏ dấu, bỏ từ chung như "quán", "tiệm") bằng một metric token-based cố định; metric cụ thể chốt ở M3 và ghi vào mục 14.
   - Đúng 1 ứng viên → `matched`.
   - Nhiều ứng viên (ví dụ chuỗi nhiều chi nhánh) và video không có `address_raw` để phân biệt → `ambiguous` (không gán).
@@ -166,8 +170,8 @@ discovered → analyzed → enriched → resolved
   - Ứng viên được chọn có tọa độ nằm ngoài polygon TP.HCM cũ → `out_of_scope`.
   - `businessStatus = CLOSED_PERMANENTLY` → vẫn `matched`, nhưng R4 đặt place thành `hidden`.
 - **FR-3.4** `unmatched` / `ambiguous` vẫn giữ mention, không gán sang quán khác.
-- **FR-3.5** Theo C7, chỉ lưu: `google_place_id` (lâu dài), tọa độ (bảng `place_locations`, kèm `fetched_at`, `expires_at`), và kết quả xử lý của hệ thống (`match_status`, `match_score`, `closed_permanently`). Raw response của Places **không** được lưu; log chỉ ghi `place_id` và điểm match. Chạy lại Enrichment nghĩa là gọi lại Places.
-- **FR-3.6** Job refresh định kỳ gọi lại Places cho mỗi `google_place_id` trước khi tọa độ hết hạn (chu kỳ < `PLACES_CACHE_TTL_DAYS`, mặc định 30): làm mới tọa độ và kiểm tra `businessStatus`. Quán `CLOSED_PERMANENTLY` → `places.status = hidden`. Tọa độ hết hạn mà không làm mới được thì bị xóa.
+- **FR-3.5** Theo C7, chỉ lưu: `google_place_id` và kết quả xử lý của hệ thống (`match_status`, `match_score`, `closed_permanently`, và `legacy_district` / `ward` / `legacy_sub_area` suy ra từ tọa độ theo FR-5.2). Tọa độ và raw response của Places **không** được lưu; log chỉ ghi `place_id` và điểm match. Chạy lại Enrichment hoặc tính lại quận/phường nghĩa là gọi lại Places.
+- **FR-3.6** Job định kỳ (mỗi `PLACES_RECHECK_DAYS`, mặc định 30) gọi Place Details cho mỗi `google_place_id` với field mask chỉ `id, businessStatus`. Quán `CLOSED_PERMANENTLY` → `closed_permanently = true`, `places.status = hidden`.
 
 ### R4. Entity resolution & tổng hợp
 
@@ -189,7 +193,7 @@ discovered → analyzed → enriched → resolved
 ### R5. Địa lý hành chính
 
 - **FR-5.1** Lưu hai lớp: `ward` (phường/xã mới) và `legacy_district` (quận/huyện cũ).
-- **FR-5.2** `legacy_district` suy ra từ tọa độ bằng point-in-polygon với ranh giới quận cũ. Nếu không có tọa độ, lấy từ `district_raw` sau khi chuẩn hóa. `ward` chỉ suy ra từ polygon phường mới; không có polygon thì `null`. Giá trị đã tính được giữ lại khi tọa độ hết hạn (xem Q3 mục 13).
+- **FR-5.2** Với mention `matched`, R3 dùng tọa độ Places ngay lúc nhận response (không lưu) để suy ra `legacy_district` bằng point-in-polygon với ranh giới quận cũ, `ward` từ polygon phường mới (không có polygon thì `null`), và `legacy_sub_area`. Mention không có tọa độ (`unmatched`, `ambiguous`) lấy `legacy_district` từ `district_raw` sau khi chuẩn hóa. `mentions.district_source` ghi nguồn: `coordinates` | `district_raw`. Place lấy quận/phường từ mention có `district_source = coordinates` nếu có.
 - **FR-5.3** Bảng `legacy_districts` (enum chuẩn hóa): Quận 1, 3, 4, 5, 6, 7, 8, 10, 11, 12, Bình Thạnh, Gò Vấp, Phú Nhuận, Tân Bình, Tân Phú, Bình Tân, TP Thủ Đức (alias "Quận 2", "Quận 9", "Thủ Đức"), Bình Chánh, Củ Chi, Hóc Môn, Nhà Bè, Cần Giờ.
   - Giữ thêm `legacy_sub_area` (`Quận 2` | `Quận 9` | `Quận Thủ Đức`) cho địa điểm thuộc TP Thủ Đức. Cần polygon trước năm 2021 của ba quận này; thiếu polygon thì suy từ `district_raw`, không có thì `null`.
 - **FR-5.4** Bảng alias chuẩn hóa: "Q1", "Q.1", "quận nhất", "q1" → `Quận 1`; "BT" → `Bình Thạnh`; ...
@@ -201,7 +205,7 @@ discovered → analyzed → enriched → resolved
 | Method | Path | Mô tả |
 |---|---|---|
 | GET | `/health` | Healthcheck |
-| GET | `/places` | Lọc theo `legacy_district`, `ward`, `category`, `sub_category`, `price_max`, `time_slot`, `vibe`, `suitable_for`, `group_size`, `amenity`, `setting`, `near=lat,lng&radius_m=` (chỉ với place còn tọa độ), `status` (mặc định `published`), phân trang |
+| GET | `/places` | Lọc theo `legacy_district`, `ward`, `category`, `sub_category`, `price_max`, `time_slot`, `vibe`, `suitable_for`, `group_size`, `amenity`, `setting`, `status` (mặc định `published`), phân trang |
 | GET | `/places/{id}` | Toàn bộ thuộc tính mục 1.1-A + mentions + evidence + `media` + `google_place_id` + link Google Maps |
 | GET | `/videos/{video_id}` | Trạng thái, các lần phân tích (raw output), mentions |
 | GET | `/tags` | Danh sách tag `vibes` / `amenities` kèm số lần dùng, alias, tag chuẩn |
@@ -211,7 +215,7 @@ discovered → analyzed → enriched → resolved
 | POST | `/ingest/youtube` | Đưa một YouTube URL cụ thể vào pipeline (dùng để test/debug) |
 
 - Endpoint `POST` yêu cầu header `Authorization: Bearer <ADMIN_TOKEN>`.
-- Endpoint `GET` không xác thực; API chỉ chạy nội bộ, không public ra internet trong MVP.
+- Endpoint `GET` không xác thực; API chỉ chạy nội bộ, không public ra internet. Lý do: API này dành cho người vận hành và trả cả dữ liệu vận hành (`raw_output`, quota, chi phí); web app lấy dữ liệu qua R10, không qua API.
 
 ### R7. Scheduler, quota, vận hành
 
@@ -221,7 +225,7 @@ discovered → analyzed → enriched → resolved
 - **FR-7.4** Retry exponential backoff cho 429 (rate limit theo phút) và 5xx; tối đa `MAX_RETRIES` (mặc định 3), sau đó `failed` kèm `error_message`. 429 do hết quota ngày **không** tính là lỗi của bản ghi: dừng stage như FR-7.3, không tăng `retry_count`.
 - **FR-7.5** Xử lý tuần tự hoặc concurrency nhỏ cấu hình được (`WORKER_CONCURRENCY`, mặc định 1). Chọn việc bằng `SELECT ... FOR UPDATE SKIP LOCKED` để scheduler và `POST /jobs` chạy đồng thời không xử lý trùng.
 - **FR-7.6** Log có cấu trúc (JSON), mọi dòng log của pipeline có `video_id` hoặc `place_id`.
-- **FR-7.7** Resolution và chuẩn hóa tag (R9) chạy lại được từ `analyses.raw_output` mà không gọi lại Gemini. Enrichment chạy lại thì gọi lại Places (FR-3.5). Phân tích lại bằng prompt mới (gọi Gemini) chỉ chạy khi được kích hoạt rõ ràng cho các video có `prompt_version` cũ, và tuân theo FR-2.6.
+- **FR-7.7** Resolution và chuẩn hóa tag (R9) chạy lại được từ `analyses.raw_output` mà không gọi lại Gemini. Enrichment chạy lại thì gọi lại Places (FR-3.5); đổi bộ polygon thì phải chạy lại Enrichment cho các mention `matched` để tính lại quận/phường. Phân tích lại bằng prompt mới (gọi Gemini) chỉ chạy khi được kích hoạt rõ ràng cho các video có `prompt_version` cũ, và tuân theo FR-2.6.
 
 ### R8. Đánh giá chất lượng
 
@@ -242,6 +246,26 @@ Mục tiêu: không cố định số loại "hình thức" hay tiện ích; th�
 - **FR-9.4** Khi thêm alias mới, chạy lại R4 để cập nhật `places` (không gọi API).
 - **FR-9.5** `GET /tags` và `/stats` hiển thị tag mới xuất hiện trong 7 ngày để người vận hành bổ sung alias khi rảnh (không bắt buộc cho pipeline chạy).
 
+### R10. Output dataset (hợp đồng dữ liệu với web app)
+
+Output của dự án là dữ liệu. Web app đọc trực tiếp từ Postgres qua một schema riêng, không đọc bảng nội bộ và không gọi FastAPI.
+
+- **FR-10.1** Schema `output` gồm các view chỉ đọc, tạo bằng Alembic migration:
+
+  | View | Nội dung |
+  |---|---|
+  | `output.places` | Một dòng mỗi place `published`: toàn bộ thuộc tính mục 1.1-A, `google_place_id`, `maps_url` (dựng từ `google_place_id` theo mục 1.1-B, `null` nếu không có), `mention_count`, `confidence`, `updated_at` |
+  | `output.place_mentions` | Mentions của các place trong `output.places`: `place_id`, `video_id`, thuộc tính trích từ video, `evidence` |
+  | `output.place_media` | Mỗi dòng một link: `place_id`, `video_id`, `video_url` có `&t=<giây>`, `thumbnail_url`, `title` — chỉ video `available` (FR-4.5, C10) |
+  | `output.tags` | Tag chuẩn (`kind`, `slug`, `label`) để web app hiển thị và dịch |
+  | `output.legacy_districts` | Tên quận/huyện cũ, `legacy_sub_area`, tên phường mới thuộc quận (không có polygon, C11) |
+
+- **FR-10.2** View chỉ chứa dữ liệu đã chuẩn hóa: không có `raw_output`, quota, lỗi, trạng thái pipeline, place `draft` / `hidden` / `out_of_scope`.
+- **FR-10.3** Web app dùng một role Postgres chỉ có quyền `SELECT` trên schema `output` (role và quyền tạo bằng migration; mật khẩu đăng nhập cấu hình ngoài code).
+- **FR-10.4** Schema `output` là hợp đồng có phiên bản (`OUTPUT_VERSION`, ghi trong `COMMENT ON SCHEMA output`). Thêm cột hoặc view mới là thay đổi tương thích. Xóa, đổi tên, đổi kiểu cột là thay đổi phá vỡ: tăng `OUTPUT_VERSION` và báo trước cho web app.
+- **FR-10.5** Dữ liệu trong `output` luôn tuân thủ C7 và C10 tại thời điểm đọc: không có tọa độ hay nội dung Google ngoài `google_place_id`; metadata YouTube không quá `YOUTUBE_DATA_TTL_DAYS`.
+- **FR-10.6** Có tài liệu mô tả từng view và cột trong `docs/output.md`, cập nhật cùng migration thay đổi view.
+
 ---
 
 ## 6. Mô hình dữ liệu (Postgres + PostGIS)
@@ -250,9 +274,8 @@ Mục tiêu: không cố định số loại "hình thức" hay tiện ích; th�
 |---|---|
 | `videos` | `id`, `source` (`youtube`), `video_id` (unique theo source), `url`, `title`, `description`, `thumbnail_url`, `channel_id`, `published_at`, `duration_s`, `availability`, `metadata_fetched_at`, `status`, `is_relevant`, `current_analysis_fk`, `retry_count`, `error_message`, `created_at`, `updated_at` |
 | `analyses` | `id`, `video_fk`, `raw_output` (jsonb), `prompt_version`, `schema_version`, `model`, `media_resolution`, `tokens_in`, `tokens_out`, `video_seconds`, `created_at` |
-| `mentions` | `id`, `video_fk`, `analysis_fk`, `ordinal`, `place_fk` (nullable), `google_place_id` (nullable), `match_status`, `match_score`, `name_raw`, `name_normalized`, `address_raw`, `district_raw`, `legacy_district` (từ `district_raw`), `category`, `sub_category`, `items` (jsonb), `price_min_vnd`, `price_max_vnd`, `price_unit`, `time_slots` (text[]), `opening_hours_raw`, `vibes` (text[]), `amenities` (text[]), `suitable_for` (text[]), `group_size_min`, `group_size_max`, `setting`, `visit_duration_min_minutes`, `visit_duration_max_minutes`, `reservation_required`, `contacts` (jsonb), `highlights` (text[]), `tips` (text[]), `evidence` (jsonb), `confidence`, `retry_count`, `error_message` |
+| `mentions` | `id`, `video_fk`, `analysis_fk`, `ordinal`, `place_fk` (nullable), `google_place_id` (nullable), `match_status`, `match_score`, `name_raw`, `name_normalized`, `address_raw`, `district_raw`, `legacy_district`, `ward`, `legacy_sub_area`, `district_source` (`coordinates` / `district_raw`), `category`, `sub_category`, `items` (jsonb), `price_min_vnd`, `price_max_vnd`, `price_unit`, `time_slots` (text[]), `opening_hours_raw`, `vibes` (text[]), `amenities` (text[]), `suitable_for` (text[]), `group_size_min`, `group_size_max`, `setting`, `visit_duration_min_minutes`, `visit_duration_max_minutes`, `reservation_required`, `contacts` (jsonb), `highlights` (text[]), `tips` (text[]), `evidence` (jsonb), `confidence`, `retry_count`, `error_message` |
 | `places` | `id`, `google_place_id` (unique, nullable), `name`, `name_normalized`, `address_raw`, `ward`, `legacy_district`, `legacy_sub_area`, `category`, `sub_category`, `items` (jsonb), `price_min_vnd`, `price_max_vnd`, `price_unit`, `opening_hours_raw`, `time_slots` (text[]), `time_slot_counts` (jsonb), `vibes` (text[]), `vibe_counts` (jsonb), `amenities` (text[]), `amenity_counts` (jsonb), `suitable_for` (text[]), `suitable_for_counts` (jsonb), `group_size_min`, `group_size_max`, `setting`, `visit_duration_min_minutes`, `visit_duration_max_minutes`, `reservation_required`, `contacts` (jsonb), `highlights` (jsonb), `tips` (jsonb), `mention_count`, `source_video_ids`, `closed_permanently`, `confidence`, `status`, `created_at`, `updated_at` |
-| `place_locations` | `google_place_id` (PK), `geom` (Point 4326), `fetched_at`, `expires_at` — chỉ tọa độ, theo C7 |
 | `tags` | `kind`, `slug`, `label`, `aliases` (text[]), `canonical_slug`, `mention_count`, `first_seen_at` |
 | `channels` | `channel_id`, `title`, `uploads_playlist_id`, `videos_seen`, `videos_relevant`, `last_scanned_at` |
 | `keywords` | `id`, `text`, `area`, `category`, `modifier`, `priority`, `runs`, `low_yield_streak`, `last_run_at` |
@@ -264,7 +287,8 @@ Mục tiêu: không cố định số loại "hình thức" hay tiện ích; th�
 | `wards` | `name`, `legacy_districts` (text[]), `geom` (MultiPolygon, nullable) |
 
 Ghi chú:
-- `places` không có cột tọa độ: tọa độ đọc qua `place_locations` (có thể hết hạn). Place không có `google_place_id` thì không có tọa độ.
+- Các bảng trên là bảng nội bộ; web app chỉ đọc schema `output` (R10).
+- Không bảng nào lưu tọa độ địa điểm (C7). PostGIS chỉ dùng cho polygon ranh giới (`legacy_districts`, `legacy_sub_areas`, `wards`). Web app lấy tọa độ từ Google bằng `google_place_id`.
 - Category enum (cố định): `an`, `uong`, `tham_quan`, `vui_choi`, `khac`. "Ăn uống" của planner = `an` ∪ `uong`. Homestay, staycation → `khac`, `sub_category = "homestay"`; planner lọc theo vibe `rieng_tu`. Đổi enum là thay đổi phá vỡ, cần migration và chạy lại dữ liệu.
 
 ---
@@ -357,7 +381,7 @@ Tag gợi ý khởi tạo (R9, mở rộng được):
 - **NFR-4** Mỗi stage idempotent và có thể chạy lại an toàn.
 - **NFR-5** Đo chi phí: báo cáo chi phí ước tính trên mỗi place published, dùng đơn giá trong biến môi trường (mục 11).
 - **NFR-6** Lớp `VideoSource` (interface) tách phần tìm video và lấy metadata khỏi logic phân tích. Analysis cần một URL mà Gemini đọc được trực tiếp (C2), nên một nguồn mới chỉ dùng được R2 nếu Gemini hỗ trợ đọc nguồn đó; nếu không, cần bổ sung yêu cầu riêng.
-- **NFR-7** Tuân thủ điều khoản dữ liệu (C7, C10): có test kiểm tra không lưu trường Places ngoài `place_id` / tọa độ, và job refresh không để dữ liệu quá hạn.
+- **NFR-7** Tuân thủ điều khoản dữ liệu (C7, C10): có test kiểm tra không lưu trường Places nào ngoài `place_id` (kể cả tọa độ), và job refresh không để metadata YouTube quá hạn.
 
 ---
 
@@ -365,7 +389,7 @@ Tag gợi ý khởi tạo (R9, mở rộng được):
 
 | Chỉ số | Ngưỡng |
 |---|---|
-| Bao phủ | Mọi quận/huyện cũ đạt `legacy_districts.target_places` (đề xuất: 13 quận nội thành cũ ≥ 50 places published; TP Thủ Đức ≥ 80; Quận 12, Gò Vấp, Tân Phú, Bình Tân ≥ 30; 5 huyện ≥ 10 — chờ chốt ở Q1 mục 13) |
+| Bao phủ theo quận | Mọi quận/huyện cũ đạt `legacy_districts.target_places` (số places published): Quận 1, 3, 4, 5, 6, 7, 8, 10, 11, Bình Thạnh, Phú Nhuận, Tân Bình ≥ 50 mỗi quận; TP Thủ Đức ≥ 80; Quận 12, Gò Vấp, Tân Phú, Bình Tân ≥ 30 mỗi quận; Bình Chánh, Củ Chi, Hóc Môn, Nhà Bè, Cần Giờ ≥ 10 mỗi huyện. Tổng tối thiểu 850. Chưa có mốc thời gian |
 | Precision tên quán (gold set) | ≥ 90% |
 | Precision giá, category | ≥ 80% |
 | Precision quận (`district_raw` → `legacy_district`, gold set) | ≥ 85% |
@@ -382,7 +406,7 @@ Tag gợi ý khởi tạo (R9, mở rộng được):
 
 1. **M1 – Nền tảng**: scaffold dự án, DB schema + migrations, PostGIS, `legacy_districts` + aliases + polygon GADM, `tags` + seed, `.env.example`, `/health`.
 2. **M2 – Analysis**: client Gemini (free tier), prompt v1, schema v1, chuẩn hóa tag, `POST /ingest/youtube`, gold set + lệnh `eval`. Lặp đến khi đạt ngưỡng mục 9.
-3. **M3 – Enrichment & Resolution**: chốt metric độ giống tên và công thức confidence, client Places, match gold set, matching, `place_locations`, gộp mentions, tổng hợp, `GET /places`.
+3. **M3 – Enrichment & Resolution**: chốt metric độ giống tên và công thức confidence, client Places, match gold set, matching, gán quận/phường từ tọa độ tức thời, gộp mentions, tổng hợp, `GET /places`, schema `output` + role chỉ đọc + `docs/output.md` (R10).
 4. **M4 – Discovery, Refresh & Scheduler**: ma trận từ khóa toàn thành phố, YouTube client, theo dõi kênh, job refresh video và Places, quota, worker.
 5. **M5 – Mở rộng**: cân bằng bao phủ theo quận, tối ưu chi phí, chuyển paid tier nếu cần.
 
@@ -406,7 +430,7 @@ NAME_MATCH_THRESHOLD=0.8
 PUBLISH_THRESHOLD=0.6
 ATTR_MIN_SHARE=0.3
 PLACES_TOP_N=5
-PLACES_CACHE_TTL_DAYS=30
+PLACES_RECHECK_DAYS=30
 YOUTUBE_DATA_TTL_DAYS=30
 QUOTA_SAFETY_RATIO=0.9
 GEMINI_DAILY_VIDEO_SECONDS=28800
@@ -434,20 +458,18 @@ PLACES_TEXT_SEARCH_PRICE_PER_1K_USD=
 | Gemini bịa địa chỉ/giá/SĐT | Prompt yêu cầu null, evidence bắt buộc, đo tỷ lệ bịa và precision contacts trên gold set |
 | Gemini gán tag theo cảm tính; tag mở bị phân mảnh (nhiều tag cùng nghĩa) | Danh sách gợi ý trong prompt, alias trong `tags`, tổng hợp theo tỷ lệ (`ATTR_MIN_SHARE`), theo dõi tag mới ở `/tags` |
 | Gán nhầm quán khi match Places (đặc biệt chuỗi nhiều chi nhánh) | Ngưỡng tên + ranh giới, trạng thái `ambiguous`, ưu tiên `unmatched` hơn match sai, match gold set |
-| Vi phạm điều khoản Google Places hoặc YouTube API | Chỉ lưu `place_id` + tọa độ có TTL; refresh metadata YouTube ≤ 30 ngày; test NFR-7 |
+| Vi phạm điều khoản Google Places hoặc YouTube API | Chỉ lưu `place_id` (không lưu tọa độ); refresh metadata YouTube ≤ 30 ngày; test NFR-7 |
 | Hết quota vì job refresh tăng theo số dữ liệu | Refresh dùng `videos.list` 50 id/lần (rẻ); theo dõi tỷ lệ quota refresh / discovery ở `/stats` |
 | Dữ liệu cũ (quán đóng, đổi giá) | `publishedAfter`, refresh `businessStatus` định kỳ, giá lấy trung vị |
 | Ranh giới quận cũ và phường mới không trùng khớp | Suy ra quận cũ từ tọa độ, không chỉ từ tên phường |
-| GADM không cho dùng thương mại (C11) | Dùng cho thu thập dữ liệu; xin phép hoặc thay nguồn trước khi web app thương mại hóa |
+| GADM không cho dùng thương mại (C11) | Dự án phi thương mại; không đưa polygon ra `output`; xin phép hoặc thay nguồn nếu web app chuyển sang thương mại |
+| Web app phụ thuộc chặt vào schema DB | Chỉ cho đọc schema `output` có phiên bản (R10); bảng nội bộ đổi tự do miễn view giữ nguyên |
 
 ---
 
 ## 13. Câu hỏi mở (cần chốt)
 
-1. **Chỉ tiêu bao phủ theo quận** (mục 9) là đề xuất. Có chỉnh không, và có mốc thời gian không?
-2. **GADM và thương mại**: web app có thu phí / quảng cáo không? Nếu có, cần xin phép GADM hoặc tìm nguồn polygon khác trước khi ra mắt (C11).
-3. **`legacy_district` / `ward` sau khi tọa độ hết hạn**: hệ thống giữ lại giá trị đã tính từ tọa độ Google (FR-5.2). Đây là dữ liệu suy ra; điều khoản Google không nói rõ trường hợp này. Chấp nhận rủi ro, hay chỉ dùng `district_raw` khi tọa độ hết hạn?
-4. **Điều khoản cache tọa độ 30 ngày** mới xác nhận được trên bản Service Specific Terms năm 2023; cần đọc lại bản hiện hành trước M3.
+Hiện không có câu hỏi mở. Các câu hỏi đã chốt nằm ở mục 14.
 
 ---
 
@@ -468,5 +490,10 @@ PLACES_TEXT_SEARCH_PRICE_PER_1K_USD=
 | D11 | 2026-11-02 | Bao phủ toàn TP.HCM cũ; bỏ danh sách khu vực ưu tiên; chỉ tiêu tính theo từng quận/huyện cũ. |
 | D12 | 2026-11-02 | Homestay giữ category `khac` (không đổi enum), `sub_category = "homestay"`, vibe `rieng_tu`. |
 | D13 | 2026-11-02 | `vibes` và `amenities` là tag mở, chuẩn hóa qua bảng `tags` (R9); thêm loại mới không cần đổi schema. |
-| D14 | 2026-11-02 | Theo điều khoản đã tra (C7): chỉ lưu `place_id` lâu dài và tọa độ ≤ 30 ngày (`place_locations`); không lưu raw response Places. SĐT, ảnh, rating, giờ mở cửa của Google do web app lấy trực tiếp. Hệ thống tự thu thập thông tin đầy đủ từ video: contacts, amenities, setting, thời gian ở lại, đặt chỗ, highlights, tips, media. |
+| D14 | 2026-11-02 | Theo điều khoản đã tra (C7): chỉ lưu `place_id` lâu dài ~~và tọa độ ≤ 30 ngày (`place_locations`)~~ (tọa độ: xem D16); không lưu raw response Places. SĐT, ảnh, rating, giờ mở cửa của Google do web app lấy trực tiếp. Hệ thống tự thu thập thông tin đầy đủ từ video: contacts, amenities, setting, thời gian ở lại, đặt chỗ, highlights, tips, media. |
 | D15 | 2026-11-02 | Theo YouTube Developer Policies (C10): metadata video làm mới ≤ 30 ngày (FR-1.8); video không còn khả dụng thì xóa tiêu đề, mô tả, thumbnail. |
+| D16 | 2026-11-02 | Không lưu tọa độ. Tọa độ Places chỉ dùng tức thời ở R3 để gán quận/phường và lọc ngoài phạm vi; output chỉ có địa điểm (tên, địa chỉ, quận/phường), web app tự xử lý tọa độ. Bỏ bảng `place_locations` và bộ lọc `near`. |
+| D17 | 2026-11-02 | Giữ `legacy_district` / `ward` / `legacy_sub_area` suy ra từ tọa độ Places (dữ liệu của hệ thống, không phải nội dung Google). Kiểm tra quán đóng cửa bằng Place Details chỉ với field `id, businessStatus`. |
+| D18 | 2026-11-02 | Chỉ tiêu bao phủ tính theo từng quận/huyện cũ, số liệu ở mục 9. Chưa đặt mốc thời gian. |
+| D19 | 2026-11-02 | Dự án và web app phi thương mại; dùng GADM theo giấy phép phi thương mại (C11). |
+| D20 | 2026-11-02 | Output là dữ liệu: web app đọc trực tiếp schema `output` (view chỉ đọc, có phiên bản) bằng role chỉ đọc (R10). FastAPI chỉ là công cụ vận hành nội bộ. |
