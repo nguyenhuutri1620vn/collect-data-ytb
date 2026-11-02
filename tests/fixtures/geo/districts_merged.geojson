@@ -1,0 +1,819 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Quận 1"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.5,
+        10.5
+       ],
+       [
+        106.51,
+        10.5
+       ],
+       [
+        106.51,
+        10.51
+       ],
+       [
+        106.5,
+        10.51
+       ],
+       [
+        106.5,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Quận 3"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.52,
+        10.5
+       ],
+       [
+        106.53,
+        10.5
+       ],
+       [
+        106.53,
+        10.51
+       ],
+       [
+        106.52,
+        10.51
+       ],
+       [
+        106.52,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Quận 4"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.54,
+        10.5
+       ],
+       [
+        106.55000000000001,
+        10.5
+       ],
+       [
+        106.55000000000001,
+        10.51
+       ],
+       [
+        106.54,
+        10.51
+       ],
+       [
+        106.54,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Quận 5"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.56,
+        10.5
+       ],
+       [
+        106.57000000000001,
+        10.5
+       ],
+       [
+        106.57000000000001,
+        10.51
+       ],
+       [
+        106.56,
+        10.51
+       ],
+       [
+        106.56,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Quận 6"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.58,
+        10.5
+       ],
+       [
+        106.59,
+        10.5
+       ],
+       [
+        106.59,
+        10.51
+       ],
+       [
+        106.58,
+        10.51
+       ],
+       [
+        106.58,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Quận 7"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.6,
+        10.5
+       ],
+       [
+        106.61,
+        10.5
+       ],
+       [
+        106.61,
+        10.51
+       ],
+       [
+        106.6,
+        10.51
+       ],
+       [
+        106.6,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Quận 8"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.62,
+        10.5
+       ],
+       [
+        106.63000000000001,
+        10.5
+       ],
+       [
+        106.63000000000001,
+        10.51
+       ],
+       [
+        106.62,
+        10.51
+       ],
+       [
+        106.62,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Quận 10"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.64,
+        10.5
+       ],
+       [
+        106.65,
+        10.5
+       ],
+       [
+        106.65,
+        10.51
+       ],
+       [
+        106.64,
+        10.51
+       ],
+       [
+        106.64,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Quận 11"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.66,
+        10.5
+       ],
+       [
+        106.67,
+        10.5
+       ],
+       [
+        106.67,
+        10.51
+       ],
+       [
+        106.66,
+        10.51
+       ],
+       [
+        106.66,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Quận 12"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.68,
+        10.5
+       ],
+       [
+        106.69000000000001,
+        10.5
+       ],
+       [
+        106.69000000000001,
+        10.51
+       ],
+       [
+        106.68,
+        10.51
+       ],
+       [
+        106.68,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Bình Thạnh"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.7,
+        10.5
+       ],
+       [
+        106.71000000000001,
+        10.5
+       ],
+       [
+        106.71000000000001,
+        10.51
+       ],
+       [
+        106.7,
+        10.51
+       ],
+       [
+        106.7,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Gò Vấp"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.72,
+        10.5
+       ],
+       [
+        106.73,
+        10.5
+       ],
+       [
+        106.73,
+        10.51
+       ],
+       [
+        106.72,
+        10.51
+       ],
+       [
+        106.72,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Phú Nhuận"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.74,
+        10.5
+       ],
+       [
+        106.75,
+        10.5
+       ],
+       [
+        106.75,
+        10.51
+       ],
+       [
+        106.74,
+        10.51
+       ],
+       [
+        106.74,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Tân Bình"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.76,
+        10.5
+       ],
+       [
+        106.77000000000001,
+        10.5
+       ],
+       [
+        106.77000000000001,
+        10.51
+       ],
+       [
+        106.76,
+        10.51
+       ],
+       [
+        106.76,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Tân Phú"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.78,
+        10.5
+       ],
+       [
+        106.79,
+        10.5
+       ],
+       [
+        106.79,
+        10.51
+       ],
+       [
+        106.78,
+        10.51
+       ],
+       [
+        106.78,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Bình Tân"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.8,
+        10.5
+       ],
+       [
+        106.81,
+        10.5
+       ],
+       [
+        106.81,
+        10.51
+       ],
+       [
+        106.8,
+        10.51
+       ],
+       [
+        106.8,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Bình Chánh"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.82,
+        10.5
+       ],
+       [
+        106.83,
+        10.5
+       ],
+       [
+        106.83,
+        10.51
+       ],
+       [
+        106.82,
+        10.51
+       ],
+       [
+        106.82,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Củ Chi"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.84,
+        10.5
+       ],
+       [
+        106.85000000000001,
+        10.5
+       ],
+       [
+        106.85000000000001,
+        10.51
+       ],
+       [
+        106.84,
+        10.51
+       ],
+       [
+        106.84,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Hóc Môn"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.86,
+        10.5
+       ],
+       [
+        106.87,
+        10.5
+       ],
+       [
+        106.87,
+        10.51
+       ],
+       [
+        106.86,
+        10.51
+       ],
+       [
+        106.86,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Nhà Bè"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.88,
+        10.5
+       ],
+       [
+        106.89,
+        10.5
+       ],
+       [
+        106.89,
+        10.51
+       ],
+       [
+        106.88,
+        10.51
+       ],
+       [
+        106.88,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Cần Giờ"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.9,
+        10.5
+       ],
+       [
+        106.91000000000001,
+        10.5
+       ],
+       [
+        106.91000000000001,
+        10.51
+       ],
+       [
+        106.9,
+        10.51
+       ],
+       [
+        106.9,
+        10.5
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "GID_0": "VNM",
+    "NAME_1": "Hồ Chí Minh",
+    "NAME_2": "Thủ Đức"
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        106.8,
+        10.8
+       ],
+       [
+        106.85,
+        10.8
+       ],
+       [
+        106.85,
+        10.850000000000001
+       ],
+       [
+        106.8,
+        10.850000000000001
+       ],
+       [
+        106.8,
+        10.8
+       ]
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}

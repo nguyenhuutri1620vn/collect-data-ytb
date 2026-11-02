@@ -1,0 +1,30 @@
+GADM boundary data
+==================
+
+Source:   GADM, https://gadm.org (level 2 = district / quận-huyện)
+Version:  (filled in after the first download, see below)
+URL:      see GADM_SOURCES in app/geo/gadm.py
+Fetched:  (date of download)
+License:  GADM data is free for academic and other non-commercial use only and may not be
+          redistributed (C11, D19). This project and the web app are non-commercial.
+
+Why the files are not in git
+----------------------------
+The repository is public, and the GADM license forbids redistribution (D23). Downloaded files
+live in data/geo/raw/, which is git-ignored. The `output` schema exposes district/ward names
+only, never polygons (C11).
+
+Commands
+--------
+    uv run python -m app.geo.gadm fetch [--version 4.1] [--yes]
+    uv run python -m app.geo.gadm load --districts data/geo/raw/<file> [--sub-areas <file>]
+
+`load` fills legacy_districts.geom and legacy_sub_areas.geom (Quận 2, Quận 9, Quận Thủ Đức).
+If the district file already merges Thủ Đức city (post-2021), sub-area polygons come from a
+pre-2021 file passed with --sub-areas (FR-5.6). Re-running `load` overwrites the polygons.
+After changing the boundary data, matched mentions must be re-enriched (FR-7.7).
+
+Wards
+-----
+The `wards` table (post-1/7/2025 commune-level units) has no polygon source yet, so `ward`
+stays null (FR-5.2).
