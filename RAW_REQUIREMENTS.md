@@ -1,0 +1,472 @@
+# RAW_REQUIREMENTS — Saigon Places Collector (MVP)
+
+> Tài liệu yêu cầu gốc. Mọi quyết định kiến trúc trong code phải truy được về một mục ở đây.
+> Khi yêu cầu thay đổi, cập nhật file này trước rồi mới sửa code.
+> Lịch sử quyết định: xem mục 14.
+
+---
+
+## 1. Mục tiêu
+
+Xây dựng hệ thống **tự động hoàn toàn** thu thập dữ liệu địa điểm ăn, uống, tham quan, vui chơi trên **toàn TP.HCM cũ** từ video ngắn trên mạng, làm nguồn dữ liệu cho một **web app lập lịch trình đi chơi Sài Gòn** (dự án riêng): người dùng lên plan đi chơi, đi date, đi hội nhóm mà không mất nhiều thời gian lên kế hoạch.
+
+Lý do dùng video làm nguồn: Google Maps và các bản đồ khác đôi khi thiếu những địa điểm nổi tiếng trên mạng xã hội, và không có thông tin như giá món, thời điểm nên đi, không khí, phù hợp đi với ai.
+
+**Phạm vi của dự án này chỉ là thu thập và chuẩn hóa dữ liệu.** Không xây app lập kế hoạch, không xây giao diện người dùng cuối. Dữ liệu phải **đầy đủ nhất có thể** để người dùng web app xem và đánh giá một địa điểm trước khi chọn.
+
+### 1.1. Thông tin cần thu thập cho mỗi địa điểm
+
+Mỗi thuộc tính truy về một trường trong schema (mục 7) và bảng `places` (mục 6).
+
+**A. Dữ liệu của hệ thống** (trích từ video, lưu lâu dài):
+
+| Thuộc tính | Trường | Ghi chú |
+|---|---|---|
+| Tên | `name` | Xác minh bằng Places |
+| Quận (cũ), phường (mới) | `legacy_district`, `ward`, `legacy_sub_area` | Từ tọa độ; fallback `district_raw` |
+| Địa chỉ | `address_raw` | Như video nói |
+| Loại hình | `category`, `sub_category` | `sub_category` tự do |
+| Khung giờ trong ngày | `time_slots` | sáng / trưa / chiều / tối / khuya |
+| Budget | `price_min_vnd`, `price_max_vnd`, `price_unit`, `items` | Không bắt buộc; `items` = món/vé kèm giá |
+| Hình thức / không khí | `vibes` | **Tag mở**, không cố định số lượng (xem R9) |
+| Phù hợp đi với ai, số người | `suitable_for`, `group_size_min`, `group_size_max` | |
+| Tiện ích | `amenities` | Tag mở: wifi, chỗ đậu xe, máy lạnh, cho thú cưng, ... |
+| Trong nhà / ngoài trời | `setting` | Planner dùng khi trời mưa |
+| Thời gian nên ở lại | `visit_duration_min_minutes`, `visit_duration_max_minutes` | Chỉ khi video nói |
+| Cần đặt chỗ | `reservation_required` | |
+| Liên hệ | `contacts` | SĐT, Facebook, Instagram, TikTok, Zalo, website — chỉ khi hiện/nói trong video |
+| Điểm nổi bật, lưu ý | `highlights`, `tips` | Câu ngắn, ví dụ "đông cuối tuần, nên đến trước 18h" |
+| Hình ảnh, video | `media` | Link YouTube nhảy tới đúng timestamp + thumbnail (xem C10) |
+| Giờ mở cửa (theo video) | `opening_hours_raw` | |
+
+**B. Dữ liệu Google** (web app lấy trực tiếp bằng `google_place_id`, **hệ thống này không lưu**, xem C7): số điện thoại, website, ảnh, rating, số lượt đánh giá, giờ mở cửa, địa chỉ chuẩn. Link Google Maps dựng từ `google_place_id` theo dạng Maps URLs (`https://www.google.com/maps/search/?api=1&query=<name>&query_place_id=<id>`).
+
+---
+
+## 2. Phạm vi MVP
+
+### Trong phạm vi
+- Khu vực: **toàn bộ TP.HCM cũ** (ranh giới trước ngày 1/7/2025), gồm 22 quận/huyện cũ ở FR-5.3. Không thu thập Bình Dương, Bà Rịa – Vũng Tàu cũ.
+- Nguồn video: **YouTube** (ưu tiên Shorts và video ngắn), video công khai.
+- Phân tích video: **Gemini API** qua YouTube URL (không tải video về máy).
+- Xác minh địa điểm: **Google Places API (New)**.
+- FastAPI để xem, lọc dữ liệu và kích hoạt job thủ công khi cần debug.
+
+### Ngoài phạm vi
+- App lập kế hoạch đi chơi, giao diện người dùng cuối.
+- Lấy và lưu nội dung Google Places ngoài `place_id` và tọa độ tạm thời (C7).
+- TikTok, Facebook, Instagram (xem ràng buộc C1).
+- Các tỉnh thành khác.
+- OpenStreetMap và mọi bộ dữ liệu dựng từ OSM.
+- Dữ liệu song ngữ (D5).
+
+---
+
+## 3. Ràng buộc
+
+| ID | Ràng buộc |
+|---|---|
+| C1 | **Không scrape, không tự động tải nội dung từ TikTok** hoặc bất kỳ nền tảng nào cấm truy cập tự động trong điều khoản. Hệ thống phải có lớp `VideoSource` adapter để có thể thêm nguồn khác sau này nếu có quyền truy cập hợp lệ (ví dụ API chính thức). |
+| C2 | **Không tải file video về máy.** Gemini đọc video trực tiếp từ YouTube URL. Không trích ảnh (frame) từ video; hình ảnh chỉ là thumbnail do YouTube API trả về và link timestamp. |
+| C3 | **Tự động hoàn toàn.** Không có bước thủ công trong vận hành hằng ngày. Ngoại lệ duy nhất: gán nhãn một lần cho gold set Analysis và gold set matching (R8). |
+| C4 | Tính năng YouTube URL của Gemini đang ở trạng thái **preview**: giá và giới hạn có thể thay đổi. Free tier giới hạn **8 giờ video YouTube mỗi ngày**. Hệ thống phải theo dõi tổng số giây video đã xử lý trong ngày quota. |
+| C5 | Quota YouTube Data API theo đơn vị mỗi ngày (mặc định khoảng 10.000; `search.list` tốn nhiều đơn vị hơn `playlistItems.list` và `videos.list`). Kiểm tra lại số liệu trên Google Cloud Console. |
+| C6 | **Địa giới hành chính mới**: cấp quận/huyện đã bị bỏ từ 1/7/2025. TP.HCM hiện có 168 đơn vị cấp xã (113 phường, 54 xã, 1 đặc khu). Người dùng và creator vẫn dùng tên quận cũ. |
+| C7 | **Điều khoản Google Maps Platform** (đã tra ngày 2026-11-02; xem lại khi Google cập nhật): `place_id` được lưu vô thời hạn (Places API Policies). Tọa độ lat/lng từ Places chỉ được cache tạm tối đa **30 ngày liên tiếp**, sau đó phải xóa hoặc làm mới (Service Specific Terms, bản 2023; chưa xác nhận bản hiện hành). Nội dung khác (tên, địa chỉ, SĐT, website, ảnh, rating, review, giờ mở cửa, `businessStatus`) **không lưu**: chỉ dùng trong lúc xử lý. Hiển thị ảnh/review của Google phải ghi công tác giả và có link về Google Maps — trách nhiệm của web app. |
+| C8 | Không suy đoán dữ liệu **sự kiện** (tên, địa chỉ, quận, giá, giờ mở cửa, số người, liên hệ, thời gian ở lại, cần đặt chỗ): video không nói thì để `null` hoặc danh sách rỗng. Các trường **phân loại** (`vibes`, `suitable_for`, `time_slots`, `amenities`, `setting`) được phép suy ra từ nội dung video (lời nói, chữ trên màn hình, hình ảnh) nhưng phải có `evidence`; không có tín hiệu trong video thì để rỗng / `null`, không suy từ loại hình. |
+| C9 | API key chỉ lấy từ biến môi trường. Không commit key. |
+| C10 | **Điều khoản YouTube API Services** (Developer Policies §III.E.4, đã tra ngày 2026-11-02): dữ liệu lấy từ YouTube API (tiêu đề, mô tả, thumbnail, thống kê) chỉ lưu tối đa **30 ngày**, sau đó phải làm mới hoặc xóa, và phải giữ nhất quán với dữ liệu hiện tại trên YouTube. Kết quả phân tích của Gemini không phải dữ liệu YouTube API. |
+| C11 | **Giấy phép GADM** chỉ cho mục đích phi thương mại và không cho phân phối lại. Trước khi web app thương mại hóa phải xin phép GADM hoặc thay nguồn polygon (Q2 mục 13). |
+
+---
+
+## 4. Kiến trúc tổng quan
+
+```
+Scheduler
+  └─► [R1] Discovery     : sinh từ khóa → YouTube Data API → lưu video (status=discovered)
+  └─► [R2] Analysis      : Gemini đọc YouTube URL → JSON theo schema → lưu analysis + mentions (status=analyzed | rejected)
+  └─► [R3] Enrichment    : Google Places xác minh từng mention → place_id, tọa độ tạm (status=enriched)
+  └─► [R4] Resolution    : gộp mentions thành places chuẩn, tổng hợp thuộc tính, quyết định publish (status=resolved)
+  └─► [R1] Refresh       : làm mới metadata video (C10) và tọa độ / trạng thái Places (C7)
+[R5] Geography : thư viện dùng chung — R3 kiểm tra ranh giới, R4 gán ward / legacy_district
+[R9] Tags      : chuẩn hóa tag mở (vibes, amenities) — dùng ở R2 và R4
+FastAPI [R6] : đọc dữ liệu, thống kê, kích hoạt job
+[R7] Quota & vận hành, [R8] Đánh giá chất lượng
+```
+
+### 4.1. Máy trạng thái
+
+`videos.status` (tiến độ xử lý một video, **không** phải trạng thái publish):
+
+```
+discovered → analyzed → enriched → resolved
+     │           └──► rejected (is_relevant = false, hoặc relevant nhưng không có địa điểm nào)
+     └──────────────► failed (sau MAX_RETRIES lần; lưu error_message)
+```
+
+- Video chuyển `enriched` khi mọi mention của nó đã có `match_status` khác `pending`.
+- Video `failed` không tự chạy lại. Có thể đưa về trạng thái trước qua `POST /jobs/{stage}?retry_failed=true`.
+- `videos.availability`: `available` | `unavailable` (video bị xóa/riêng tư, phát hiện ở job refresh).
+
+`mentions.match_status`: `pending` → `matched` | `unmatched` | `ambiguous` | `out_of_scope`.
+
+`places.status` (quyết định ở R4): `draft` | `published` | `hidden` (đóng cửa vĩnh viễn) | `out_of_scope` (ngoài TP.HCM cũ).
+
+---
+
+## 5. Yêu cầu chức năng
+
+### R1. Discovery (tìm video)
+
+- **FR-1.1** Sinh từ khóa từ ma trận: `khu vực × loại hình × bổ ngữ`, bao phủ **toàn bộ 22 quận/huyện cũ**.
+  - Khu vực: tên quận cũ, tên phường mới, địa danh (ví dụ "phố Hồ Thị Kỷ").
+  - Loại hình: ăn, uống, cafe, ăn vặt, tham quan, vui chơi, homestay, ...
+  - Bổ ngữ: "ăn gì", "review", "giá rẻ", "hẹn hò", "đi date", "đi nhóm", "riêng tư", "food tour", "chill".
+- **FR-1.2** Gọi YouTube `search.list` với `regionCode=VN`, `relevanceLanguage=vi`, `type=video`, `videoDuration=short` (mặc định), `publishedAfter` = cấu hình (mặc định 18 tháng). Chọn từ khóa theo `priority` giảm dần; khi các quận có số places published chênh lệch, tăng `priority` cho từ khóa của quận đang thiếu (so với chỉ tiêu ở mục 9).
+- **FR-1.3** Lấy chi tiết video bằng `videos.list` (thời lượng, tiêu đề, mô tả, kênh, ngày đăng, thumbnail). Bỏ qua video vượt `MAX_VIDEO_SECONDS` (mặc định 300).
+- **FR-1.4** Idempotent theo (`source`, `video_id`): video đã có trong DB thì không thêm lại, chỉ ghi thêm liên kết `video_keywords`.
+- **FR-1.5** Mỗi lần chạy một từ khóa ghi một bản ghi `keyword_runs`: số kết quả, số video mới, số đơn vị quota. Keyword yield (số places published thu được) tính qua `video_keywords` → `mentions` → `places`.
+- **FR-1.6** Theo dõi kênh (`channels`): tỷ lệ video liên quan của từng kênh. Kênh có ít nhất `MIN_CHANNEL_VIDEOS` video đã phân tích và tỷ lệ ≥ `GOOD_CHANNEL_RATIO` được quét định kỳ qua playlist uploads (`playlistItems.list`, rẻ hơn search).
+- **FR-1.7** Từ khóa có yield bằng 0 trong `KEYWORD_LOW_YIELD_RUNS` lần chạy liên tiếp bị giảm `priority` một bậc. `priority` không xuống dưới mức tối thiểu.
+- **FR-1.8** Job refresh metadata video (theo C10): mỗi video được gọi lại `videos.list` (gộp 50 id/lần) trước khi `metadata_fetched_at` quá `YOUTUBE_DATA_TTL_DAYS` (mặc định 30). Video không còn khả dụng → `availability = unavailable`, xóa `title`, `description`, `thumbnail_url`; mentions và places vẫn giữ, nhưng `media` của video đó không trả ra API.
+
+**Tiêu chí chấp nhận:** chạy discovery 2 lần liên tiếp không tạo bản ghi trùng; mọi query đều có `keyword_runs`; không bản ghi nào có `metadata_fetched_at` cũ hơn 30 ngày.
+
+### R2. Analysis (phân tích video bằng Gemini)
+
+- **FR-2.1** Gọi Gemini `generateContent` với video là YouTube URL (`file_data.file_uri`, dạng `https://www.youtube.com/watch?v=<id>`) và prompt trích xuất. Đặt video trước, prompt sau.
+- **FR-2.2** Dùng `response_mime_type=application/json` và `response_schema` (Pydantic, mục 7). Validate lại phía server; nếu sai schema thì gọi lại 1 lần (không tính vào `MAX_RETRIES`), vẫn sai thì `failed`.
+- **FR-2.3** Model và `media_resolution` cấu hình qua biến môi trường (`GEMINI_MODEL`, `GEMINI_MEDIA_RESOLUTION`).
+- **FR-2.4** Prompt phải yêu cầu:
+  - Trả `null` / danh sách rỗng khi video không nói rõ dữ liệu sự kiện (C8).
+  - Chuẩn hóa giá tiếng Việt: "k", "nghìn", "ngàn" = 1.000; "tr", "triệu" = 1.000.000. Khoảng giá → `price_min_vnd`, `price_max_vnd`; một mức giá → `min = max`; "miễn phí" → `0`. Ghi đơn vị (theo món / theo người / vé); không rõ đơn vị thì `price_unit = null`.
+  - Một video có thể chứa nhiều địa điểm → trả danh sách.
+  - Mỗi địa điểm có `evidence` gồm timestamp `MM:SS`, nguồn (`audio` | `onscreen_text` | `description` | `visual`) và đoạn trích hoặc mô tả ngắn. Có ít nhất một evidence có timestamp nếu địa điểm xuất hiện trong video (dùng làm `media`).
+  - `vibes`, `amenities`: tag tiếng Việt không dấu dạng `snake_case`, tối đa 5 tag mỗi trường. Ưu tiên dùng danh sách gợi ý (mục 7); được tạo tag mới nếu không có tag phù hợp.
+  - `contacts`: chỉ ghi khi số điện thoại / tài khoản / website hiện trên màn hình, được đọc ra, hoặc có trong mô tả video. Ghi đúng như hiển thị.
+  - `highlights`, `tips`: tối đa 5 câu mỗi trường, mỗi câu ≤ 100 ký tự, diễn đạt lại ngắn gọn (không chép nguyên lời thoại dài).
+  - `video_summary` viết bằng tiếng Việt.
+  - `is_relevant=false` nếu video không giới thiệu địa điểm cụ thể nào ở TP.HCM.
+- **FR-2.5** Mỗi lần phân tích lưu một bản ghi `analyses`: nguyên văn response JSON (`raw_output`), `prompt_version`, `schema_version`, `model`, `media_resolution`, số token, số giây video. `videos.current_analysis_fk` trỏ tới lần phân tích hiện hành.
+- **FR-2.6** Mỗi địa điểm trong output thành một bản ghi `mentions` gắn với `analysis_fk`. Khóa idempotent: (`analysis_fk`, `ordinal`). Phân tích lại một video tạo `analyses` mới và bộ mentions mới; mentions của lần cũ bị gỡ khỏi `places` trong cùng transaction.
+- **FR-2.7** `is_relevant=true` nhưng `places` rỗng → video `rejected`.
+- **FR-2.8** Tag `vibes` và `amenities` được chuẩn hóa qua R9 trước khi lưu vào `mentions`; tag gốc giữ trong `raw_output`.
+
+**Tiêu chí chấp nhận:** trên gold set đạt ngưỡng ở mục 9.
+
+### R3. Enrichment (Google Places)
+
+- **FR-3.1** Với mỗi mention, gọi Places **Text Search (New)** với chuỗi `name + address_raw + "TP. Hồ Chí Minh"`, kèm location bias theo `legacy_district` của mention (tâm polygon quận) nếu có.
+- **FR-3.2** Field mask: `places.id, places.displayName, places.formattedAddress, places.location, places.businessStatus, places.types` (nhóm SKU Pro; kiểm tra lại phân nhóm SKU trước khi cài đặt). Không gọi Place Details trong hệ thống này.
+- **FR-3.3** Xét tối đa `PLACES_TOP_N` (mặc định 5) kết quả. Một kết quả là ứng viên khi độ giống tên ≥ `NAME_MATCH_THRESHOLD` (mặc định 0.8). Độ giống tên tính trên tên đã chuẩn hóa (NFC, lowercase, bỏ dấu, bỏ từ chung như "quán", "tiệm") bằng một metric token-based cố định; metric cụ thể chốt ở M3 và ghi vào mục 14.
+  - Đúng 1 ứng viên → `matched`.
+  - Nhiều ứng viên (ví dụ chuỗi nhiều chi nhánh) và video không có `address_raw` để phân biệt → `ambiguous` (không gán).
+  - Không có ứng viên → `unmatched`.
+  - Ứng viên được chọn có tọa độ nằm ngoài polygon TP.HCM cũ → `out_of_scope`.
+  - `businessStatus = CLOSED_PERMANENTLY` → vẫn `matched`, nhưng R4 đặt place thành `hidden`.
+- **FR-3.4** `unmatched` / `ambiguous` vẫn giữ mention, không gán sang quán khác.
+- **FR-3.5** Theo C7, chỉ lưu: `google_place_id` (lâu dài), tọa độ (bảng `place_locations`, kèm `fetched_at`, `expires_at`), và kết quả xử lý của hệ thống (`match_status`, `match_score`, `closed_permanently`). Raw response của Places **không** được lưu; log chỉ ghi `place_id` và điểm match. Chạy lại Enrichment nghĩa là gọi lại Places.
+- **FR-3.6** Job refresh định kỳ gọi lại Places cho mỗi `google_place_id` trước khi tọa độ hết hạn (chu kỳ < `PLACES_CACHE_TTL_DAYS`, mặc định 30): làm mới tọa độ và kiểm tra `businessStatus`. Quán `CLOSED_PERMANENTLY` → `places.status = hidden`. Tọa độ hết hạn mà không làm mới được thì bị xóa.
+
+### R4. Entity resolution & tổng hợp
+
+- **FR-4.1** Mentions `matched` có cùng `google_place_id` → cùng một bản ghi `places`.
+- **FR-4.2** Mentions `unmatched` / `ambiguous`: gộp nếu tên chuẩn hóa giống nhau ≥ `NAME_MATCH_THRESHOLD` **và** cùng `legacy_district` (suy từ `district_raw`). Mention không có `legacy_district` thì không gộp. Không chắc thì không gộp.
+- **FR-4.3** Trường tổng hợp trên `places`:
+  - `price_min_vnd`, `price_max_vnd`: trung vị của các mentions có giá, sau khi bỏ giá trị lệch quá 3 lần trung vị. `price_unit`: giá trị xuất hiện nhiều nhất.
+  - Trường tag và danh sách phân loại (`time_slots`, `vibes`, `suitable_for`, `amenities`): lưu số đếm theo từng giá trị (`*_counts`, jsonb) và danh sách để lọc gồm các giá trị xuất hiện ở ≥ `ATTR_MIN_SHARE` (mặc định 0.3) số mentions có trường đó không rỗng.
+  - `setting`, `reservation_required`: giá trị xuất hiện nhiều nhất; hòa thì `null` (với `setting`: hòa giữa `indoor` và `outdoor` → `mixed`).
+  - `group_size_min/max`, `visit_duration_min/max_minutes`: trung vị của các mentions có giá trị.
+  - `contacts`: hợp các contact (bỏ trùng sau chuẩn hóa: SĐT chỉ giữ chữ số, URL bỏ query), kèm số mentions nêu.
+  - `highlights`, `tips`: hợp các câu, mỗi câu gắn `video_id`; giới hạn 10 câu mỗi trường, ưu tiên câu từ mention có confidence cao.
+  - `items`: hợp các món theo tên chuẩn hóa, giá = trung vị.
+  - `mention_count`, `source_video_ids`.
+  - `confidence`: kết hợp confidence của mentions, trạng thái match và số mentions. Công thức chốt ở M3 và ghi vào mục 14.
+- **FR-4.4** `places` chuyển `published` khi `confidence ≥ PUBLISH_THRESHOLD`, có `legacy_district`, và không `out_of_scope` / `hidden`.
+- **FR-4.5** `media` của place được dựng khi đọc (không lưu riêng): với mỗi mention thuộc video `available`, trả `thumbnail_url` và link `https://www.youtube.com/watch?v=<id>&t=<giây>` theo evidence có timestamp.
+
+### R5. Địa lý hành chính
+
+- **FR-5.1** Lưu hai lớp: `ward` (phường/xã mới) và `legacy_district` (quận/huyện cũ).
+- **FR-5.2** `legacy_district` suy ra từ tọa độ bằng point-in-polygon với ranh giới quận cũ. Nếu không có tọa độ, lấy từ `district_raw` sau khi chuẩn hóa. `ward` chỉ suy ra từ polygon phường mới; không có polygon thì `null`. Giá trị đã tính được giữ lại khi tọa độ hết hạn (xem Q3 mục 13).
+- **FR-5.3** Bảng `legacy_districts` (enum chuẩn hóa): Quận 1, 3, 4, 5, 6, 7, 8, 10, 11, 12, Bình Thạnh, Gò Vấp, Phú Nhuận, Tân Bình, Tân Phú, Bình Tân, TP Thủ Đức (alias "Quận 2", "Quận 9", "Thủ Đức"), Bình Chánh, Củ Chi, Hóc Môn, Nhà Bè, Cần Giờ.
+  - Giữ thêm `legacy_sub_area` (`Quận 2` | `Quận 9` | `Quận Thủ Đức`) cho địa điểm thuộc TP Thủ Đức. Cần polygon trước năm 2021 của ba quận này; thiếu polygon thì suy từ `district_raw`, không có thì `null`.
+- **FR-5.4** Bảng alias chuẩn hóa: "Q1", "Q.1", "quận nhất", "q1" → `Quận 1`; "BT" → `Bình Thạnh`; ...
+- **FR-5.5** Địa điểm có tọa độ nằm ngoài polygon TP.HCM cũ (union các polygon quận cũ) → `places.status = out_of_scope`, không publish.
+- **FR-5.6** Nguồn polygon: **GADM** (theo C11). Chọn phiên bản GADM có ranh giới quận cũ; nếu phiên bản đó đã gộp TP Thủ Đức thì lấy polygon Quận 2, 9, Thủ Đức từ phiên bản cũ hơn. Ghi phiên bản và nguồn tải vào `data/geo/README`. Không dùng bộ dữ liệu dựng từ OSM.
+
+### R6. FastAPI
+
+| Method | Path | Mô tả |
+|---|---|---|
+| GET | `/health` | Healthcheck |
+| GET | `/places` | Lọc theo `legacy_district`, `ward`, `category`, `sub_category`, `price_max`, `time_slot`, `vibe`, `suitable_for`, `group_size`, `amenity`, `setting`, `near=lat,lng&radius_m=` (chỉ với place còn tọa độ), `status` (mặc định `published`), phân trang |
+| GET | `/places/{id}` | Toàn bộ thuộc tính mục 1.1-A + mentions + evidence + `media` + `google_place_id` + link Google Maps |
+| GET | `/videos/{video_id}` | Trạng thái, các lần phân tích (raw output), mentions |
+| GET | `/tags` | Danh sách tag `vibes` / `amenities` kèm số lần dùng, alias, tag chuẩn |
+| GET | `/stats` | Số video theo trạng thái, số places theo trạng thái và theo `legacy_district` (so với chỉ tiêu mục 9), quota đã dùng hôm nay, chi phí ước tính trên mỗi place published |
+| GET | `/keywords` | Từ khóa, priority và yield |
+| POST | `/jobs/{stage}` | Kích hoạt một stage (`discover`, `analyze`, `enrich`, `resolve`, `refresh_videos`, `refresh_places`) |
+| POST | `/ingest/youtube` | Đưa một YouTube URL cụ thể vào pipeline (dùng để test/debug) |
+
+- Endpoint `POST` yêu cầu header `Authorization: Bearer <ADMIN_TOKEN>`.
+- Endpoint `GET` không xác thực; API chỉ chạy nội bộ, không public ra internet trong MVP.
+
+### R7. Scheduler, quota, vận hành
+
+- **FR-7.1** Worker chạy riêng tiến trình với API, lập lịch bằng APScheduler.
+- **FR-7.2** Bảng `quota_usage` theo ngày quota: đơn vị YouTube, số giây video Gemini, số request Gemini, số request Places. Ngày quota tính theo `QUOTA_TIMEZONE` (mặc định `America/Los_Angeles`, giờ reset quota của YouTube Data API và Gemini; xác minh lại trên console). Lịch chạy và báo cáo dùng `TIMEZONE` (`Asia/Ho_Chi_Minh`).
+- **FR-7.3** Trước mỗi lời gọi API, kiểm tra quota; gần chạm ngưỡng (`QUOTA_SAFETY_RATIO`, mặc định 0.9) thì dừng stage đó đến ngày quota sau. Job refresh (FR-1.8, FR-3.6) được ưu tiên dùng quota trước discovery để không vi phạm C7, C10.
+- **FR-7.4** Retry exponential backoff cho 429 (rate limit theo phút) và 5xx; tối đa `MAX_RETRIES` (mặc định 3), sau đó `failed` kèm `error_message`. 429 do hết quota ngày **không** tính là lỗi của bản ghi: dừng stage như FR-7.3, không tăng `retry_count`.
+- **FR-7.5** Xử lý tuần tự hoặc concurrency nhỏ cấu hình được (`WORKER_CONCURRENCY`, mặc định 1). Chọn việc bằng `SELECT ... FOR UPDATE SKIP LOCKED` để scheduler và `POST /jobs` chạy đồng thời không xử lý trùng.
+- **FR-7.6** Log có cấu trúc (JSON), mọi dòng log của pipeline có `video_id` hoặc `place_id`.
+- **FR-7.7** Resolution và chuẩn hóa tag (R9) chạy lại được từ `analyses.raw_output` mà không gọi lại Gemini. Enrichment chạy lại thì gọi lại Places (FR-3.5). Phân tích lại bằng prompt mới (gọi Gemini) chỉ chạy khi được kích hoạt rõ ràng cho các video có `prompt_version` cũ, và tuân theo FR-2.6.
+
+### R8. Đánh giá chất lượng
+
+- **FR-8.1** Thư mục `eval/gold/` chứa gold set Analysis: 50 video gán nhãn tay (một lần), định dạng JSON giống output chuẩn, rải đều các quận và loại hình.
+- **FR-8.2** Lệnh `eval` chạy Analysis trên gold set và báo cáo precision/recall cho: tên quán, giá, category, quận (`district_raw` sau chuẩn hóa → `legacy_district`), `contacts`, `time_slots`, `vibes` và `amenities` (sau chuẩn hóa R9), `suitable_for`, `setting`; và tỷ lệ bịa (trường sự kiện có giá trị trong khi gold là `null`).
+  - Ghép địa điểm dự đoán với gold bằng cùng metric độ giống tên của FR-3.3.
+  - Giá đúng khi `price_min_vnd`, `price_max_vnd` khớp chính xác sau chuẩn hóa.
+- **FR-8.3** Mỗi lần đổi prompt, model, hoặc `media_resolution` phải chạy `eval` và lưu kết quả vào `eval/reports/` kèm `prompt_version`.
+- **FR-8.4** Thư mục `eval/match_gold/` chứa gold set matching: khoảng 100 mentions gán nhãn tay `google_place_id` đúng hoặc `none`. Lệnh eval matching báo cáo precision/recall của R3 theo từng mức `NAME_MATCH_THRESHOLD`. Gold set chỉ lưu `place_id` (C7).
+
+### R9. Tag mở (vibes, amenities)
+
+Mục tiêu: không cố định số loại "hình thức" hay tiện ích; thêm loại mới không cần đổi schema hay `SCHEMA_VERSION`.
+
+- **FR-9.1** Bảng `tags` (`kind` = `vibe` | `amenity`): `slug`, `label` (tiếng Việt có dấu), `aliases` (text[]), `canonical_slug` (nullable; khác null nghĩa là tag này là alias của tag khác), `mention_count`, `first_seen_at`.
+- **FR-9.2** Chuẩn hóa tag: bỏ dấu, lowercase, `snake_case` → tra alias → tag chuẩn. Tag chưa từng thấy được tự động thêm vào `tags` (không cần duyệt tay, theo C3).
+- **FR-9.3** Danh sách tag gợi ý và alias khởi tạo nằm trong một file seed trong code, cập nhật qua migration dữ liệu; danh sách gợi ý được đưa vào prompt. Thêm tag gợi ý hoặc alias **không** cần bump `PROMPT_VERSION` nếu chỉ thêm vào cuối danh sách; mọi thay đổi khác của danh sách trong prompt cần bump và chạy eval.
+- **FR-9.4** Khi thêm alias mới, chạy lại R4 để cập nhật `places` (không gọi API).
+- **FR-9.5** `GET /tags` và `/stats` hiển thị tag mới xuất hiện trong 7 ngày để người vận hành bổ sung alias khi rảnh (không bắt buộc cho pipeline chạy).
+
+---
+
+## 6. Mô hình dữ liệu (Postgres + PostGIS)
+
+| Bảng | Trường chính |
+|---|---|
+| `videos` | `id`, `source` (`youtube`), `video_id` (unique theo source), `url`, `title`, `description`, `thumbnail_url`, `channel_id`, `published_at`, `duration_s`, `availability`, `metadata_fetched_at`, `status`, `is_relevant`, `current_analysis_fk`, `retry_count`, `error_message`, `created_at`, `updated_at` |
+| `analyses` | `id`, `video_fk`, `raw_output` (jsonb), `prompt_version`, `schema_version`, `model`, `media_resolution`, `tokens_in`, `tokens_out`, `video_seconds`, `created_at` |
+| `mentions` | `id`, `video_fk`, `analysis_fk`, `ordinal`, `place_fk` (nullable), `google_place_id` (nullable), `match_status`, `match_score`, `name_raw`, `name_normalized`, `address_raw`, `district_raw`, `legacy_district` (từ `district_raw`), `category`, `sub_category`, `items` (jsonb), `price_min_vnd`, `price_max_vnd`, `price_unit`, `time_slots` (text[]), `opening_hours_raw`, `vibes` (text[]), `amenities` (text[]), `suitable_for` (text[]), `group_size_min`, `group_size_max`, `setting`, `visit_duration_min_minutes`, `visit_duration_max_minutes`, `reservation_required`, `contacts` (jsonb), `highlights` (text[]), `tips` (text[]), `evidence` (jsonb), `confidence`, `retry_count`, `error_message` |
+| `places` | `id`, `google_place_id` (unique, nullable), `name`, `name_normalized`, `address_raw`, `ward`, `legacy_district`, `legacy_sub_area`, `category`, `sub_category`, `items` (jsonb), `price_min_vnd`, `price_max_vnd`, `price_unit`, `opening_hours_raw`, `time_slots` (text[]), `time_slot_counts` (jsonb), `vibes` (text[]), `vibe_counts` (jsonb), `amenities` (text[]), `amenity_counts` (jsonb), `suitable_for` (text[]), `suitable_for_counts` (jsonb), `group_size_min`, `group_size_max`, `setting`, `visit_duration_min_minutes`, `visit_duration_max_minutes`, `reservation_required`, `contacts` (jsonb), `highlights` (jsonb), `tips` (jsonb), `mention_count`, `source_video_ids`, `closed_permanently`, `confidence`, `status`, `created_at`, `updated_at` |
+| `place_locations` | `google_place_id` (PK), `geom` (Point 4326), `fetched_at`, `expires_at` — chỉ tọa độ, theo C7 |
+| `tags` | `kind`, `slug`, `label`, `aliases` (text[]), `canonical_slug`, `mention_count`, `first_seen_at` |
+| `channels` | `channel_id`, `title`, `uploads_playlist_id`, `videos_seen`, `videos_relevant`, `last_scanned_at` |
+| `keywords` | `id`, `text`, `area`, `category`, `modifier`, `priority`, `runs`, `low_yield_streak`, `last_run_at` |
+| `keyword_runs` | `id`, `keyword_fk`, `ran_at`, `results_count`, `new_videos_count`, `quota_units` |
+| `video_keywords` | `video_fk`, `keyword_fk`, `keyword_run_fk` |
+| `quota_usage` | `date` (theo `QUOTA_TIMEZONE`), `service`, `metric`, `value` |
+| `legacy_districts` | `name`, `aliases` (text[]), `target_places` (chỉ tiêu mục 9), `geom` (MultiPolygon) |
+| `legacy_sub_areas` | `name`, `legacy_district`, `geom` (MultiPolygon, nullable) |
+| `wards` | `name`, `legacy_districts` (text[]), `geom` (MultiPolygon, nullable) |
+
+Ghi chú:
+- `places` không có cột tọa độ: tọa độ đọc qua `place_locations` (có thể hết hạn). Place không có `google_place_id` thì không có tọa độ.
+- Category enum (cố định): `an`, `uong`, `tham_quan`, `vui_choi`, `khac`. "Ăn uống" của planner = `an` ∪ `uong`. Homestay, staycation → `khac`, `sub_category = "homestay"`; planner lọc theo vibe `rieng_tu`. Đổi enum là thay đổi phá vỡ, cần migration và chạy lại dữ liệu.
+
+---
+
+## 7. Schema trích xuất của Gemini (v1)
+
+```python
+TimeSlot = Literal["sang", "trua", "chieu", "toi", "khuya"]
+GroupType = Literal["mot_minh", "cap_doi", "nhom_nho", "nhom_lon", "gia_dinh"]
+
+class Evidence(BaseModel):
+    timestamp: str | None          # "MM:SS"; null khi source = description
+    source: Literal["audio", "onscreen_text", "description", "visual"]
+    text: str                      # trích hoặc mô tả ngắn, tối đa ~120 ký tự
+
+class Item(BaseModel):
+    name: str
+    price_vnd: int | None
+
+class Contact(BaseModel):
+    type: Literal["phone", "facebook", "instagram", "tiktok", "zalo", "website", "other"]
+    value: str                     # đúng như hiển thị trong video
+
+class ExtractedPlace(BaseModel):
+    name: str
+    address_raw: str | None
+    district_raw: str | None       # đúng như video nói, ví dụ "quận 12"
+    category: Literal["an", "uong", "tham_quan", "vui_choi", "khac"]
+    sub_category: str | None       # tự do, ví dụ "cafe", "homestay", "bảo tàng"
+    items: list[Item]
+    price_min_vnd: int | None
+    price_max_vnd: int | None
+    price_unit: Literal["per_item", "per_person", "ticket"] | None
+    time_slots: list[TimeSlot]     # [] = video không nói
+    opening_hours_raw: str | None
+    vibes: list[str]               # tag mở, snake_case, tối đa 5 (R9)
+    amenities: list[str]           # tag mở, snake_case, tối đa 5 (R9)
+    suitable_for: list[GroupType]  # [] = không có tín hiệu
+    group_size_min: int | None     # chỉ khi video nói con số
+    group_size_max: int | None
+    setting: Literal["indoor", "outdoor", "mixed"] | None
+    visit_duration_min_minutes: int | None   # chỉ khi video nói
+    visit_duration_max_minutes: int | None
+    reservation_required: bool | None        # chỉ khi video nói
+    contacts: list[Contact]
+    highlights: list[str]          # tối đa 5, mỗi câu ≤ 100 ký tự
+    tips: list[str]                # tối đa 5, mỗi câu ≤ 100 ký tự
+    evidence: list[Evidence]
+    confidence: float              # 0..1, model tự đánh giá
+
+class VideoExtraction(BaseModel):
+    is_relevant: bool
+    video_summary: str             # tiếng Việt
+    places: list[ExtractedPlace]
+```
+
+Định nghĩa giá trị cố định (đưa nguyên văn vào prompt):
+
+| Trường | Giá trị | Nghĩa |
+|---|---|---|
+| `time_slots` | `sang` | 5:00–11:00 |
+| | `trua` | 11:00–13:00 |
+| | `chieu` | 13:00–17:00 |
+| | `toi` | 17:00–22:00 |
+| | `khuya` | 22:00–5:00 |
+| | (cả ngày) | Video nói đi giờ nào cũng hợp → liệt kê mọi khung video ủng hộ |
+| `suitable_for` | `mot_minh` | Đi một mình |
+| | `cap_doi` | 2 người, đi date |
+| | `nhom_nho` | Nhóm 3–5 người |
+| | `nhom_lon` | Nhóm từ 6 người |
+| | `gia_dinh` | Có trẻ em hoặc người lớn tuổi |
+| `setting` | `indoor` / `outdoor` / `mixed` | Trong nhà / ngoài trời / có cả hai |
+
+Tag gợi ý khởi tạo (R9, mở rộng được):
+
+| Loại | Tag gợi ý |
+|---|---|
+| `vibes` | `lang_man` (hẹn hò), `rieng_tu` (không gian riêng, ít người: homestay, phòng riêng), `giai_tri`, `nang_dong` (vận động), `thu_gian` (chill, yên tĩnh), `soi_dong` (đông vui, nhạc lớn), `song_ao` (check-in, chụp ảnh), `hoai_niem` (cổ, xưa), `sang_trong`, `binh_dan`, `gan_gui_thien_nhien`, `van_hoa_lich_su` |
+| `amenities` | `wifi`, `may_lanh`, `cho_dau_xe_may`, `cho_dau_o_to`, `phong_rieng`, `cho_thu_cung`, `khu_vui_choi_tre_em`, `o_cam_sac`, `nhan_dat_cho`, `giao_hang` |
+
+`SCHEMA_VERSION` và `PROMPT_VERSION` là hằng số trong code, lưu vào mỗi bản ghi `analyses`.
+
+---
+
+## 8. Yêu cầu phi chức năng
+
+- **NFR-1** Python 3.12, FastAPI, SQLAlchemy 2.x (async), Alembic, Pydantic v2, `httpx`, SDK `google-genai`, APScheduler, pytest, ruff. Quản lý package bằng `uv`.
+- **NFR-2** Cấu hình qua biến môi trường (`pydantic-settings`), có `.env.example`.
+- **NFR-3** Test không bao giờ gọi API thật: mock YouTube, Gemini, Places bằng fixture JSON.
+- **NFR-4** Mỗi stage idempotent và có thể chạy lại an toàn.
+- **NFR-5** Đo chi phí: báo cáo chi phí ước tính trên mỗi place published, dùng đơn giá trong biến môi trường (mục 11).
+- **NFR-6** Lớp `VideoSource` (interface) tách phần tìm video và lấy metadata khỏi logic phân tích. Analysis cần một URL mà Gemini đọc được trực tiếp (C2), nên một nguồn mới chỉ dùng được R2 nếu Gemini hỗ trợ đọc nguồn đó; nếu không, cần bổ sung yêu cầu riêng.
+- **NFR-7** Tuân thủ điều khoản dữ liệu (C7, C10): có test kiểm tra không lưu trường Places ngoài `place_id` / tọa độ, và job refresh không để dữ liệu quá hạn.
+
+---
+
+## 9. Tiêu chí thành công của MVP
+
+| Chỉ số | Ngưỡng |
+|---|---|
+| Bao phủ | Mọi quận/huyện cũ đạt `legacy_districts.target_places` (đề xuất: 13 quận nội thành cũ ≥ 50 places published; TP Thủ Đức ≥ 80; Quận 12, Gò Vấp, Tân Phú, Bình Tân ≥ 30; 5 huyện ≥ 10 — chờ chốt ở Q1 mục 13) |
+| Precision tên quán (gold set) | ≥ 90% |
+| Precision giá, category | ≥ 80% |
+| Precision quận (`district_raw` → `legacy_district`, gold set) | ≥ 85% |
+| Tỷ lệ bịa (giá trị sự kiện khi gold là null) | ≤ 5% |
+| Precision contacts (gold set) | ≥ 95% |
+| Precision matching Places (match gold set) | ≥ 95% |
+| Precision/recall `time_slots`, `vibes`, `amenities`, `suitable_for`, `setting` | Đo và báo cáo; ngưỡng chốt sau eval đầu tiên |
+| Pipeline chạy liên tục 7 ngày không cần can thiệp | Có |
+| Không có dữ liệu YouTube / Places quá hạn (C7, C10) | Có |
+
+---
+
+## 10. Lộ trình
+
+1. **M1 – Nền tảng**: scaffold dự án, DB schema + migrations, PostGIS, `legacy_districts` + aliases + polygon GADM, `tags` + seed, `.env.example`, `/health`.
+2. **M2 – Analysis**: client Gemini (free tier), prompt v1, schema v1, chuẩn hóa tag, `POST /ingest/youtube`, gold set + lệnh `eval`. Lặp đến khi đạt ngưỡng mục 9.
+3. **M3 – Enrichment & Resolution**: chốt metric độ giống tên và công thức confidence, client Places, match gold set, matching, `place_locations`, gộp mentions, tổng hợp, `GET /places`.
+4. **M4 – Discovery, Refresh & Scheduler**: ma trận từ khóa toàn thành phố, YouTube client, theo dõi kênh, job refresh video và Places, quota, worker.
+5. **M5 – Mở rộng**: cân bằng bao phủ theo quận, tối ưu chi phí, chuyển paid tier nếu cần.
+
+---
+
+## 11. Biến môi trường
+
+```
+DATABASE_URL=
+YOUTUBE_API_KEY=
+GEMINI_API_KEY=
+GEMINI_MODEL=
+GEMINI_MEDIA_RESOLUTION=low|default
+GOOGLE_PLACES_API_KEY=
+ADMIN_TOKEN=
+TIMEZONE=Asia/Ho_Chi_Minh
+QUOTA_TIMEZONE=America/Los_Angeles
+MAX_VIDEO_SECONDS=300
+PUBLISHED_AFTER_MONTHS=18
+NAME_MATCH_THRESHOLD=0.8
+PUBLISH_THRESHOLD=0.6
+ATTR_MIN_SHARE=0.3
+PLACES_TOP_N=5
+PLACES_CACHE_TTL_DAYS=30
+YOUTUBE_DATA_TTL_DAYS=30
+QUOTA_SAFETY_RATIO=0.9
+GEMINI_DAILY_VIDEO_SECONDS=28800
+GEMINI_DAILY_REQUESTS=
+YOUTUBE_DAILY_UNITS=10000
+PLACES_DAILY_REQUESTS=
+GOOD_CHANNEL_RATIO=0.5
+MIN_CHANNEL_VIDEOS=5
+KEYWORD_LOW_YIELD_RUNS=3
+WORKER_CONCURRENCY=1
+MAX_RETRIES=3
+GEMINI_PRICE_INPUT_PER_1M_USD=0
+GEMINI_PRICE_OUTPUT_PER_1M_USD=0
+PLACES_TEXT_SEARCH_PRICE_PER_1K_USD=
+```
+
+---
+
+## 12. Rủi ro
+
+| Rủi ro | Giảm thiểu |
+|---|---|
+| Gemini YouTube URL đổi giá/giới hạn (preview) | Model, quota cấu hình được; adapter `VideoSource`; theo dõi chi phí |
+| Nội dung YouTube về ăn chơi Sài Gòn ít hơn TikTok, đặc biệt ở huyện ngoại thành | Đo keyword yield, theo dõi kênh tốt, tăng priority cho quận thiếu, chỉ tiêu theo quận thấp hơn cho huyện |
+| Gemini bịa địa chỉ/giá/SĐT | Prompt yêu cầu null, evidence bắt buộc, đo tỷ lệ bịa và precision contacts trên gold set |
+| Gemini gán tag theo cảm tính; tag mở bị phân mảnh (nhiều tag cùng nghĩa) | Danh sách gợi ý trong prompt, alias trong `tags`, tổng hợp theo tỷ lệ (`ATTR_MIN_SHARE`), theo dõi tag mới ở `/tags` |
+| Gán nhầm quán khi match Places (đặc biệt chuỗi nhiều chi nhánh) | Ngưỡng tên + ranh giới, trạng thái `ambiguous`, ưu tiên `unmatched` hơn match sai, match gold set |
+| Vi phạm điều khoản Google Places hoặc YouTube API | Chỉ lưu `place_id` + tọa độ có TTL; refresh metadata YouTube ≤ 30 ngày; test NFR-7 |
+| Hết quota vì job refresh tăng theo số dữ liệu | Refresh dùng `videos.list` 50 id/lần (rẻ); theo dõi tỷ lệ quota refresh / discovery ở `/stats` |
+| Dữ liệu cũ (quán đóng, đổi giá) | `publishedAfter`, refresh `businessStatus` định kỳ, giá lấy trung vị |
+| Ranh giới quận cũ và phường mới không trùng khớp | Suy ra quận cũ từ tọa độ, không chỉ từ tên phường |
+| GADM không cho dùng thương mại (C11) | Dùng cho thu thập dữ liệu; xin phép hoặc thay nguồn trước khi web app thương mại hóa |
+
+---
+
+## 13. Câu hỏi mở (cần chốt)
+
+1. **Chỉ tiêu bao phủ theo quận** (mục 9) là đề xuất. Có chỉnh không, và có mốc thời gian không?
+2. **GADM và thương mại**: web app có thu phí / quảng cáo không? Nếu có, cần xin phép GADM hoặc tìm nguồn polygon khác trước khi ra mắt (C11).
+3. **`legacy_district` / `ward` sau khi tọa độ hết hạn**: hệ thống giữ lại giá trị đã tính từ tọa độ Google (FR-5.2). Đây là dữ liệu suy ra; điều khoản Google không nói rõ trường hợp này. Chấp nhận rủi ro, hay chỉ dùng `district_raw` khi tọa độ hết hạn?
+4. **Điều khoản cache tọa độ 30 ngày** mới xác nhận được trên bản Service Specific Terms năm 2023; cần đọc lại bản hiện hành trước M3.
+
+---
+
+## 14. Quyết định đã chốt
+
+| ID | Ngày | Quyết định |
+|---|---|---|
+| D1 | 2026-11-02 | ~~Khu vực ưu tiên chỉ dùng cho từ khóa~~ → thay bằng D11. |
+| D2 | 2026-11-02 | Polygon dùng GADM cho cả dev và dữ liệu chính thức (C11, FR-5.6). |
+| D3 | 2026-11-02 | Gemini free tier cho M1–M2; code không phụ thuộc tier, giới hạn đọc từ biến môi trường. Chuyển paid khi free tier làm vỡ tiêu chí "7 ngày không can thiệp". |
+| D4 | 2026-11-02 | Ngưỡng matching chỉnh dựa trên match gold set (FR-8.4); `NAME_MATCH_THRESHOLD=0.8`, `PUBLISH_THRESHOLD=0.6` chỉ là giá trị khởi điểm. |
+| D5 | 2026-11-02 | Không lưu song ngữ. Dữ liệu tiếng Việt; các trường phân loại dùng slug để planner dịch bằng bảng tra. |
+| D6 | 2026-11-02 | Thuộc tính cho planner: `time_slots` (thay `best_time`), `suitable_for`, `group_size_min/max`; `price_unit` cho phép `null`; thêm evidence source `visual`. |
+| D7 | 2026-11-02 | ~~Tách dữ liệu Google vào `place_google_cache` có TTL~~ → thay bằng D14. |
+| D8 | 2026-11-02 | Trạng thái video kết thúc bằng `resolved`; publish là trạng thái của `places`. Thêm `match_status = ambiguous`. |
+| D9 | 2026-11-02 | Lưu mỗi lần phân tích vào bảng `analyses`; thêm `keyword_runs`, `video_keywords`, `legacy_sub_areas`. |
+| D10 | 2026-11-02 | Ngày quota tính theo `QUOTA_TIMEZONE` (giờ Pacific); 429 hết quota ngày không làm video `failed`. |
+| D11 | 2026-11-02 | Bao phủ toàn TP.HCM cũ; bỏ danh sách khu vực ưu tiên; chỉ tiêu tính theo từng quận/huyện cũ. |
+| D12 | 2026-11-02 | Homestay giữ category `khac` (không đổi enum), `sub_category = "homestay"`, vibe `rieng_tu`. |
+| D13 | 2026-11-02 | `vibes` và `amenities` là tag mở, chuẩn hóa qua bảng `tags` (R9); thêm loại mới không cần đổi schema. |
+| D14 | 2026-11-02 | Theo điều khoản đã tra (C7): chỉ lưu `place_id` lâu dài và tọa độ ≤ 30 ngày (`place_locations`); không lưu raw response Places. SĐT, ảnh, rating, giờ mở cửa của Google do web app lấy trực tiếp. Hệ thống tự thu thập thông tin đầy đủ từ video: contacts, amenities, setting, thời gian ở lại, đặt chỗ, highlights, tips, media. |
+| D15 | 2026-11-02 | Theo YouTube Developer Policies (C10): metadata video làm mới ≤ 30 ngày (FR-1.8); video không còn khả dụng thì xóa tiêu đề, mô tả, thumbnail. |
