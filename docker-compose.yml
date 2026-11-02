@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgis/postgis:16-3.6
+    platform: linux/amd64
+    environment:
+      POSTGRES_USER: saigon
+      POSTGRES_PASSWORD: saigon
+      POSTGRES_DB: saigon_places
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    # TCP check: during first init the server listens on the unix socket only.
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U saigon -d saigon_places"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  # One-shot job: creates the test database if missing (idempotent).
+  # Not an initdb script: Docker Desktop may lack access to ~/Documents for bind mounts.
+  db-init:
+    image: postgis/postgis:16-3.6
+    platform: linux/amd64
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PGPASSWORD: saigon
+    entrypoint: ["sh", "-c"]
+    command:
+      - >-
+        echo "SELECT 'CREATE DATABASE saigon_places_test TEMPLATE template_postgis'
+        WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'saigon_places_test')\gexec"
+        | psql -h db -U saigon -d saigon_places
+    restart: "no"
+
+volumes:
+  pgdata:

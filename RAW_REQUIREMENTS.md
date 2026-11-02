@@ -299,49 +299,54 @@ Ghi chú:
 TimeSlot = Literal["sang", "trua", "chieu", "toi", "khuya"]
 GroupType = Literal["mot_minh", "cap_doi", "nhom_nho", "nhom_lon", "gia_dinh"]
 
+
 class Evidence(BaseModel):
-    timestamp: str | None          # "MM:SS"; null khi source = description
+    timestamp: str | None  # "MM:SS"; null khi source = description
     source: Literal["audio", "onscreen_text", "description", "visual"]
-    text: str                      # trích hoặc mô tả ngắn, tối đa ~120 ký tự
+    text: str  # trích hoặc mô tả ngắn, tối đa ~120 ký tự
+
 
 class Item(BaseModel):
     name: str
     price_vnd: int | None
 
+
 class Contact(BaseModel):
     type: Literal["phone", "facebook", "instagram", "tiktok", "zalo", "website", "other"]
-    value: str                     # đúng như hiển thị trong video
+    value: str  # đúng như hiển thị trong video
+
 
 class ExtractedPlace(BaseModel):
     name: str
     address_raw: str | None
-    district_raw: str | None       # đúng như video nói, ví dụ "quận 12"
+    district_raw: str | None  # đúng như video nói, ví dụ "quận 12"
     category: Literal["an", "uong", "tham_quan", "vui_choi", "khac"]
-    sub_category: str | None       # tự do, ví dụ "cafe", "homestay", "bảo tàng"
+    sub_category: str | None  # tự do, ví dụ "cafe", "homestay", "bảo tàng"
     items: list[Item]
     price_min_vnd: int | None
     price_max_vnd: int | None
     price_unit: Literal["per_item", "per_person", "ticket"] | None
-    time_slots: list[TimeSlot]     # [] = video không nói
+    time_slots: list[TimeSlot]  # [] = video không nói
     opening_hours_raw: str | None
-    vibes: list[str]               # tag mở, snake_case, tối đa 5 (R9)
-    amenities: list[str]           # tag mở, snake_case, tối đa 5 (R9)
+    vibes: list[str]  # tag mở, snake_case, tối đa 5 (R9)
+    amenities: list[str]  # tag mở, snake_case, tối đa 5 (R9)
     suitable_for: list[GroupType]  # [] = không có tín hiệu
-    group_size_min: int | None     # chỉ khi video nói con số
+    group_size_min: int | None  # chỉ khi video nói con số
     group_size_max: int | None
     setting: Literal["indoor", "outdoor", "mixed"] | None
-    visit_duration_min_minutes: int | None   # chỉ khi video nói
+    visit_duration_min_minutes: int | None  # chỉ khi video nói
     visit_duration_max_minutes: int | None
-    reservation_required: bool | None        # chỉ khi video nói
+    reservation_required: bool | None  # chỉ khi video nói
     contacts: list[Contact]
-    highlights: list[str]          # tối đa 5, mỗi câu ≤ 100 ký tự
-    tips: list[str]                # tối đa 5, mỗi câu ≤ 100 ký tự
+    highlights: list[str]  # tối đa 5, mỗi câu ≤ 100 ký tự
+    tips: list[str]  # tối đa 5, mỗi câu ≤ 100 ký tự
     evidence: list[Evidence]
-    confidence: float              # 0..1, model tự đánh giá
+    confidence: float  # 0..1, model tự đánh giá
+
 
 class VideoExtraction(BaseModel):
     is_relevant: bool
-    video_summary: str             # tiếng Việt
+    video_summary: str  # tiếng Việt
     places: list[ExtractedPlace]
 ```
 
@@ -375,7 +380,7 @@ Tag gợi ý khởi tạo (R9, mở rộng được):
 
 ## 8. Yêu cầu phi chức năng
 
-- **NFR-1** Python 3.12, FastAPI, SQLAlchemy 2.x (async), Alembic, Pydantic v2, `httpx`, SDK `google-genai`, APScheduler, pytest, ruff. Quản lý package bằng `uv`.
+- **NFR-1** Python 3.11 (D21), FastAPI, SQLAlchemy 2.x (async), Alembic, Pydantic v2, `httpx`, SDK `google-genai`, APScheduler, pytest, ruff. Quản lý package bằng `uv`.
 - **NFR-2** Cấu hình qua biến môi trường (`pydantic-settings`), có `.env.example`.
 - **NFR-3** Test không bao giờ gọi API thật: mock YouTube, Gemini, Places bằng fixture JSON.
 - **NFR-4** Mỗi stage idempotent và có thể chạy lại an toàn.
@@ -497,3 +502,6 @@ Hiện không có câu hỏi mở. Các câu hỏi đã chốt nằm ở mục 1
 | D18 | 2026-11-02 | Chỉ tiêu bao phủ tính theo từng quận/huyện cũ, số liệu ở mục 9. Chưa đặt mốc thời gian. |
 | D19 | 2026-11-02 | Dự án và web app phi thương mại; dùng GADM theo giấy phép phi thương mại (C11). |
 | D20 | 2026-11-02 | Output là dữ liệu: web app đọc trực tiếp schema `output` (view chỉ đọc, có phiên bản) bằng role chỉ đọc (R10). FastAPI chỉ là công cụ vận hành nội bộ. |
+| D21 | 2026-11-02 | Python 3.11 (bản có sẵn trên máy dev) thay 3.12; không dùng cú pháp riêng của 3.12. |
+| D22 | 2026-11-02 | Postgres 16 + PostGIS chạy bằng Docker Compose (`postgis/postgis:16-3.6`), cổng 5433. |
+| D23 | 2026-11-02 | Repo public nên không commit file GADM (C11); tải bằng `python -m app.geo.gadm fetch`, nạp bằng `load`. |

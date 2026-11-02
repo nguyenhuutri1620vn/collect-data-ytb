@@ -42,16 +42,19 @@ Only make the changes requested. Do not refactor, rename or "improve" unrelated 
 
 ## Stack
 
-Python 3.12 · FastAPI · SQLAlchemy 2.x async · Alembic · Postgres 16 + PostGIS · Pydantic v2 · httpx · google-genai · APScheduler · pytest · ruff · uv
+Python 3.11 · FastAPI · SQLAlchemy 2.x async · Alembic · Postgres 16 + PostGIS · Pydantic v2 · httpx · google-genai · APScheduler · pytest · ruff · uv
 
 ## Commands
 
 ```bash
+docker compose up -d --wait               # Postgres 16 + PostGIS on port 5433 (+ test DB)
 uv sync                                   # install deps
 uv run uvicorn app.main:app --reload      # API
 uv run python -m app.worker               # scheduler / pipeline worker
 uv run alembic upgrade head               # migrate
 uv run alembic revision --autogenerate -m "msg"
+uv run python -m app.geo.gadm fetch       # download GADM boundaries (asks first)
+uv run python -m app.geo.gadm load --districts <file> [--sub-areas <file>]
 uv run pytest                             # tests (no network)
 uv run ruff check . && uv run ruff format .
 uv run python -m app.eval --gold eval/gold   # quality eval (uses real Gemini: ask first)
