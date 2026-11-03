@@ -64,3 +64,18 @@ def test_fetch_extracts_json_safely(monkeypatch: pytest.MonkeyPatch, tmp_path: P
     assert path == tmp_path / "gadm41_VNM_2.json"
     assert path.read_text() == '{"type": "FeatureCollection"}'
     assert not (tmp_path.parent / "evil").exists()
+
+
+@pytest.mark.parametrize(
+    ("raw", "expected"),
+    [
+        ("HồChíMinh", "Hồ Chí Minh"),
+        ("Quận1", "Quận 1"),
+        ("Quận12", "Quận 12"),
+        ("BìnhThạnh", "Bình Thạnh"),
+        ("ThủĐức", "Thủ Đức"),
+        ("Bình Thạnh", "Bình Thạnh"),
+    ],
+)
+def test_gadm_display_name(raw: str, expected: str) -> None:
+    assert gadm.gadm_display_name(raw) == expected

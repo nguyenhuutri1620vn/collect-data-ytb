@@ -107,3 +107,21 @@ async def test_missing_district_raises(session: AsyncSession, tmp_path: Path) ->
 
     with pytest.raises(BoundaryLoadError, match="Cần Giờ"):
         await load_boundaries(session, variant(tmp_path, PRE2021, drop_can_gio))
+
+
+async def test_load_gadm41_spaceless_names(session: AsyncSession, tmp_path: Path) -> None:
+    """GADM 4.1 writes names without spaces: "HồChíMinh", "Quận1", "BìnhThạnh"."""
+
+    def squash(features: list) -> None:
+        for f in features:
+            for key in ("NAME_1", "NAME_2"):
+                f["properties"][key] = f["properties"][key].replace(" ", "")
+
+    report = await load_boundaries(session, variant(tmp_path, PRE2021, squash))
+
+    assert report == LoadReport(districts_loaded=22, sub_areas_loaded=3, sub_areas_missing=[])
+    dong_nai = "ST_MakeEnvelope(107.4, 11.4, 107.41, 11.41, 4326)"
+    assert not await scalar(
+        session,
+        f"SELECT ST_Intersects(geom, {dong_nai}) FROM legacy_districts WHERE name = 'Tân Phú'",
+    )

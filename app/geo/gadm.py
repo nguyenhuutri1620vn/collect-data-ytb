@@ -12,6 +12,7 @@ import json
 import logging
 import shutil
 import sys
+import unicodedata
 import urllib.request
 import zipfile
 from collections.abc import Callable
@@ -93,13 +94,24 @@ def fetch(
     return extracted[0]
 
 
+def gadm_display_name(name: str) -> str:
+    """Restore spaces GADM 4.1 drops ("BìnhThạnh" -> "Bình Thạnh", "Quận1" -> "Quận 1")."""
+    name = unicodedata.normalize("NFC", name)
+    out: list[str] = []
+    for prev, char in zip(" " + name, name, strict=False):
+        if (prev.islower() and char.isupper()) or (prev.isalpha() and char.isdigit()):
+            out.append(" ")
+        out.append(char)
+    return "".join(out)
+
+
 def _hcm_features(path: Path) -> list[tuple[str, dict]]:
     """(NAME_2, geometry) of every feature in Ho Chi Minh City."""
     data = json.loads(path.read_text(encoding="utf-8"))
     return [
-        (f["properties"]["NAME_2"], f["geometry"])
+        (gadm_display_name(f["properties"]["NAME_2"]), f["geometry"])
         for f in data["features"]
-        if normalize_text(f["properties"]["NAME_1"]) in _HCM_PROVINCE_NAMES
+        if normalize_text(gadm_display_name(f["properties"]["NAME_1"])) in _HCM_PROVINCE_NAMES
     ]
 
 

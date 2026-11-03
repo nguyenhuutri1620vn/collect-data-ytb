@@ -2,9 +2,9 @@ GADM boundary data
 ==================
 
 Source:   GADM, https://gadm.org (level 2 = district / quận-huyện)
-Version:  (filled in after the first download, see below)
+Version:  GADM 4.1 (gadm41_VNM_2.json, Last-Modified 2022-07-20)
 URL:      see GADM_SOURCES in app/geo/gadm.py
-Fetched:  (date of download)
+Fetched:  2026-11-03
 License:  GADM data is free for academic and other non-commercial use only and may not be
           redistributed (C11, D19). This project and the web app are non-commercial.
 
@@ -13,6 +13,14 @@ Why the files are not in git
 The repository is public, and the GADM license forbids redistribution (D23). Downloaded files
 live in data/geo/raw/, which is git-ignored. The `output` schema exposes district/ward names
 only, never polygons (C11).
+
+Notes on GADM 4.1
+-----------------
+- Still pre-2021 for HCMC: Quận 2, Quận 9 and Thủ Đức are separate features, so one file
+  fills both legacy_districts (TP Thủ Đức = union of the three) and legacy_sub_areas.
+- Names have no spaces ("HồChíMinh", "Quận1", "BìnhThạnh"); the loader restores them
+  before alias lookup (gadm_display_name).
+- Load result: 22/22 districts, 3/3 sub-areas, all polygons valid.
 
 Commands
 --------
