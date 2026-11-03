@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from sqlalchemy.ext.asyncio import async_sessionmaker
 
-from app.api import health
+from app.api import health, ingest, videos
 from app.core.config import Settings, get_settings
 from app.core.db import create_engine
 from app.core.logging import configure_logging
@@ -13,7 +13,10 @@ from app.core.logging import configure_logging
 def create_app(settings: Settings | None = None) -> FastAPI:
     @asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
-        engine = create_engine((settings or get_settings()).database_url)
+        resolved = settings or get_settings()
+        engine = create_engine(resolved.database_url)
+        app.state.settings = resolved
+        app.state.analyzer = None  # built on first use (needs GEMINI_API_KEY)
         app.state.engine = engine
         app.state.sessionmaker = async_sessionmaker(engine, expire_on_commit=False)
         try:
@@ -24,6 +27,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     configure_logging()
     app = FastAPI(title="Saigon Places Collector (ops)", lifespan=lifespan)
     app.include_router(health.router)
+    app.include_router(ingest.router)
+    app.include_router(videos.router)
     return app
 
 

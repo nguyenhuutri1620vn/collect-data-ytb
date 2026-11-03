@@ -15,6 +15,7 @@ uv run alembic upgrade head
 uv run python -m app.geo.gadm fetch      # download GADM boundaries (asks first)
 uv run python -m app.geo.gadm load --districts data/geo/raw/<file>
 uv run uvicorn app.main:app --reload     # GET /health
+uv run python -m app.analysis.ingest <youtube-url>   # Gemini analysis (needs GEMINI_API_KEY)
 uv run pytest && uv run ruff check .
 ```
 

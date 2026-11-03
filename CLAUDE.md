@@ -55,6 +55,7 @@ uv run alembic upgrade head               # migrate
 uv run alembic revision --autogenerate -m "msg"
 uv run python -m app.geo.gadm fetch       # download GADM boundaries (asks first)
 uv run python -m app.geo.gadm load --districts <file> [--sub-areas <file>]
+uv run python -m app.analysis.ingest <youtube-url> [--reanalyze]  # analyze one video (real Gemini quota)
 uv run pytest                             # tests (no network)
 uv run ruff check . && uv run ruff format .
 uv run python -m app.eval --gold eval/gold   # quality eval (uses real Gemini: ask first)
