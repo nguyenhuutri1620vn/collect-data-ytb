@@ -1,0 +1,257 @@
+{
+  "places": [
+    {
+      "name": "Bánh cuốn cô Vân",
+      "tips": [
+        "Nên đến sớm vì quán thường bán hết rất nhanh"
+      ],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "outdoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "Quán bánh cuốn cô Vân này đã bán trên 30 năm",
+          "source": "audio",
+          "timestamp": "00:13"
+        },
+        {
+          "text": "32/14 Lê Thị Hồng, Gò Vấp 5:30-8:00",
+          "source": "onscreen_text",
+          "timestamp": "00:20"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Quán bán hơn 30 năm",
+        "Bán hết sớm trước 8 giờ"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "sang"
+      ],
+      "address_raw": "32/14 Lê Thị Hồng",
+      "district_raw": "Gò Vấp",
+      "sub_category": "bánh cuốn",
+      "suitable_for": [
+        "mot_minh",
+        "cap_doi",
+        "nhom_nho"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "5:30-8:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Ăn vặt Bổng",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "111/14 Phạm Văn Chiêu, Gò Vấp",
+          "source": "onscreen_text",
+          "timestamp": "00:33"
+        },
+        {
+          "text": "Còn cái bánh đúc này ta nói nó mềm mịn nha",
+          "source": "audio",
+          "timestamp": "00:32"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Đa dạng các món ăn vặt Hà Nội",
+        "Bánh đúc mềm mịn, nước chấm ngon"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "111/14 Phạm Văn Chiêu",
+      "district_raw": "Gò Vấp",
+      "sub_category": "ăn vặt",
+      "suitable_for": [
+        "nhom_nho",
+        "cap_doi"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": null,
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Ốt Oiii - Bò nhúng",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "Lẩu nhỏ 129 cành, quất đại cái lớn 258 được tặng thêm 100 gram",
+          "source": "audio",
+          "timestamp": "00:36"
+        },
+        {
+          "text": "313 Đường Số 8, P.11, Gò Vấp 16:00-22:00",
+          "source": "onscreen_text",
+          "timestamp": "00:46"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Lẩu nhỏ 129 cành, lẩu lớn 258 cành được tặng thêm thịt",
+        "Nước nhúng ớt cay sộc, rau xanh sạch đa dạng"
+      ],
+      "price_unit": "per_person",
+      "time_slots": [
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "313 Đường Số 8, P.11",
+      "district_raw": "Gò Vấp",
+      "sub_category": "lẩu bò",
+      "suitable_for": [
+        "nhom_nho",
+        "nhom_lon",
+        "gia_dinh"
+      ],
+      "price_max_vnd": 258000,
+      "price_min_vnd": 129000,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "16:00-22:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Tiệm trà Bất Ổn",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "nang_dong",
+        "binh_dan"
+      ],
+      "setting": "outdoor",
+      "category": "uong",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "181 Lê Đức Thọ, P.17, Gò Vấp (cổng trường Văn Thư Lưu Trữ) 20:00-24:00",
+          "source": "onscreen_text",
+          "timestamp": "00:58"
+        },
+        {
+          "text": "Mà có 25 cành một ly",
+          "source": "audio",
+          "timestamp": "00:59"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Tiệm trà trái cây chất lượng bán buổi tối",
+        "Giá chỉ 25k một ly topping ngập tràn"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "toi",
+        "khuya"
+      ],
+      "address_raw": "181 Lê Đức Thọ, P.17",
+      "district_raw": "Gò Vấp",
+      "sub_category": "trà trái cây",
+      "suitable_for": [
+        "mot_minh",
+        "nhom_nho"
+      ],
+      "price_max_vnd": 25000,
+      "price_min_vnd": 25000,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "20:00-24:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Lò Đất BBQ",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "soi_dong",
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "922 Quang Trung, Gò Vấp",
+          "source": "onscreen_text",
+          "timestamp": "01:07"
+        },
+        {
+          "text": "Lò Đất BBQ một tiệm khá đông khách và nổi tiếng tại Gò Vấp",
+          "source": "audio",
+          "timestamp": "01:01"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Quán nướng và lẩu đông khách nổi tiếng Gò Vấp",
+        "Menu cập nhật liên tục các món bò nhúng, đồ nướng và món Thái"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "922 Quang Trung",
+      "district_raw": "Gò Vấp",
+      "sub_category": "nướng và lẩu",
+      "suitable_for": [
+        "nhom_nho",
+        "nhom_lon",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": null,
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    }
+  ],
+  "is_relevant": true,
+  "video_summary": "Video tổng hợp các quán ăn ngon nổi tiếng tại quận Gò Vấp, TP.HCM từ bánh cuốn, món ăn vặt, lẩu bò cho đến trà trái cây."
+}

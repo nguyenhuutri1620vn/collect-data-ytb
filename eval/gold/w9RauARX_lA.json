@@ -1,0 +1,82 @@
+{
+  "places": [
+    {
+      "name": "Trương Hồng Ký",
+      "tips": [
+        "Mặt tiền Trường Chinh khá thoáng nhưng trời nắng có thể hơi bụi"
+      ],
+      "items": [
+        {
+          "name": "Mì thập cẩm xương",
+          "price_vnd": 65000
+        },
+        {
+          "name": "Mì vịt tiềm và hủ tiếu mì",
+          "price_vnd": 45000
+        }
+      ],
+      "vibes": [
+        "binh_dan",
+        "hoai_niem"
+      ],
+      "setting": "mixed",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "Nay đi ăn xe mì có gần 50 năm tuổi ở Tân Bình cùng Dũn nào",
+          "source": "onscreen_text",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "Nằm ngay mặt tiền Trường Chinh khá thoáng",
+          "source": "onscreen_text",
+          "timestamp": "00:04"
+        },
+        {
+          "text": "Tô mì thập cẩm xương đầy đặn với giá 65k",
+          "source": "onscreen_text",
+          "timestamp": "00:20"
+        },
+        {
+          "text": "TRƯƠNG HỒNG KÝ 796 Trường Chinh Phường 15 Tân Bình (Bán sáng & chiều tối Từ 45k/phần)",
+          "source": "onscreen_text",
+          "timestamp": "00:45"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Quán ăn lâu năm 50 tuổi",
+        "Nước lèo ngon thơm",
+        "Món hoành thánh hấp ngon, mềm mịn"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "796 Trường Chinh",
+      "district_raw": "Tân Bình",
+      "sub_category": "mì vịt tiềm",
+      "suitable_for": [
+        "mot_minh",
+        "cap_doi",
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": 45000,
+      "group_size_max": 6,
+      "group_size_min": 1,
+      "opening_hours_raw": "Bán sáng & chiều tối",
+      "reservation_required": false,
+      "visit_duration_max_minutes": 60,
+      "visit_duration_min_minutes": 30
+    }
+  ],
+  "is_relevant": true,
+  "video_summary": "Video giới thiệu quán mì vịt tiềm và hủ tiếu mì lâu đời Trương Hồng Ký tại Tân Bình, bán từ sáng đến chiều tối với các món mì xá xíu, xương, hoành thánh hấp."
+}

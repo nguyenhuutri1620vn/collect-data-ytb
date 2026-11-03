@@ -1,0 +1,593 @@
+{
+  "generated_at": "2026-11-03T08:01:01.207029+00:00",
+  "plan": {
+    "queries": [
+      "vlog ăn uống Quận 1 Sài Gòn",
+      "hoạt động ngoài trời Quận 1 Sài Gòn",
+      "điểm tham quan Quận 1 Sài Gòn",
+      "vlog ăn uống Quận 3 Sài Gòn",
+      "hoạt động ngoài trời Quận 3 Sài Gòn",
+      "điểm tham quan Quận 3 Sài Gòn",
+      "vlog ăn uống Quận 4 Sài Gòn",
+      "hoạt động ngoài trời Quận 4 Sài Gòn",
+      "điểm tham quan Quận 4 Sài Gòn",
+      "vlog ăn uống Quận 5 Sài Gòn",
+      "hoạt động ngoài trời Quận 5 Sài Gòn",
+      "điểm tham quan Quận 5 Sài Gòn",
+      "vlog ăn uống Quận 6 Sài Gòn",
+      "hoạt động ngoài trời Quận 6 Sài Gòn",
+      "điểm tham quan Quận 6 Sài Gòn",
+      "vlog ăn uống Quận 7 Sài Gòn",
+      "hoạt động ngoài trời Quận 7 Sài Gòn",
+      "điểm tham quan Quận 7 Sài Gòn",
+      "vlog ăn uống Quận 8 Sài Gòn",
+      "hoạt động ngoài trời Quận 8 Sài Gòn",
+      "điểm tham quan Quận 8 Sài Gòn",
+      "vlog ăn uống Quận 10 Sài Gòn",
+      "hoạt động ngoài trời Quận 10 Sài Gòn",
+      "điểm tham quan Quận 10 Sài Gòn",
+      "vlog ăn uống Quận 11 Sài Gòn",
+      "hoạt động ngoài trời Quận 11 Sài Gòn",
+      "điểm tham quan Quận 11 Sài Gòn",
+      "vlog ăn uống Quận 12 Sài Gòn",
+      "hoạt động ngoài trời Quận 12 Sài Gòn",
+      "điểm tham quan Quận 12 Sài Gòn",
+      "vlog ăn uống Bình Thạnh Sài Gòn",
+      "hoạt động ngoài trời Bình Thạnh Sài Gòn",
+      "điểm tham quan Bình Thạnh Sài Gòn",
+      "vlog ăn uống Gò Vấp Sài Gòn",
+      "hoạt động ngoài trời Gò Vấp Sài Gòn",
+      "điểm tham quan Gò Vấp Sài Gòn",
+      "vlog ăn uống Phú Nhuận Sài Gòn",
+      "hoạt động ngoài trời Phú Nhuận Sài Gòn",
+      "điểm tham quan Phú Nhuận Sài Gòn",
+      "vlog ăn uống Tân Bình Sài Gòn",
+      "hoạt động ngoài trời Tân Bình Sài Gòn",
+      "điểm tham quan Tân Bình Sài Gòn",
+      "vlog ăn uống Tân Phú Sài Gòn",
+      "hoạt động ngoài trời Tân Phú Sài Gòn",
+      "điểm tham quan Tân Phú Sài Gòn",
+      "vlog ăn uống Bình Tân Sài Gòn",
+      "hoạt động ngoài trời Bình Tân Sài Gòn",
+      "điểm tham quan Bình Tân Sài Gòn",
+      "vlog ăn uống Thủ Đức Sài Gòn",
+      "hoạt động ngoài trời Thủ Đức Sài Gòn",
+      "điểm tham quan Thủ Đức Sài Gòn",
+      "vlog ăn uống Bình Chánh Sài Gòn",
+      "hoạt động ngoài trời Bình Chánh Sài Gòn",
+      "điểm tham quan Bình Chánh Sài Gòn",
+      "vlog ăn uống Củ Chi Sài Gòn",
+      "hoạt động ngoài trời Củ Chi Sài Gòn",
+      "điểm tham quan Củ Chi Sài Gòn",
+      "vlog ăn uống Hóc Môn Sài Gòn",
+      "hoạt động ngoài trời Hóc Môn Sài Gòn",
+      "điểm tham quan Hóc Môn Sài Gòn",
+      "vlog ăn uống Nhà Bè Sài Gòn",
+      "hoạt động ngoài trời Nhà Bè Sài Gòn",
+      "điểm tham quan Nhà Bè Sài Gòn",
+      "vlog ăn uống Cần Giờ Sài Gòn",
+      "hoạt động ngoài trời Cần Giờ Sài Gòn",
+      "điểm tham quan Cần Giờ Sài Gòn"
+    ],
+    "skipped_districts": [],
+    "pending_per_district": {
+      "Quận 1": 4,
+      "Quận 3": 5,
+      "Quận 4": 5,
+      "Quận 5": 5,
+      "Quận 6": 5,
+      "Quận 7": 5,
+      "Quận 8": 5,
+      "Quận 10": 5,
+      "Quận 11": 5,
+      "Quận 12": 5,
+      "Bình Thạnh": 5,
+      "Gò Vấp": 5,
+      "Phú Nhuận": 5,
+      "Tân Bình": 5,
+      "Tân Phú": 5,
+      "Bình Tân": 6,
+      "TP Thủ Đức": 6,
+      "Bình Chánh": 6,
+      "Củ Chi": 6,
+      "Hóc Môn": 6,
+      "Nhà Bè": 6,
+      "Cần Giờ": 6
+    },
+    "excluded_video_ids": 133,
+    "published_after": "2025-05-03T08:01:01.207029+00:00",
+    "max_seconds": 300,
+    "per_district": 3,
+    "needed_per_district": {
+      "Quận 1": 3,
+      "Quận 3": 3,
+      "Quận 4": 3,
+      "Quận 5": 3,
+      "Quận 6": 3,
+      "Quận 7": 3,
+      "Quận 8": 3,
+      "Quận 10": 3,
+      "Quận 11": 3,
+      "Quận 12": 3,
+      "Bình Thạnh": 3,
+      "Gò Vấp": 3,
+      "Phú Nhuận": 3,
+      "Tân Bình": 3,
+      "Tân Phú": 3,
+      "Bình Tân": 3,
+      "TP Thủ Đức": 3,
+      "Bình Chánh": 3,
+      "Củ Chi": 3,
+      "Hóc Môn": 3,
+      "Nhà Bè": 3,
+      "Cần Giờ": 3
+    },
+    "estimated_units": 6633,
+    "daily_units_limit": 10000
+  },
+  "stopped": null,
+  "candidates": [
+    {
+      "video_id": "8Cqg6OwM4HI",
+      "district": "Quận 1",
+      "query": "vlog ăn uống Quận 1 Sài Gòn",
+      "duration_seconds": 55,
+      "url": "https://www.youtube.com/watch?v=8Cqg6OwM4HI"
+    },
+    {
+      "video_id": "kaU9X7OnQDE",
+      "district": "Quận 1",
+      "query": "vlog ăn uống Quận 1 Sài Gòn",
+      "duration_seconds": 205,
+      "url": "https://www.youtube.com/watch?v=kaU9X7OnQDE"
+    },
+    {
+      "video_id": "35f8RNTYa8o",
+      "district": "Quận 1",
+      "query": "vlog ăn uống Quận 1 Sài Gòn",
+      "duration_seconds": 60,
+      "url": "https://www.youtube.com/watch?v=35f8RNTYa8o"
+    },
+    {
+      "video_id": "aomizGr7XYk",
+      "district": "Quận 3",
+      "query": "vlog ăn uống Quận 3 Sài Gòn",
+      "duration_seconds": 30,
+      "url": "https://www.youtube.com/watch?v=aomizGr7XYk"
+    },
+    {
+      "video_id": "SCqQwDDsnas",
+      "district": "Quận 3",
+      "query": "vlog ăn uống Quận 3 Sài Gòn",
+      "duration_seconds": 181,
+      "url": "https://www.youtube.com/watch?v=SCqQwDDsnas"
+    },
+    {
+      "video_id": "g_Om7Okmy0o",
+      "district": "Quận 3",
+      "query": "vlog ăn uống Quận 3 Sài Gòn",
+      "duration_seconds": 18,
+      "url": "https://www.youtube.com/watch?v=g_Om7Okmy0o"
+    },
+    {
+      "video_id": "-J7Ox3Lph50",
+      "district": "Quận 4",
+      "query": "vlog ăn uống Quận 4 Sài Gòn",
+      "duration_seconds": 23,
+      "url": "https://www.youtube.com/watch?v=-J7Ox3Lph50"
+    },
+    {
+      "video_id": "YT6qsHJFx8I",
+      "district": "Quận 4",
+      "query": "vlog ăn uống Quận 4 Sài Gòn",
+      "duration_seconds": 99,
+      "url": "https://www.youtube.com/watch?v=YT6qsHJFx8I"
+    },
+    {
+      "video_id": "nhYeavMMj8I",
+      "district": "Quận 4",
+      "query": "vlog ăn uống Quận 4 Sài Gòn",
+      "duration_seconds": 24,
+      "url": "https://www.youtube.com/watch?v=nhYeavMMj8I"
+    },
+    {
+      "video_id": "0pfIDz2zCao",
+      "district": "Quận 5",
+      "query": "vlog ăn uống Quận 5 Sài Gòn",
+      "duration_seconds": 89,
+      "url": "https://www.youtube.com/watch?v=0pfIDz2zCao"
+    },
+    {
+      "video_id": "WlRXJFawDW8",
+      "district": "Quận 5",
+      "query": "vlog ăn uống Quận 5 Sài Gòn",
+      "duration_seconds": 37,
+      "url": "https://www.youtube.com/watch?v=WlRXJFawDW8"
+    },
+    {
+      "video_id": "bW04lrn2b9g",
+      "district": "Quận 5",
+      "query": "vlog ăn uống Quận 5 Sài Gòn",
+      "duration_seconds": 72,
+      "url": "https://www.youtube.com/watch?v=bW04lrn2b9g"
+    },
+    {
+      "video_id": "_5Ksw0ZzacU",
+      "district": "Quận 6",
+      "query": "vlog ăn uống Quận 6 Sài Gòn",
+      "duration_seconds": 60,
+      "url": "https://www.youtube.com/watch?v=_5Ksw0ZzacU"
+    },
+    {
+      "video_id": "1MFcyIP09Oo",
+      "district": "Quận 6",
+      "query": "vlog ăn uống Quận 6 Sài Gòn",
+      "duration_seconds": 117,
+      "url": "https://www.youtube.com/watch?v=1MFcyIP09Oo"
+    },
+    {
+      "video_id": "HeN3jn6JnQ0",
+      "district": "Quận 6",
+      "query": "vlog ăn uống Quận 6 Sài Gòn",
+      "duration_seconds": 22,
+      "url": "https://www.youtube.com/watch?v=HeN3jn6JnQ0"
+    },
+    {
+      "video_id": "H-mEcurrlCE",
+      "district": "Quận 7",
+      "query": "vlog ăn uống Quận 7 Sài Gòn",
+      "duration_seconds": 143,
+      "url": "https://www.youtube.com/watch?v=H-mEcurrlCE"
+    },
+    {
+      "video_id": "TMgnLHvjCpk",
+      "district": "Quận 7",
+      "query": "vlog ăn uống Quận 7 Sài Gòn",
+      "duration_seconds": 69,
+      "url": "https://www.youtube.com/watch?v=TMgnLHvjCpk"
+    },
+    {
+      "video_id": "tmrwdTcQDGQ",
+      "district": "Quận 7",
+      "query": "vlog ăn uống Quận 7 Sài Gòn",
+      "duration_seconds": 28,
+      "url": "https://www.youtube.com/watch?v=tmrwdTcQDGQ"
+    },
+    {
+      "video_id": "SzH3LJx8WrY",
+      "district": "Quận 8",
+      "query": "vlog ăn uống Quận 8 Sài Gòn",
+      "duration_seconds": 99,
+      "url": "https://www.youtube.com/watch?v=SzH3LJx8WrY"
+    },
+    {
+      "video_id": "2o0w_19zSqc",
+      "district": "Quận 8",
+      "query": "vlog ăn uống Quận 8 Sài Gòn",
+      "duration_seconds": 46,
+      "url": "https://www.youtube.com/watch?v=2o0w_19zSqc"
+    },
+    {
+      "video_id": "9v_yyeReoXY",
+      "district": "Quận 8",
+      "query": "vlog ăn uống Quận 8 Sài Gòn",
+      "duration_seconds": 33,
+      "url": "https://www.youtube.com/watch?v=9v_yyeReoXY"
+    },
+    {
+      "video_id": "A6K-AK7RVQA",
+      "district": "Quận 10",
+      "query": "vlog ăn uống Quận 10 Sài Gòn",
+      "duration_seconds": 70,
+      "url": "https://www.youtube.com/watch?v=A6K-AK7RVQA"
+    },
+    {
+      "video_id": "UBgTtELcIx0",
+      "district": "Quận 10",
+      "query": "vlog ăn uống Quận 10 Sài Gòn",
+      "duration_seconds": 35,
+      "url": "https://www.youtube.com/watch?v=UBgTtELcIx0"
+    },
+    {
+      "video_id": "y2rm6K49wno",
+      "district": "Quận 10",
+      "query": "vlog ăn uống Quận 10 Sài Gòn",
+      "duration_seconds": 100,
+      "url": "https://www.youtube.com/watch?v=y2rm6K49wno"
+    },
+    {
+      "video_id": "nFm37jj9D3g",
+      "district": "Quận 11",
+      "query": "vlog ăn uống Quận 11 Sài Gòn",
+      "duration_seconds": 56,
+      "url": "https://www.youtube.com/watch?v=nFm37jj9D3g"
+    },
+    {
+      "video_id": "VeqLJRpA2jc",
+      "district": "Quận 11",
+      "query": "vlog ăn uống Quận 11 Sài Gòn",
+      "duration_seconds": 60,
+      "url": "https://www.youtube.com/watch?v=VeqLJRpA2jc"
+    },
+    {
+      "video_id": "kUraBPzlS4Y",
+      "district": "Quận 11",
+      "query": "vlog ăn uống Quận 11 Sài Gòn",
+      "duration_seconds": 60,
+      "url": "https://www.youtube.com/watch?v=kUraBPzlS4Y"
+    },
+    {
+      "video_id": "f1UgVTxgY28",
+      "district": "Quận 12",
+      "query": "vlog ăn uống Quận 12 Sài Gòn",
+      "duration_seconds": 18,
+      "url": "https://www.youtube.com/watch?v=f1UgVTxgY28"
+    },
+    {
+      "video_id": "7e_PB-1AfGI",
+      "district": "Quận 12",
+      "query": "vlog ăn uống Quận 12 Sài Gòn",
+      "duration_seconds": 9,
+      "url": "https://www.youtube.com/watch?v=7e_PB-1AfGI"
+    },
+    {
+      "video_id": "GSlAoEW3D6A",
+      "district": "Quận 12",
+      "query": "vlog ăn uống Quận 12 Sài Gòn",
+      "duration_seconds": 50,
+      "url": "https://www.youtube.com/watch?v=GSlAoEW3D6A"
+    },
+    {
+      "video_id": "T_z6-zkFJZ4",
+      "district": "Bình Thạnh",
+      "query": "vlog ăn uống Bình Thạnh Sài Gòn",
+      "duration_seconds": 115,
+      "url": "https://www.youtube.com/watch?v=T_z6-zkFJZ4"
+    },
+    {
+      "video_id": "U83NHugpnbk",
+      "district": "Bình Thạnh",
+      "query": "vlog ăn uống Bình Thạnh Sài Gòn",
+      "duration_seconds": 51,
+      "url": "https://www.youtube.com/watch?v=U83NHugpnbk"
+    },
+    {
+      "video_id": "J0GkTzSOMHA",
+      "district": "Bình Thạnh",
+      "query": "vlog ăn uống Bình Thạnh Sài Gòn",
+      "duration_seconds": 98,
+      "url": "https://www.youtube.com/watch?v=J0GkTzSOMHA"
+    },
+    {
+      "video_id": "A4l9DcQ-usg",
+      "district": "Gò Vấp",
+      "query": "vlog ăn uống Gò Vấp Sài Gòn",
+      "duration_seconds": 34,
+      "url": "https://www.youtube.com/watch?v=A4l9DcQ-usg"
+    },
+    {
+      "video_id": "6ANM8uAFuuQ",
+      "district": "Gò Vấp",
+      "query": "vlog ăn uống Gò Vấp Sài Gòn",
+      "duration_seconds": 80,
+      "url": "https://www.youtube.com/watch?v=6ANM8uAFuuQ"
+    },
+    {
+      "video_id": "9HQtVQtlFzI",
+      "district": "Gò Vấp",
+      "query": "vlog ăn uống Gò Vấp Sài Gòn",
+      "duration_seconds": 83,
+      "url": "https://www.youtube.com/watch?v=9HQtVQtlFzI"
+    },
+    {
+      "video_id": "FJlQxJoRQqo",
+      "district": "Phú Nhuận",
+      "query": "vlog ăn uống Phú Nhuận Sài Gòn",
+      "duration_seconds": 118,
+      "url": "https://www.youtube.com/watch?v=FJlQxJoRQqo"
+    },
+    {
+      "video_id": "0K33-yd04II",
+      "district": "Phú Nhuận",
+      "query": "vlog ăn uống Phú Nhuận Sài Gòn",
+      "duration_seconds": 25,
+      "url": "https://www.youtube.com/watch?v=0K33-yd04II"
+    },
+    {
+      "video_id": "uKw_XMz7kK8",
+      "district": "Phú Nhuận",
+      "query": "vlog ăn uống Phú Nhuận Sài Gòn",
+      "duration_seconds": 104,
+      "url": "https://www.youtube.com/watch?v=uKw_XMz7kK8"
+    },
+    {
+      "video_id": "2N2CNvISB5M",
+      "district": "Tân Bình",
+      "query": "vlog ăn uống Tân Bình Sài Gòn",
+      "duration_seconds": 110,
+      "url": "https://www.youtube.com/watch?v=2N2CNvISB5M"
+    },
+    {
+      "video_id": "cGyZcm4uZH0",
+      "district": "Tân Bình",
+      "query": "vlog ăn uống Tân Bình Sài Gòn",
+      "duration_seconds": 102,
+      "url": "https://www.youtube.com/watch?v=cGyZcm4uZH0"
+    },
+    {
+      "video_id": "kGFrbU97P9I",
+      "district": "Tân Bình",
+      "query": "vlog ăn uống Tân Bình Sài Gòn",
+      "duration_seconds": 117,
+      "url": "https://www.youtube.com/watch?v=kGFrbU97P9I"
+    },
+    {
+      "video_id": "KIPak88oF7Q",
+      "district": "Tân Phú",
+      "query": "vlog ăn uống Tân Phú Sài Gòn",
+      "duration_seconds": 45,
+      "url": "https://www.youtube.com/watch?v=KIPak88oF7Q"
+    },
+    {
+      "video_id": "329pXhCgquE",
+      "district": "Tân Phú",
+      "query": "vlog ăn uống Tân Phú Sài Gòn",
+      "duration_seconds": 34,
+      "url": "https://www.youtube.com/watch?v=329pXhCgquE"
+    },
+    {
+      "video_id": "ELX137MFels",
+      "district": "Tân Phú",
+      "query": "vlog ăn uống Tân Phú Sài Gòn",
+      "duration_seconds": 152,
+      "url": "https://www.youtube.com/watch?v=ELX137MFels"
+    },
+    {
+      "video_id": "zzlDuFTB4UQ",
+      "district": "Bình Tân",
+      "query": "vlog ăn uống Bình Tân Sài Gòn",
+      "duration_seconds": 63,
+      "url": "https://www.youtube.com/watch?v=zzlDuFTB4UQ"
+    },
+    {
+      "video_id": "nb6jwK6_V70",
+      "district": "Bình Tân",
+      "query": "vlog ăn uống Bình Tân Sài Gòn",
+      "duration_seconds": 39,
+      "url": "https://www.youtube.com/watch?v=nb6jwK6_V70"
+    },
+    {
+      "video_id": "VRwg_E8G0HY",
+      "district": "Bình Tân",
+      "query": "vlog ăn uống Bình Tân Sài Gòn",
+      "duration_seconds": 27,
+      "url": "https://www.youtube.com/watch?v=VRwg_E8G0HY"
+    },
+    {
+      "video_id": "vj44jYHaEK4",
+      "district": "TP Thủ Đức",
+      "query": "vlog ăn uống Thủ Đức Sài Gòn",
+      "duration_seconds": 33,
+      "url": "https://www.youtube.com/watch?v=vj44jYHaEK4"
+    },
+    {
+      "video_id": "xDS9KEbU-Bc",
+      "district": "TP Thủ Đức",
+      "query": "vlog ăn uống Thủ Đức Sài Gòn",
+      "duration_seconds": 152,
+      "url": "https://www.youtube.com/watch?v=xDS9KEbU-Bc"
+    },
+    {
+      "video_id": "csWgTJx0hRY",
+      "district": "TP Thủ Đức",
+      "query": "vlog ăn uống Thủ Đức Sài Gòn",
+      "duration_seconds": 20,
+      "url": "https://www.youtube.com/watch?v=csWgTJx0hRY"
+    },
+    {
+      "video_id": "cn7uEWkhQos",
+      "district": "Bình Chánh",
+      "query": "vlog ăn uống Bình Chánh Sài Gòn",
+      "duration_seconds": 29,
+      "url": "https://www.youtube.com/watch?v=cn7uEWkhQos"
+    },
+    {
+      "video_id": "7oMLnlL_rrU",
+      "district": "Bình Chánh",
+      "query": "vlog ăn uống Bình Chánh Sài Gòn",
+      "duration_seconds": 17,
+      "url": "https://www.youtube.com/watch?v=7oMLnlL_rrU"
+    },
+    {
+      "video_id": "8bMtuNgOq9k",
+      "district": "Bình Chánh",
+      "query": "vlog ăn uống Bình Chánh Sài Gòn",
+      "duration_seconds": 107,
+      "url": "https://www.youtube.com/watch?v=8bMtuNgOq9k"
+    },
+    {
+      "video_id": "ENxEdhGnsbM",
+      "district": "Củ Chi",
+      "query": "vlog ăn uống Củ Chi Sài Gòn",
+      "duration_seconds": 131,
+      "url": "https://www.youtube.com/watch?v=ENxEdhGnsbM"
+    },
+    {
+      "video_id": "9tDzV-RF4dI",
+      "district": "Củ Chi",
+      "query": "vlog ăn uống Củ Chi Sài Gòn",
+      "duration_seconds": 166,
+      "url": "https://www.youtube.com/watch?v=9tDzV-RF4dI"
+    },
+    {
+      "video_id": "-vVpSfBPi5E",
+      "district": "Củ Chi",
+      "query": "vlog ăn uống Củ Chi Sài Gòn",
+      "duration_seconds": 26,
+      "url": "https://www.youtube.com/watch?v=-vVpSfBPi5E"
+    },
+    {
+      "video_id": "uQWXaligRKo",
+      "district": "Hóc Môn",
+      "query": "vlog ăn uống Hóc Môn Sài Gòn",
+      "duration_seconds": 52,
+      "url": "https://www.youtube.com/watch?v=uQWXaligRKo"
+    },
+    {
+      "video_id": "f0nzzKwfaWg",
+      "district": "Hóc Môn",
+      "query": "vlog ăn uống Hóc Môn Sài Gòn",
+      "duration_seconds": 20,
+      "url": "https://www.youtube.com/watch?v=f0nzzKwfaWg"
+    },
+    {
+      "video_id": "ytlXclUmi7U",
+      "district": "Hóc Môn",
+      "query": "vlog ăn uống Hóc Môn Sài Gòn",
+      "duration_seconds": 63,
+      "url": "https://www.youtube.com/watch?v=ytlXclUmi7U"
+    },
+    {
+      "video_id": "Q1-1mruhtmo",
+      "district": "Nhà Bè",
+      "query": "vlog ăn uống Nhà Bè Sài Gòn",
+      "duration_seconds": 181,
+      "url": "https://www.youtube.com/watch?v=Q1-1mruhtmo"
+    },
+    {
+      "video_id": "KwBXyPVAzns",
+      "district": "Nhà Bè",
+      "query": "vlog ăn uống Nhà Bè Sài Gòn",
+      "duration_seconds": 35,
+      "url": "https://www.youtube.com/watch?v=KwBXyPVAzns"
+    },
+    {
+      "video_id": "JBuh_yr_Vus",
+      "district": "Nhà Bè",
+      "query": "vlog ăn uống Nhà Bè Sài Gòn",
+      "duration_seconds": 166,
+      "url": "https://www.youtube.com/watch?v=JBuh_yr_Vus"
+    },
+    {
+      "video_id": "JWwwWkZ5WNI",
+      "district": "Cần Giờ",
+      "query": "vlog ăn uống Cần Giờ Sài Gòn",
+      "duration_seconds": 121,
+      "url": "https://www.youtube.com/watch?v=JWwwWkZ5WNI"
+    },
+    {
+      "video_id": "hmYhX-IdWBI",
+      "district": "Cần Giờ",
+      "query": "vlog ăn uống Cần Giờ Sài Gòn",
+      "duration_seconds": 156,
+      "url": "https://www.youtube.com/watch?v=hmYhX-IdWBI"
+    },
+    {
+      "video_id": "_FHr7Mr_bMs",
+      "district": "Cần Giờ",
+      "query": "vlog ăn uống Cần Giờ Sài Gòn",
+      "duration_seconds": 17,
+      "url": "https://www.youtube.com/watch?v=_FHr7Mr_bMs"
+    }
+  ]
+}

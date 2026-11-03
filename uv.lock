@@ -395,6 +395,7 @@ dependencies = [
     { name = "fastapi" },
     { name = "geoalchemy2" },
     { name = "google-genai" },
+    { name = "httpx" },
     { name = "pydantic-settings" },
     { name = "sqlalchemy", extra = ["asyncio"] },
     { name = "uvicorn" },
@@ -402,7 +403,6 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "httpx" },
     { name = "pytest" },
     { name = "pytest-asyncio" },
     { name = "ruff" },
@@ -415,6 +415,7 @@ requires-dist = [
     { name = "fastapi" },
     { name = "geoalchemy2" },
     { name = "google-genai", specifier = ">=2.34.0" },
+    { name = "httpx", specifier = ">=0.28.1" },
     { name = "pydantic-settings" },
     { name = "sqlalchemy", extras = ["asyncio"] },
     { name = "uvicorn" },
@@ -422,7 +423,6 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "httpx" },
     { name = "pytest" },
     { name = "pytest-asyncio" },
     { name = "ruff" },

@@ -1,0 +1,220 @@
+{
+  "places": [
+    {
+      "name": "Bún Riêu Cây Mận",
+      "tips": [
+        "Nên đến sớm vì quán rất nhanh hết hàng"
+      ],
+      "items": [],
+      "vibes": [
+        "binh_dan",
+        "hoai_niem"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "một quán siêu lốc ở quận 10 đã bán gần 50 năm và đây là bún riêu cây mận",
+          "source": "audio",
+          "timestamp": "00:09"
+        },
+        {
+          "text": "350 Hòa Hảo, F.8, Q.10 13:30-ĐẾN HẾT Bún Riêu Cây Mận",
+          "source": "onscreen_text",
+          "timestamp": "00:17"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Quán bún riêu lâu đời gần 50 năm tại Quận 10",
+        "Tô bún riêu đơn giản nhưng vị ngon cuốn hút và mau hết"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "trua",
+        "chieu"
+      ],
+      "address_raw": "350 Hòa Hảo, F.8, Q.10",
+      "district_raw": "Q.10",
+      "sub_category": "bun_rieu",
+      "suitable_for": [
+        "mot_minh",
+        "cap_doi",
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "13:30 - đến hết",
+      "reservation_required": false,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Khải Ký Mì Gia",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "tiệm hủ tiếu người hoa đây là một quán rất là ngăn nắp vệ sinh sạch sẽ",
+          "source": "audio",
+          "timestamp": "00:20"
+        },
+        {
+          "text": "119 Vĩnh Viễn, Q.10 6:00-11:00 & 17:00-23:00 Khải Ký Mì Gia",
+          "source": "onscreen_text",
+          "timestamp": "00:27"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Tiệm hủ tiếu người Hoa ngăn nắp, sạch sẽ",
+        "Giá cả cực kỳ yêu thương từ 40k đến 60k",
+        "Bán xuyên Tết"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "119 Vĩnh Viễn, Q.10",
+      "district_raw": "Q.10",
+      "sub_category": "hu_tieu_mi",
+      "suitable_for": [
+        "mot_minh",
+        "cap_doi",
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": 60000,
+      "price_min_vnd": 40000,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "6:00 - 11:00 & 17:00 - 23:00",
+      "reservation_required": false,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Cơm Tấm Nga",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "đây là quán cơm tấm nga là một trong những quán cơm tấm bán rất là đa dạng món",
+          "source": "audio",
+          "timestamp": "00:30"
+        },
+        {
+          "text": "746 Sư Vạn Hạnh, Q.10 7:00-22:00 Cơm Tấm Nga",
+          "source": "onscreen_text",
+          "timestamp": "00:39"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Quán cơm tấm đa dạng món ăn",
+        "Có các món độc lạ như chả sò điệp hoặc xíu mại tôm",
+        "Nước mắm của quán rất xuất sắc"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "746 Sư Vạn Hạnh, Q.10",
+      "district_raw": "Q.10",
+      "sub_category": "com_tam",
+      "suitable_for": [
+        "mot_minh",
+        "cap_doi",
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "7:00 - 22:00",
+      "reservation_required": false,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Sợi & Sốt - Mì Ý - Hòa Hảo",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "đây là một tiệm chuyên về các món mì ý mì ý sốt bò bằm hoặc là mì ý kem nấm đồ á",
+          "source": "audio",
+          "timestamp": "00:41"
+        },
+        {
+          "text": "494/28 Hòa Hảo, F.8, Q.10 9:00-19:00 Sợi & Sốt - Mì Ý - Hòa Hảo",
+          "source": "onscreen_text",
+          "timestamp": "00:50"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Tiệm chuyên các món mì Ý và mì xào bò giá chỉ từ 29k",
+        "Các món bò lúc lắc, mì xào bò rất xuất sắc"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "494/28 Hòa Hảo, F.8, Q.10",
+      "district_raw": "Q.10",
+      "sub_category": "mi_y",
+      "suitable_for": [
+        "mot_minh",
+        "cap_doi",
+        "nhom_nho"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": 29000,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "9:00 - 19:00",
+      "reservation_required": false,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    }
+  ],
+  "is_relevant": true,
+  "video_summary": "Video tổng hợp 4 quán ăn ngon nổi tiếng lâu năm tại Quận 10, TP. Hồ Chí Minh."
+}

@@ -1,0 +1,75 @@
+{
+  "places": [
+    {
+      "name": "Chay Rau Củ Nấm Vegan",
+      "tips": [
+        "Phù hợp cho những ngày muốn đổi khẩu vị thanh nhẹ"
+      ],
+      "items": [
+        {
+          "name": "Lẩu Nấm",
+          "price_vnd": 220000
+        }
+      ],
+      "vibes": [
+        "am_cung",
+        "gan_gui",
+        "thu_gian"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "557 Lê Văn Lương, Tân Hưng, Hồ Chí Minh",
+          "source": "onscreen_text",
+          "timestamp": "00:16"
+        },
+        {
+          "text": "08:30-20:30",
+          "source": "onscreen_text",
+          "timestamp": "00:19"
+        },
+        {
+          "text": "Lẩu Nấm 220.000đ",
+          "source": "onscreen_text",
+          "timestamp": "00:41"
+        }
+      ],
+      "amenities": [
+        "may_lanh"
+      ],
+      "confidence": 0.95,
+      "highlights": [
+        "Lẩu nấm chay thanh ngọt từ rau củ tự nhiên",
+        "Không gian quán ấm cúng, sạch sẽ"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "557 Lê Văn Lương, Tân Hưng",
+      "district_raw": "Quận 7",
+      "sub_category": "lẩu chay",
+      "suitable_for": [
+        "mot_minh",
+        "cap_doi",
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": 220000,
+      "price_min_vnd": 220000,
+      "group_size_max": 6,
+      "group_size_min": 1,
+      "opening_hours_raw": "08:30-20:30",
+      "reservation_required": null,
+      "visit_duration_max_minutes": 90,
+      "visit_duration_min_minutes": 45
+    }
+  ],
+  "is_relevant": true,
+  "video_summary": "Video review quán Chay Rau Củ Nấm Vegan tại Lê Văn Lương, Quận 7 với món lẩu nấm chay thanh mát."
+}

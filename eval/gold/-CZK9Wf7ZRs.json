@@ -1,0 +1,242 @@
+{
+  "places": [
+    {
+      "name": "Bánh ruột heo",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "outdoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "214 Nguyễn Thị Nhỏ, Q.11 17:00-21:00",
+          "source": "onscreen_text",
+          "timestamp": "00:15"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Món bánh ruột heo độc đáo hiếm có ở Sài Gòn",
+        "Miếng nem, chả, bánh tôm to và dày"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "214 Nguyễn Thị Nhỏ",
+      "district_raw": "Q.11",
+      "sub_category": "bánh ruột heo",
+      "suitable_for": [
+        "mot_minh",
+        "cap_doi",
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "17:00 - 21:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Cà ri Quảng",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "outdoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "46 Dương Đình Nghệ, F.8, Q.11 11:00-20:00",
+          "source": "onscreen_text",
+          "timestamp": "00:24"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Tiệm cà ri người Hoa lâu năm",
+        "Có cà ri gà, vịt và đặc biệt là dê"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "46 Dương Đình Nghệ",
+      "district_raw": "Q.11",
+      "sub_category": "cà ri",
+      "suitable_for": [
+        "mot_minh",
+        "cap_doi",
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "11:00 - 20:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Cảo cảo Chanh Huy Kỳ",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "outdoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "397A Minh Phụng, F.10, Q.11 16:30-22:00",
+          "source": "onscreen_text",
+          "timestamp": "00:32"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Mì trộn khô xuất sắc, sốt tỏi ớt hấp dẫn",
+        "Sủi cảo ở quán làm rất ngon"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "397A Minh Phụng",
+      "district_raw": "Q.11",
+      "sub_category": "mì",
+      "suitable_for": [
+        "mot_minh",
+        "cap_doi",
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "16:30 - 22:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Hủ tiếu Anh Hai Sài Gòn",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "outdoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "192C Bình Thới, F.14, Q.11 6:00-13:30 & 16:00-23:30",
+          "source": "onscreen_text",
+          "timestamp": "00:41"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Chuyên các món nội tạng bò đa dạng",
+        "Bò viên nhà làm, các món trộn khô ngon miệng"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "192C Bình Thới",
+      "district_raw": "Q.11",
+      "sub_category": "hủ tiếu",
+      "suitable_for": [
+        "mot_minh",
+        "cap_doi",
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "6:00 - 13:30 & 16:00 - 23:30",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Hủ tiếu heo viên Chú Hồng",
+      "tips": [
+        "Quán bán khá khuya"
+      ],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "outdoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "22 Dương Đình Nghệ, Q.11 18:00-23:00",
+          "source": "onscreen_text",
+          "timestamp": "00:49"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Quán hủ tiếu heo viên kỳ cựu siêu lâu năm",
+        "Phù hợp cho những ai thích ăn đêm"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "toi",
+        "khuya"
+      ],
+      "address_raw": "22 Dương Đình Nghệ",
+      "district_raw": "Q.11",
+      "sub_category": "hủ tiếu",
+      "suitable_for": [
+        "mot_minh",
+        "cap_doi",
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "18:00 - 23:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    }
+  ],
+  "is_relevant": true,
+  "video_summary": "Video tổng hợp các quán ăn ngon tại Quận 11, TP. Hồ Chí Minh với sự giao thoa ẩm thực Việt - Hoa phong phú."
+}

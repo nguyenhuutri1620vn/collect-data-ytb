@@ -1,0 +1,252 @@
+{
+  "places": [
+    {
+      "name": "Quán Lẩu Hai Quang",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "Quán lẩu Hai Quang",
+          "source": "audio",
+          "timestamp": "00:09"
+        },
+        {
+          "text": "12 Đường Số 5A, KDC Bình Hưng 10:00-22:00",
+          "source": "onscreen_text",
+          "timestamp": "00:15"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Nổi tiếng với lẩu cá hắc lác và lẩu giò heo xịn."
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "12 Đường Số 5A, KDC Bình Hưng",
+      "district_raw": "Bình Chánh",
+      "sub_category": "lẩu",
+      "suitable_for": [
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "10:00-22:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Quán Ăn Út Ký",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "quán Hoa Út Ký",
+          "source": "audio",
+          "timestamp": "00:17"
+        },
+        {
+          "text": "686 Phạm Thế Hiển, P.4, Q.8 11:00-22:00",
+          "source": "onscreen_text",
+          "timestamp": "00:24"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Cơm gà xối mỡ và sườn xào chua ngọt rất ngon."
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "696 Phạm Thế Hiển, P.4, Q.8",
+      "district_raw": "Quận 8",
+      "sub_category": "cơm",
+      "suitable_for": [
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "11:00-22:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Bún Nước Lèo Sóc Trăng Cô Thủy",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "Bún nước lèo Sóc Trăng cô Thủy",
+          "source": "audio",
+          "timestamp": "00:26"
+        },
+        {
+          "text": "939 Phạm Thế Hiển, P.4, Q.8 6:00-13:00 & 17:00-21:00",
+          "source": "onscreen_text",
+          "timestamp": "00:33"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Bún nước lèo chuẩn vị, topping sắp xếp tỉ mỉ, giá bình dân."
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "939 Phạm Thế Hiển, P.4, Q.8",
+      "district_raw": "Quận 8",
+      "sub_category": "bún",
+      "suitable_for": [
+        "mot_minh",
+        "nhom_nho"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "6:00-13:00 & 17:00-21:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Lẩu Gà Lá É Nguyên Quán",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "Lẩu gà lá é Nguyên Quán",
+          "source": "audio",
+          "timestamp": "00:36"
+        },
+        {
+          "text": "36 Tám Danh, P.4, Q.8 14:00-23:00",
+          "source": "onscreen_text",
+          "timestamp": "00:40"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Quán lẩu gà lá é nằm núp hẻm chất lượng, có gà hấp mắm nhĩ."
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "36 Tám Danh, P.4, Q.8",
+      "district_raw": "Quận 8",
+      "sub_category": "lẩu",
+      "suitable_for": [
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "14:00-23:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Quán Ăn Tắc Ký",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "sang_trong"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "quán người Hoa rất là xuất sắc",
+          "source": "audio",
+          "timestamp": "00:43"
+        },
+        {
+          "text": "484 Dương Bá Trạc, Quận 8 11:30-23:00",
+          "source": "onscreen_text",
+          "timestamp": "00:50"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Quán ăn người Hoa do đầu bếp lâu năm đứng bếp, món ăn chuẩn vị nhà hàng."
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "484 Dương Bá Trạc, Quận 8",
+      "district_raw": "Quận 8",
+      "sub_category": "món Hoa",
+      "suitable_for": [
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "11:30-23:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    }
+  ],
+  "is_relevant": true,
+  "video_summary": "Video tổng hợp các quán ăn ngon quanh Quận 8 và khu vực lân cận với đa dạng món ăn hấp dẫn."
+}

@@ -1,0 +1,570 @@
+{
+  "generated_at": "2026-11-03T05:44:57.852454+00:00",
+  "plan": {
+    "queries": [
+      "đi chơi Quận 1",
+      "quán ăn ngon Quận 1",
+      "quán cafe Quận 1",
+      "đi chơi Quận 3",
+      "quán ăn ngon Quận 3",
+      "quán cafe Quận 3",
+      "đi chơi Quận 4",
+      "quán ăn ngon Quận 4",
+      "quán cafe Quận 4",
+      "đi chơi Quận 5",
+      "quán ăn ngon Quận 5",
+      "quán cafe Quận 5",
+      "đi chơi Quận 6",
+      "quán ăn ngon Quận 6",
+      "quán cafe Quận 6",
+      "đi chơi Quận 7",
+      "quán ăn ngon Quận 7",
+      "quán cafe Quận 7",
+      "đi chơi Quận 8",
+      "quán ăn ngon Quận 8",
+      "quán cafe Quận 8",
+      "đi chơi Quận 10",
+      "quán ăn ngon Quận 10",
+      "quán cafe Quận 10",
+      "đi chơi Quận 11",
+      "quán ăn ngon Quận 11",
+      "quán cafe Quận 11",
+      "đi chơi Quận 12",
+      "quán ăn ngon Quận 12",
+      "quán cafe Quận 12",
+      "đi chơi Bình Thạnh",
+      "quán ăn ngon Bình Thạnh",
+      "quán cafe Bình Thạnh",
+      "đi chơi Gò Vấp",
+      "quán ăn ngon Gò Vấp",
+      "quán cafe Gò Vấp",
+      "đi chơi Phú Nhuận",
+      "quán ăn ngon Phú Nhuận",
+      "quán cafe Phú Nhuận",
+      "đi chơi Tân Bình",
+      "quán ăn ngon Tân Bình",
+      "quán cafe Tân Bình",
+      "đi chơi Tân Phú",
+      "quán ăn ngon Tân Phú",
+      "quán cafe Tân Phú",
+      "đi chơi Bình Tân",
+      "quán ăn ngon Bình Tân",
+      "quán cafe Bình Tân",
+      "đi chơi Thủ Đức",
+      "quán ăn ngon Thủ Đức",
+      "quán cafe Thủ Đức",
+      "đi chơi Bình Chánh",
+      "quán ăn ngon Bình Chánh",
+      "quán cafe Bình Chánh",
+      "đi chơi Củ Chi",
+      "quán ăn ngon Củ Chi",
+      "quán cafe Củ Chi",
+      "đi chơi Hóc Môn",
+      "quán ăn ngon Hóc Môn",
+      "quán cafe Hóc Môn",
+      "đi chơi Nhà Bè",
+      "quán ăn ngon Nhà Bè",
+      "quán cafe Nhà Bè",
+      "đi chơi Cần Giờ",
+      "quán ăn ngon Cần Giờ",
+      "quán cafe Cần Giờ"
+    ],
+    "skipped_districts": [],
+    "pending_per_district": {},
+    "excluded_video_ids": 1,
+    "published_after": "2025-05-03T05:44:57.852454+00:00",
+    "max_seconds": 300,
+    "per_district": 3,
+    "needed_per_district": {
+      "Quận 1": 3,
+      "Quận 3": 3,
+      "Quận 4": 3,
+      "Quận 5": 3,
+      "Quận 6": 3,
+      "Quận 7": 3,
+      "Quận 8": 3,
+      "Quận 10": 3,
+      "Quận 11": 3,
+      "Quận 12": 3,
+      "Bình Thạnh": 3,
+      "Gò Vấp": 3,
+      "Phú Nhuận": 3,
+      "Tân Bình": 3,
+      "Tân Phú": 3,
+      "Bình Tân": 3,
+      "TP Thủ Đức": 3,
+      "Bình Chánh": 3,
+      "Củ Chi": 3,
+      "Hóc Môn": 3,
+      "Nhà Bè": 3,
+      "Cần Giờ": 3
+    },
+    "estimated_units": 6633,
+    "daily_units_limit": 10000
+  },
+  "stopped": null,
+  "candidates": [
+    {
+      "video_id": "TANMj-3Rlog",
+      "district": "Quận 1",
+      "query": "đi chơi Quận 1",
+      "duration_seconds": 23,
+      "url": "https://www.youtube.com/watch?v=TANMj-3Rlog"
+    },
+    {
+      "video_id": "1yHJppkViWs",
+      "district": "Quận 1",
+      "query": "đi chơi Quận 1",
+      "duration_seconds": 71,
+      "url": "https://www.youtube.com/watch?v=1yHJppkViWs"
+    },
+    {
+      "video_id": "Zhg6ORv2RUc",
+      "district": "Quận 1",
+      "query": "đi chơi Quận 1",
+      "duration_seconds": 8,
+      "url": "https://www.youtube.com/watch?v=Zhg6ORv2RUc"
+    },
+    {
+      "video_id": "NJOXyza046Y",
+      "district": "Quận 3",
+      "query": "đi chơi Quận 3",
+      "duration_seconds": 103,
+      "url": "https://www.youtube.com/watch?v=NJOXyza046Y"
+    },
+    {
+      "video_id": "7uNn-tGqlZY",
+      "district": "Quận 3",
+      "query": "đi chơi Quận 3",
+      "duration_seconds": 108,
+      "url": "https://www.youtube.com/watch?v=7uNn-tGqlZY"
+    },
+    {
+      "video_id": "8VtZGH9HEpA",
+      "district": "Quận 3",
+      "query": "đi chơi Quận 3",
+      "duration_seconds": 119,
+      "url": "https://www.youtube.com/watch?v=8VtZGH9HEpA"
+    },
+    {
+      "video_id": "-pculU525yQ",
+      "district": "Quận 4",
+      "query": "đi chơi Quận 4",
+      "duration_seconds": 11,
+      "url": "https://www.youtube.com/watch?v=-pculU525yQ"
+    },
+    {
+      "video_id": "P2oQmxg5gKE",
+      "district": "Quận 4",
+      "query": "đi chơi Quận 4",
+      "duration_seconds": 61,
+      "url": "https://www.youtube.com/watch?v=P2oQmxg5gKE"
+    },
+    {
+      "video_id": "l_XA9bp68RU",
+      "district": "Quận 4",
+      "query": "đi chơi Quận 4",
+      "duration_seconds": 59,
+      "url": "https://www.youtube.com/watch?v=l_XA9bp68RU"
+    },
+    {
+      "video_id": "pjedT1hPhkE",
+      "district": "Quận 5",
+      "query": "đi chơi Quận 5",
+      "duration_seconds": 59,
+      "url": "https://www.youtube.com/watch?v=pjedT1hPhkE"
+    },
+    {
+      "video_id": "cBKhWlAFI3A",
+      "district": "Quận 5",
+      "query": "đi chơi Quận 5",
+      "duration_seconds": 46,
+      "url": "https://www.youtube.com/watch?v=cBKhWlAFI3A"
+    },
+    {
+      "video_id": "xwNkN5oLfb8",
+      "district": "Quận 5",
+      "query": "đi chơi Quận 5",
+      "duration_seconds": 62,
+      "url": "https://www.youtube.com/watch?v=xwNkN5oLfb8"
+    },
+    {
+      "video_id": "qoYD1KFYvbA",
+      "district": "Quận 6",
+      "query": "đi chơi Quận 6",
+      "duration_seconds": 26,
+      "url": "https://www.youtube.com/watch?v=qoYD1KFYvbA"
+    },
+    {
+      "video_id": "eLUo9kEH3Q8",
+      "district": "Quận 6",
+      "query": "đi chơi Quận 6",
+      "duration_seconds": 37,
+      "url": "https://www.youtube.com/watch?v=eLUo9kEH3Q8"
+    },
+    {
+      "video_id": "F3ZPF14Rfqk",
+      "district": "Quận 6",
+      "query": "đi chơi Quận 6",
+      "duration_seconds": 14,
+      "url": "https://www.youtube.com/watch?v=F3ZPF14Rfqk"
+    },
+    {
+      "video_id": "JWvs60EY8RU",
+      "district": "Quận 7",
+      "query": "đi chơi Quận 7",
+      "duration_seconds": 41,
+      "url": "https://www.youtube.com/watch?v=JWvs60EY8RU"
+    },
+    {
+      "video_id": "g-XK9vK4tEU",
+      "district": "Quận 7",
+      "query": "đi chơi Quận 7",
+      "duration_seconds": 38,
+      "url": "https://www.youtube.com/watch?v=g-XK9vK4tEU"
+    },
+    {
+      "video_id": "aeGb6qXSZog",
+      "district": "Quận 7",
+      "query": "đi chơi Quận 7",
+      "duration_seconds": 8,
+      "url": "https://www.youtube.com/watch?v=aeGb6qXSZog"
+    },
+    {
+      "video_id": "6O55pOAHXyg",
+      "district": "Quận 8",
+      "query": "đi chơi Quận 8",
+      "duration_seconds": 55,
+      "url": "https://www.youtube.com/watch?v=6O55pOAHXyg"
+    },
+    {
+      "video_id": "UbFgC0a2xYU",
+      "district": "Quận 8",
+      "query": "đi chơi Quận 8",
+      "duration_seconds": 22,
+      "url": "https://www.youtube.com/watch?v=UbFgC0a2xYU"
+    },
+    {
+      "video_id": "iRLoV1o838g",
+      "district": "Quận 8",
+      "query": "đi chơi Quận 8",
+      "duration_seconds": 65,
+      "url": "https://www.youtube.com/watch?v=iRLoV1o838g"
+    },
+    {
+      "video_id": "3O6mm4g-szQ",
+      "district": "Quận 10",
+      "query": "đi chơi Quận 10",
+      "duration_seconds": 81,
+      "url": "https://www.youtube.com/watch?v=3O6mm4g-szQ"
+    },
+    {
+      "video_id": "n5lE-rrSKnM",
+      "district": "Quận 10",
+      "query": "đi chơi Quận 10",
+      "duration_seconds": 32,
+      "url": "https://www.youtube.com/watch?v=n5lE-rrSKnM"
+    },
+    {
+      "video_id": "iKjTpvTDibg",
+      "district": "Quận 10",
+      "query": "đi chơi Quận 10",
+      "duration_seconds": 36,
+      "url": "https://www.youtube.com/watch?v=iKjTpvTDibg"
+    },
+    {
+      "video_id": "rJPurZFwXgk",
+      "district": "Quận 11",
+      "query": "đi chơi Quận 11",
+      "duration_seconds": 8,
+      "url": "https://www.youtube.com/watch?v=rJPurZFwXgk"
+    },
+    {
+      "video_id": "zIdCoG2796c",
+      "district": "Quận 11",
+      "query": "đi chơi Quận 11",
+      "duration_seconds": 20,
+      "url": "https://www.youtube.com/watch?v=zIdCoG2796c"
+    },
+    {
+      "video_id": "PLmisJiOuq4",
+      "district": "Quận 11",
+      "query": "đi chơi Quận 11",
+      "duration_seconds": 23,
+      "url": "https://www.youtube.com/watch?v=PLmisJiOuq4"
+    },
+    {
+      "video_id": "h5q5DlcWo_8",
+      "district": "Quận 12",
+      "query": "đi chơi Quận 12",
+      "duration_seconds": 16,
+      "url": "https://www.youtube.com/watch?v=h5q5DlcWo_8"
+    },
+    {
+      "video_id": "ZPpJsInpnRg",
+      "district": "Quận 12",
+      "query": "đi chơi Quận 12",
+      "duration_seconds": 23,
+      "url": "https://www.youtube.com/watch?v=ZPpJsInpnRg"
+    },
+    {
+      "video_id": "iSGRjScfWVg",
+      "district": "Quận 12",
+      "query": "đi chơi Quận 12",
+      "duration_seconds": 19,
+      "url": "https://www.youtube.com/watch?v=iSGRjScfWVg"
+    },
+    {
+      "video_id": "0Eovhkh_Luk",
+      "district": "Bình Thạnh",
+      "query": "đi chơi Bình Thạnh",
+      "duration_seconds": 181,
+      "url": "https://www.youtube.com/watch?v=0Eovhkh_Luk"
+    },
+    {
+      "video_id": "YRsBjLuFcdM",
+      "district": "Bình Thạnh",
+      "query": "đi chơi Bình Thạnh",
+      "duration_seconds": 8,
+      "url": "https://www.youtube.com/watch?v=YRsBjLuFcdM"
+    },
+    {
+      "video_id": "wbAlGIvP3QU",
+      "district": "Bình Thạnh",
+      "query": "đi chơi Bình Thạnh",
+      "duration_seconds": 7,
+      "url": "https://www.youtube.com/watch?v=wbAlGIvP3QU"
+    },
+    {
+      "video_id": "32q5zFVkyoY",
+      "district": "Gò Vấp",
+      "query": "đi chơi Gò Vấp",
+      "duration_seconds": 88,
+      "url": "https://www.youtube.com/watch?v=32q5zFVkyoY"
+    },
+    {
+      "video_id": "Vzi1wWn0pU4",
+      "district": "Gò Vấp",
+      "query": "đi chơi Gò Vấp",
+      "duration_seconds": 10,
+      "url": "https://www.youtube.com/watch?v=Vzi1wWn0pU4"
+    },
+    {
+      "video_id": "qSvfRdfOYgU",
+      "district": "Gò Vấp",
+      "query": "đi chơi Gò Vấp",
+      "duration_seconds": 47,
+      "url": "https://www.youtube.com/watch?v=qSvfRdfOYgU"
+    },
+    {
+      "video_id": "EeR2t9yvkjI",
+      "district": "Phú Nhuận",
+      "query": "đi chơi Phú Nhuận",
+      "duration_seconds": 52,
+      "url": "https://www.youtube.com/watch?v=EeR2t9yvkjI"
+    },
+    {
+      "video_id": "eI1L7R2VHS8",
+      "district": "Phú Nhuận",
+      "query": "đi chơi Phú Nhuận",
+      "duration_seconds": 27,
+      "url": "https://www.youtube.com/watch?v=eI1L7R2VHS8"
+    },
+    {
+      "video_id": "b05krBPKy-8",
+      "district": "Phú Nhuận",
+      "query": "đi chơi Phú Nhuận",
+      "duration_seconds": 109,
+      "url": "https://www.youtube.com/watch?v=b05krBPKy-8"
+    },
+    {
+      "video_id": "92tTA9qwwQU",
+      "district": "Tân Bình",
+      "query": "đi chơi Tân Bình",
+      "duration_seconds": 25,
+      "url": "https://www.youtube.com/watch?v=92tTA9qwwQU"
+    },
+    {
+      "video_id": "qJsSbAaSk1c",
+      "district": "Tân Bình",
+      "query": "đi chơi Tân Bình",
+      "duration_seconds": 21,
+      "url": "https://www.youtube.com/watch?v=qJsSbAaSk1c"
+    },
+    {
+      "video_id": "kMbLXDFQK2E",
+      "district": "Tân Bình",
+      "query": "đi chơi Tân Bình",
+      "duration_seconds": 19,
+      "url": "https://www.youtube.com/watch?v=kMbLXDFQK2E"
+    },
+    {
+      "video_id": "x5hiTdfMH4g",
+      "district": "Tân Phú",
+      "query": "đi chơi Tân Phú",
+      "duration_seconds": 221,
+      "url": "https://www.youtube.com/watch?v=x5hiTdfMH4g"
+    },
+    {
+      "video_id": "WTa87r7fEvU",
+      "district": "Tân Phú",
+      "query": "đi chơi Tân Phú",
+      "duration_seconds": 16,
+      "url": "https://www.youtube.com/watch?v=WTa87r7fEvU"
+    },
+    {
+      "video_id": "M752RoXOkFU",
+      "district": "Tân Phú",
+      "query": "đi chơi Tân Phú",
+      "duration_seconds": 46,
+      "url": "https://www.youtube.com/watch?v=M752RoXOkFU"
+    },
+    {
+      "video_id": "nQuDUHW3N6I",
+      "district": "Bình Tân",
+      "query": "đi chơi Bình Tân",
+      "duration_seconds": 15,
+      "url": "https://www.youtube.com/watch?v=nQuDUHW3N6I"
+    },
+    {
+      "video_id": "tawCOdcHawA",
+      "district": "Bình Tân",
+      "query": "đi chơi Bình Tân",
+      "duration_seconds": 14,
+      "url": "https://www.youtube.com/watch?v=tawCOdcHawA"
+    },
+    {
+      "video_id": "56ZyAe7snQo",
+      "district": "Bình Tân",
+      "query": "đi chơi Bình Tân",
+      "duration_seconds": 5,
+      "url": "https://www.youtube.com/watch?v=56ZyAe7snQo"
+    },
+    {
+      "video_id": "R3u58DpL1yg",
+      "district": "TP Thủ Đức",
+      "query": "đi chơi Thủ Đức",
+      "duration_seconds": 11,
+      "url": "https://www.youtube.com/watch?v=R3u58DpL1yg"
+    },
+    {
+      "video_id": "32b0GjF2qSM",
+      "district": "TP Thủ Đức",
+      "query": "đi chơi Thủ Đức",
+      "duration_seconds": 73,
+      "url": "https://www.youtube.com/watch?v=32b0GjF2qSM"
+    },
+    {
+      "video_id": "D34TkBj53Ug",
+      "district": "TP Thủ Đức",
+      "query": "đi chơi Thủ Đức",
+      "duration_seconds": 10,
+      "url": "https://www.youtube.com/watch?v=D34TkBj53Ug"
+    },
+    {
+      "video_id": "a0P5xtsrIXY",
+      "district": "Bình Chánh",
+      "query": "đi chơi Bình Chánh",
+      "duration_seconds": 59,
+      "url": "https://www.youtube.com/watch?v=a0P5xtsrIXY"
+    },
+    {
+      "video_id": "9Cwa7CS1lLw",
+      "district": "Bình Chánh",
+      "query": "đi chơi Bình Chánh",
+      "duration_seconds": 19,
+      "url": "https://www.youtube.com/watch?v=9Cwa7CS1lLw"
+    },
+    {
+      "video_id": "ffnw0ZwKN5g",
+      "district": "Bình Chánh",
+      "query": "đi chơi Bình Chánh",
+      "duration_seconds": 8,
+      "url": "https://www.youtube.com/watch?v=ffnw0ZwKN5g"
+    },
+    {
+      "video_id": "cI57An358pw",
+      "district": "Củ Chi",
+      "query": "đi chơi Củ Chi",
+      "duration_seconds": 18,
+      "url": "https://www.youtube.com/watch?v=cI57An358pw"
+    },
+    {
+      "video_id": "s5YG-zESwnk",
+      "district": "Củ Chi",
+      "query": "đi chơi Củ Chi",
+      "duration_seconds": 108,
+      "url": "https://www.youtube.com/watch?v=s5YG-zESwnk"
+    },
+    {
+      "video_id": "rgDtoyjFxIc",
+      "district": "Củ Chi",
+      "query": "đi chơi Củ Chi",
+      "duration_seconds": 9,
+      "url": "https://www.youtube.com/watch?v=rgDtoyjFxIc"
+    },
+    {
+      "video_id": "H9t1FECVcBI",
+      "district": "Hóc Môn",
+      "query": "đi chơi Hóc Môn",
+      "duration_seconds": 46,
+      "url": "https://www.youtube.com/watch?v=H9t1FECVcBI"
+    },
+    {
+      "video_id": "MZ5ael8Ow8s",
+      "district": "Hóc Môn",
+      "query": "đi chơi Hóc Môn",
+      "duration_seconds": 61,
+      "url": "https://www.youtube.com/watch?v=MZ5ael8Ow8s"
+    },
+    {
+      "video_id": "zQybj9wcM5k",
+      "district": "Hóc Môn",
+      "query": "đi chơi Hóc Môn",
+      "duration_seconds": 13,
+      "url": "https://www.youtube.com/watch?v=zQybj9wcM5k"
+    },
+    {
+      "video_id": "5Gk_kIEC94Y",
+      "district": "Nhà Bè",
+      "query": "đi chơi Nhà Bè",
+      "duration_seconds": 7,
+      "url": "https://www.youtube.com/watch?v=5Gk_kIEC94Y"
+    },
+    {
+      "video_id": "fxLBmPmG3LI",
+      "district": "Nhà Bè",
+      "query": "đi chơi Nhà Bè",
+      "duration_seconds": 18,
+      "url": "https://www.youtube.com/watch?v=fxLBmPmG3LI"
+    },
+    {
+      "video_id": "1YibOCtGrkM",
+      "district": "Nhà Bè",
+      "query": "đi chơi Nhà Bè",
+      "duration_seconds": 10,
+      "url": "https://www.youtube.com/watch?v=1YibOCtGrkM"
+    },
+    {
+      "video_id": "QupHaXR7hHs",
+      "district": "Cần Giờ",
+      "query": "đi chơi Cần Giờ",
+      "duration_seconds": 96,
+      "url": "https://www.youtube.com/watch?v=QupHaXR7hHs"
+    },
+    {
+      "video_id": "f1c9RE7nlXI",
+      "district": "Cần Giờ",
+      "query": "đi chơi Cần Giờ",
+      "duration_seconds": 21,
+      "url": "https://www.youtube.com/watch?v=f1c9RE7nlXI"
+    },
+    {
+      "video_id": "XPvUzxMRs6A",
+      "district": "Cần Giờ",
+      "query": "đi chơi Cần Giờ",
+      "duration_seconds": 191,
+      "url": "https://www.youtube.com/watch?v=XPvUzxMRs6A"
+    }
+  ]
+}

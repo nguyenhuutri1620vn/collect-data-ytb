@@ -1,0 +1,266 @@
+{
+  "places": [
+    {
+      "name": "Bún Riêu Cạnh Bún Cua Đồng",
+      "tips": [
+        "Có thể hết sớm nên ghé đúng giờ"
+      ],
+      "items": [
+        {
+          "name": "Bún riêu",
+          "price_vnd": 30000
+        }
+      ],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "10 Đường Số 26, F.11, Q.6",
+          "source": "onscreen_text",
+          "timestamp": "00:13"
+        },
+        {
+          "text": "15:00 - 20:00 (có thể hết sớm)",
+          "source": "onscreen_text",
+          "timestamp": "00:14"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Quán gia đình siêu sạch sẽ và vệ sinh",
+        "Hương vị nấu ngon đậm đà",
+        "Một tô đơn giản chỉ từ 30 cành"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "10 Đường Số 26, F.11, Q.6",
+      "district_raw": "Quận 6",
+      "sub_category": "bun_rieu",
+      "suitable_for": [
+        "gia_dinh",
+        "nhom_nho"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": 30000,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "15:00 - 20:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Tiệm Hủ Tiếu Sài Gòn Xịn",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "hoai_niem"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "58 Hậu Giang, F.2, Q.6",
+          "source": "onscreen_text",
+          "timestamp": "00:23"
+        },
+        {
+          "text": "7:00 - 24:00",
+          "source": "onscreen_text",
+          "timestamp": "00:24"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Nằm trên khu đường ẩm thực Hậu Giang",
+        "Topping đầy đặn, bắt mắt, trang trí có gu"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi",
+        "khuya"
+      ],
+      "address_raw": "58 Hậu Giang, F.2, Q.6",
+      "district_raw": "Quận 6",
+      "sub_category": "hu_tieu",
+      "suitable_for": [
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "7:00 - 24:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Bún Bò Cay 3A",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "116 Chợ Lớn, F.11, Q.6",
+          "source": "onscreen_text",
+          "timestamp": "00:33"
+        },
+        {
+          "text": "6:00 - 22:00 (có thể hết sớm)",
+          "source": "onscreen_text",
+          "timestamp": "00:33"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Nước lèo vị cay nồng ấm hợp cho tín đồ ăn cay",
+        "Hương vị đậm đà ngon"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "116 Chợ Lớn, F.11, Q.6",
+      "district_raw": "Quận 6",
+      "sub_category": "bun_bo",
+      "suitable_for": [
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "6:00 - 22:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Bánh Canh Bột Lọc - Bột Gạo Nhà Bột",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "75A Minh Phụng, F.5, Q.6",
+          "source": "onscreen_text",
+          "timestamp": "00:41"
+        },
+        {
+          "text": "8:00 - 22:00",
+          "source": "onscreen_text",
+          "timestamp": "00:41"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Nằm gần ngã tư Minh Phụng với Hậu Giang",
+        "Có bánh canh bột lọc và bột gạo cho khách lựa chọn"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "75A Minh Phụng, F.5, Q.6",
+      "district_raw": "Quận 6",
+      "sub_category": "banh_canh",
+      "suitable_for": [
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "8:00 - 22:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Yang Quán",
+      "tips": [
+        "Nên thử nước lẩu gian"
+      ],
+      "items": [],
+      "vibes": [],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "269 Bà Hom, F.13, Q.6",
+          "source": "onscreen_text",
+          "timestamp": "00:50"
+        },
+        {
+          "text": "16:00 - 22:00",
+          "source": "onscreen_text",
+          "timestamp": "00:50"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Tiệm lẩu người Hoa nước lẩu rất ngon",
+        "Quầy nước chấm rất chất lượng"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "269 Bà Hom, F.13, Q.6",
+      "district_raw": "Quận 6",
+      "sub_category": "lau",
+      "suitable_for": [
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "16:00 - 22:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    }
+  ],
+  "is_relevant": true,
+  "video_summary": "Video tổng hợp các quán ăn ngon và đặc sắc tại Quận 6, TP. Hồ Chí Minh."
+}
