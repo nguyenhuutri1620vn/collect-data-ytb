@@ -8,6 +8,7 @@ dependencies = [
     "asyncpg",
     "fastapi",
     "geoalchemy2",
+    "google-genai>=2.34.0",
     "pydantic-settings",
     "sqlalchemy[asyncio]",
     "uvicorn",
