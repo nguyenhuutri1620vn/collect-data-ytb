@@ -21,7 +21,7 @@ class Settings(BaseSettings):
 
     youtube_api_key: SecretStr | None = None
     gemini_api_key: SecretStr | None = None
-    gemini_model: str | None = None
+    gemini_model: str = "gemini-2.5-flash"
     gemini_media_resolution: Literal["low", "default"] = "low"
     google_places_api_key: SecretStr | None = None
     admin_token: SecretStr | None = None
