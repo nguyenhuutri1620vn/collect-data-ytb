@@ -1,0 +1,178 @@
+{
+  "places": [
+    {
+      "name": "Mê Trộn Nu - Bánh tráng hẻm 61",
+      "tips": [],
+      "items": [
+        {
+          "name": "Bánh tráng",
+          "price_vnd": null
+        }
+      ],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "outdoor",
+      "category": "an",
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "0788755417"
+        }
+      ],
+      "evidence": [
+        {
+          "text": "1. Trộn - Bánh tráng hẻm 61, 61/20 Nguyễn Thị Kiểu, Q12",
+          "source": "onscreen_text",
+          "timestamp": "00:02"
+        },
+        {
+          "text": "T3-T7 19H - 22H | CN 15H - 22H Menu chỉ từ 17K đến 35K nhen",
+          "source": "onscreen_text",
+          "timestamp": "00:07"
+        }
+      ],
+      "amenities": [],
+      "confidence": 1,
+      "highlights": [
+        "Quán bánh tráng trộn hẻm nổi tiếng ở Quận 12",
+        "Menu đa dạng từ 17K đến 35K"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "toi"
+      ],
+      "address_raw": "61/20 Nguyễn Thị Kiểu, Q.12",
+      "district_raw": "Quận 12",
+      "sub_category": "bánh tráng",
+      "suitable_for": [
+        "nhom_nho",
+        "cap_doi"
+      ],
+      "price_max_vnd": 35000,
+      "price_min_vnd": 17000,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "T3-T7 19h - 22h | CN 15h - 22h",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Tàu Hũ Sing",
+      "tips": [],
+      "items": [
+        {
+          "name": "Tàu hũ flan rau câu",
+          "price_vnd": 39000
+        }
+      ],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "uong",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "2. Flan - Tàu Hũ Sing, 12 Tân Chánh Hiệp 36, Quận 12",
+          "source": "onscreen_text",
+          "timestamp": "00:09"
+        },
+        {
+          "text": "9H - 22H, 1 phần này chỉ 39K thui nè",
+          "source": "onscreen_text",
+          "timestamp": "00:14"
+        }
+      ],
+      "amenities": [],
+      "confidence": 1,
+      "highlights": [
+        "Tàu hũ flan số lượng đầy đặn giá 39K"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "12 Tân Chánh Hiệp 36, Quận 12",
+      "district_raw": "Quận 12",
+      "sub_category": "tàu hũ - flan",
+      "suitable_for": [
+        "nhom_nho",
+        "cap_doi"
+      ],
+      "price_max_vnd": 39000,
+      "price_min_vnd": 39000,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "9H - 22H",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Môchi Môchi Pasta",
+      "tips": [],
+      "items": [
+        {
+          "name": "Mì ý cua",
+          "price_vnd": 69000
+        }
+      ],
+      "vibes": [
+        "soi_dong"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "3. Môchi môchi pasta, 280A Nguyễn Thành Vĩnh, Q12",
+          "source": "onscreen_text",
+          "timestamp": "00:21"
+        },
+        {
+          "text": "9H - 22H, Mì ý cua chỉ 69K/phần siêu đông",
+          "source": "onscreen_text",
+          "timestamp": "00:23"
+        }
+      ],
+      "amenities": [
+        "may_lanh"
+      ],
+      "confidence": 1,
+      "highlights": [
+        "Mì ý cua siêu đông khách, không gian máy lạnh",
+        "Mì ý cua giá 69K một phần"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "280A Nguyễn Thành Vĩnh, Q.12",
+      "district_raw": "Quận 12",
+      "sub_category": "mì ý",
+      "suitable_for": [
+        "nhom_nho",
+        "nhom_lon",
+        "gia_dinh"
+      ],
+      "price_max_vnd": 69000,
+      "price_min_vnd": 69000,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "9H - 22H",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    }
+  ],
+  "is_relevant": true,
+  "video_summary": "Video tổng hợp 3 quán ăn uống nổi tiếng ở Quận 12 bao gồm bánh tráng trộn, tàu hũ flan và mì ý."
+}

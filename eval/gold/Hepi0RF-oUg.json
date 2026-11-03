@@ -1,0 +1,73 @@
+{
+  "places": [
+    {
+      "name": "Gu Dimsum",
+      "tips": [
+        "Set ăn trưa phục vụ từ 11:00 đến 13:30"
+      ],
+      "items": [
+        {
+          "name": "set ăn trưa",
+          "price_vnd": 65000
+        },
+        {
+          "name": "miến xào tôm lộp",
+          "price_vnd": 188000
+        }
+      ],
+      "vibes": [
+        "hoai_niem",
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "ở Phú Nhuận",
+          "source": "onscreen_text",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "202 Phan Đăng Lưu, F.Đức Nhuận, 7:30 - 21:30, GU DIMSUM",
+          "source": "onscreen_text",
+          "timestamp": "01:43"
+        }
+      ],
+      "amenities": [
+        "may_lanh"
+      ],
+      "confidence": 0.95,
+      "highlights": [
+        "Không gian nhỏ xinh, decor phong cách Hong Kong",
+        "Set ăn trưa giá chỉ 65k đầy đặn có cả canh và trà đá",
+        "Miến xào tôm lộp thấm vị, nhiều tôm và rất ngon"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "202 Phan Đăng Lưu, Phường Đức Nhuận",
+      "district_raw": "Phú Nhuận",
+      "sub_category": "dimsum",
+      "suitable_for": [
+        "gia_dinh",
+        "cap_doi",
+        "nhom_nho"
+      ],
+      "price_max_vnd": 200000,
+      "price_min_vnd": 50000,
+      "group_size_max": 6,
+      "group_size_min": 1,
+      "opening_hours_raw": "7:30 - 21:30",
+      "reservation_required": null,
+      "visit_duration_max_minutes": 90,
+      "visit_duration_min_minutes": 45
+    }
+  ],
+  "is_relevant": true,
+  "video_summary": "Video review quán Gu Dimsum tại 202 Phan Đăng Lưu, quận Phú Nhuận với không gian Hong Kong đẹp, nhiều món ăn ngon và giá cả hợp lý."
+}

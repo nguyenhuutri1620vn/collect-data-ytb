@@ -1,0 +1,309 @@
+{
+  "places": [
+    {
+      "name": "Quán bún bò bình dân",
+      "tips": [],
+      "items": [
+        {
+          "name": "Tô thập cẩm",
+          "price_vnd": 45000
+        }
+      ],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "258 Trần Văn Đăng, P.11, Quận 3 08:00-20:00",
+          "source": "onscreen_text",
+          "timestamp": "00:10"
+        },
+        {
+          "text": "Đầu tiên là một quán bún bò bình dân 45 cành thôi",
+          "source": "audio",
+          "timestamp": "00:10"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Nước lèo thơm xả đậm đà",
+        "Tô bún nhiều topping chả cua, nạm, chả giò, gân bò viên"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "258 Trần Văn Đăng",
+      "district_raw": "Quận 3",
+      "sub_category": "bún bò",
+      "suitable_for": [
+        "mot_minh",
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": 45000,
+      "price_min_vnd": 45000,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "08:00-20:00",
+      "reservation_required": false,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Quán ăn vặt",
+      "tips": [
+        "Quán đông nên khách chịu khó chờ chút"
+      ],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "174/51/32 Nguyễn Thiện Thuật, Bàn Cờ 10:00-21:00 (nghỉ thứ Hai)",
+          "source": "onscreen_text",
+          "timestamp": "00:21"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Đa dạng món gà viên, sốt ttokbokki, mì bò",
+        "Giá cả hạt dẻ"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "174/51/32 Nguyễn Thiện Thuật",
+      "district_raw": "Bàn Cờ",
+      "sub_category": "ăn vặt",
+      "suitable_for": [
+        "nhom_nho",
+        "cap_doi"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "10:00-21:00",
+      "reservation_required": false,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Midori",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "thu_gian",
+        "rieng_tu"
+      ],
+      "setting": "indoor",
+      "category": "uong",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "230/19 Pasteur, Xuân Hòa 08:00-22:00",
+          "source": "onscreen_text",
+          "timestamp": "00:36"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Tiệm matcha phong cách Nhật Bản nhẹ nhàng, yên tĩnh",
+        "Nhiều loại matcha custom theo sở thích"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "230/19 Pasteur",
+      "district_raw": "Xuân Hòa",
+      "sub_category": "matcha",
+      "suitable_for": [
+        "mot_minh",
+        "cap_doi",
+        "nhom_nho"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "08:00-22:00",
+      "reservation_required": false,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Gánh tàu hũ đối diện chợ Nguyễn Văn Trỗi",
+      "tips": [],
+      "items": [
+        {
+          "name": "Chén nhỏ",
+          "price_vnd": 10000
+        },
+        {
+          "name": "Ly lớn",
+          "price_vnd": 15000
+        }
+      ],
+      "vibes": [
+        "binh_dan",
+        "hoai_niem"
+      ],
+      "setting": "outdoor",
+      "category": "uong",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "284/16 Lê Văn Sỹ, Bàn Cờ 07:30-19:30",
+          "source": "onscreen_text",
+          "timestamp": "00:55"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Nước cốt dừa béo sánh mịn",
+        "Tàu hũ mềm, trân châu dẻo dẻo"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "284/16 Lê Văn Sỹ",
+      "district_raw": "Bàn Cờ",
+      "sub_category": "tàu hũ",
+      "suitable_for": [
+        "mot_minh",
+        "nhom_nho"
+      ],
+      "price_max_vnd": 15000,
+      "price_min_vnd": 10000,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "07:30-19:30",
+      "reservation_required": false,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Quán Thái",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "soi_dong"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "443 Hai Bà Trưng, Xuân Hòa 16:00-21:30",
+          "source": "onscreen_text",
+          "timestamp": "01:04"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Pad Thai, gỏi tôm sống, tôm sốt Thái hấp dẫn"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "443 Hai Bà Trưng",
+      "district_raw": "Xuân Hòa",
+      "sub_category": "món Thái",
+      "suitable_for": [
+        "nhom_nho",
+        "nhom_lon",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "16:00-21:30",
+      "reservation_required": false,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Quán bún riêu Nguyễn Đình Chiểu",
+      "tips": [
+        "Quán hơi nóng và hay hết sớm nên đi ăn tranh thủ"
+      ],
+      "items": [
+        {
+          "name": "Một tô bún riêu",
+          "price_vnd": 45000
+        }
+      ],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "278/31 Nguyễn Đình Chiểu, Bàn Cờ 14:00-21:00",
+          "source": "onscreen_text",
+          "timestamp": "01:17"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Cục riêu to chà bả đầy đủ chả quế, riêu cua, ốc, chả heo, đậu hũ chiên huyết",
+        "Nước lèo đậm đà chất lượng"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "278/31 Nguyễn Đình Chiểu",
+      "district_raw": "Bàn Cờ",
+      "sub_category": "bún riêu",
+      "suitable_for": [
+        "mot_minh",
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": 45000,
+      "price_min_vnd": 45000,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "14:00-21:00",
+      "reservation_required": false,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    }
+  ],
+  "is_relevant": true,
+  "video_summary": "Video giới thiệu các quán ăn vặt, bún bò, quán matcha và tàu hũ ngon ở TP.HCM."
+}

@@ -60,7 +60,6 @@ class Mention(Base):
     place_fk: Mapped[int | None] = mapped_column(
         BigInteger, ForeignKey("places.id", ondelete="SET NULL"), index=True
     )
-    google_place_id: Mapped[str | None] = mapped_column(Text)
     match_status: Mapped[str] = mapped_column(
         Text, server_default=text("'pending'"), nullable=False
     )
@@ -104,7 +103,6 @@ class Place(Base):
 
     __tablename__ = "places"
     __table_args__ = (
-        UniqueConstraint("google_place_id", name="uq_places_google_place_id"),
         CheckConstraint(in_check("status", PLACE_STATUSES), name="ck_places_status"),
         CheckConstraint(in_check("category", CATEGORIES), name="ck_places_category"),
         CheckConstraint(in_check("setting", SETTINGS), name="ck_places_setting"),
@@ -113,7 +111,6 @@ class Place(Base):
     )
 
     id: Mapped[int] = mapped_column(BigInteger, Identity(), primary_key=True)
-    google_place_id: Mapped[str | None] = mapped_column(Text)
     name: Mapped[str] = mapped_column(Text, nullable=False)
     name_normalized: Mapped[str] = mapped_column(Text, nullable=False)
     address_raw: Mapped[str | None] = mapped_column(Text)
@@ -146,9 +143,6 @@ class Place(Base):
     tips: Mapped[list] = jsonb_list()
     mention_count: Mapped[int] = mapped_column(Integer, server_default=text("0"), nullable=False)
     source_video_ids: Mapped[list[str]] = text_array()
-    closed_permanently: Mapped[bool] = mapped_column(
-        Boolean, server_default=text("false"), nullable=False
-    )
     confidence: Mapped[float | None] = mapped_column(Float)
     status: Mapped[str] = mapped_column(Text, server_default=text("'draft'"), nullable=False)
     created_at: Mapped[datetime] = created_at()

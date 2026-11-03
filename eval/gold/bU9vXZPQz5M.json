@@ -1,0 +1,65 @@
+{
+  "places": [
+    {
+      "name": "Quán ăn Toàn Trí",
+      "tips": [
+        "Nên đi nhóm đông người để gọi được nhiều món"
+      ],
+      "items": [],
+      "vibes": [
+        "binh_dan",
+        "soi_dong"
+      ],
+      "setting": "mixed",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "Toàn Trí, 21-23 Hùng Vương, Quận 5, 9:00 đến khuya",
+          "source": "onscreen_text",
+          "timestamp": "01:17"
+        },
+        {
+          "text": "Quán này hơn nghe nói thâm niên hơn 20 năm rồi dân chơi Sài Gòn là ai cũng biết",
+          "source": "audio",
+          "timestamp": "01:11"
+        }
+      ],
+      "amenities": [
+        "may_lanh"
+      ],
+      "confidence": 0.95,
+      "highlights": [
+        "Quán ăn lâu năm hơn 20 năm tại Sài Gòn",
+        "Không gian rộng rãi, có phòng máy lạnh",
+        "Menu đa dạng nhiều món ngon hấp dẫn"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi",
+        "khuya"
+      ],
+      "address_raw": "21-23 Hùng Vương",
+      "district_raw": "Quận 5",
+      "sub_category": "lẩu và món nhậu",
+      "suitable_for": [
+        "nhom_nho",
+        "nhom_lon",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": 3,
+      "opening_hours_raw": "9:00 đến khuya",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    }
+  ],
+  "is_relevant": true,
+  "video_summary": "Video giới thiệu quán ăn Toàn Trí ở Quận 5 với nhiều món ngon như lẩu, thú linh nướng, cơm chiên bò Mỹ, tôm sốt thái và lẩu tủi."
+}

@@ -1,0 +1,211 @@
+{
+  "places": [
+    {
+      "name": "Bún Quậy",
+      "tips": [
+        "Có thể dặn quán nếu thích ăn tái"
+      ],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "Một tô cơ bản chỉ từ có 31 cành",
+          "source": "audio",
+          "timestamp": "00:15"
+        },
+        {
+          "text": "16-18 Tân Quý, F. Tân Quý, Tân Phú (Gần Aeon Tân Phú) 6:00-22:00",
+          "source": "onscreen_text",
+          "timestamp": "00:25"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Bún quậy bún tươi làm mới liên tục",
+        "Topping hải sản nấu chín hoàn toàn"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "16-18 Tân Quý, P. Tân Quý, Tân Phú",
+      "district_raw": "Tân Phú",
+      "sub_category": "bún quậy",
+      "suitable_for": [
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": 31000,
+      "price_min_vnd": 31000,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "6:00-22:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Hủ Tiếu Mì Hoa Sủi Cảo Vỹ Ký",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "Một quán trên đường Cây Keo có món sủi cảo siêu chất lượng",
+          "source": "audio",
+          "timestamp": "00:30"
+        },
+        {
+          "text": "3 Cây Keo, F. Hoà Thạnh, Tân Phú 8:00-00:00",
+          "source": "onscreen_text",
+          "timestamp": "00:37"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Sủi cảo siêu chất lượng",
+        "Hủ tiếu mì, sườn kho, bò kho ngon xuất sắc"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "3 Cây Keo, P. Hoà Thạnh, Tân Phú",
+      "district_raw": "Tân Phú",
+      "sub_category": "hủ tiếu sủi cảo",
+      "suitable_for": [
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "8:00-00:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Quán Ốc Nhi",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan",
+        "soi_dong"
+      ],
+      "setting": "outdoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "Phần ốc rẻ nhất là có 20 cành",
+          "source": "audio",
+          "timestamp": "00:43"
+        },
+        {
+          "text": "274/27 Vườn Lài, F. Phú Thọ Hoà (đối diện 103/19 Tân Hương) 15:00-1:00",
+          "source": "onscreen_text",
+          "timestamp": "00:51"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Quán ốc bình dân đông khách",
+        "Ốc tươi mới, các loại sốt đậm đà vừa vặn"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "chieu",
+        "toi",
+        "khuya"
+      ],
+      "address_raw": "274/27 Vườn Lài, P. Phú Thọ Hoà",
+      "district_raw": "Tân Phú",
+      "sub_category": "ốc",
+      "suitable_for": [
+        "nhom_nho",
+        "nhom_lon"
+      ],
+      "price_max_vnd": 20000,
+      "price_min_vnd": 20000,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "15:00-1:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    },
+    {
+      "name": "Tiệm Bò Lắc Lư",
+      "tips": [],
+      "items": [],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "Tiệm bò lắc lư thì đúng như là cái tên đã nói lên tất cả",
+          "source": "audio",
+          "timestamp": "01:09"
+        },
+        {
+          "text": "36 Vườn Lài, F. Tân Thành, Tân Phú 15:00-24:00",
+          "source": "onscreen_text",
+          "timestamp": "01:22"
+        }
+      ],
+      "amenities": [],
+      "confidence": 0.95,
+      "highlights": [
+        "Chuyên các món về bò như lẩu bò, lòng bò hấp, bò nướng, bò tơ cuốn rau rừng"
+      ],
+      "price_unit": null,
+      "time_slots": [
+        "chieu",
+        "toi",
+        "khuya"
+      ],
+      "address_raw": "36 Vườn Lài, P. Tân Thành, Tân Phú",
+      "district_raw": "Tân Phú",
+      "sub_category": "lẩu bò",
+      "suitable_for": [
+        "nhom_nho",
+        "nhom_lon",
+        "gia_dinh"
+      ],
+      "price_max_vnd": null,
+      "price_min_vnd": null,
+      "group_size_max": null,
+      "group_size_min": null,
+      "opening_hours_raw": "15:00-24:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": null,
+      "visit_duration_min_minutes": null
+    }
+  ],
+  "is_relevant": true,
+  "video_summary": "Video tổng hợp các quán ăn ngon nổi tiếng tại quận Tân Phú, TP. Hồ Chí Minh."
+}

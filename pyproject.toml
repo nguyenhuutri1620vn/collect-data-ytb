@@ -9,6 +9,7 @@ dependencies = [
     "fastapi",
     "geoalchemy2",
     "google-genai>=2.34.0",
+    "httpx>=0.28.1",
     "pydantic-settings",
     "sqlalchemy[asyncio]",
     "uvicorn",
@@ -16,7 +17,6 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "httpx",
     "pytest",
     "pytest-asyncio",
     "ruff",

@@ -1,0 +1,170 @@
+{
+  "places": [
+    {
+      "name": "Chè Hà Trâm",
+      "tips": [
+        "Có thể tự trộn các nguyên liệu theo sở thích thành ly chè riêng"
+      ],
+      "items": [
+        {
+          "name": "Thốt nốt",
+          "price_vnd": 20000
+        },
+        {
+          "name": "Dừa nước",
+          "price_vnd": 20000
+        },
+        {
+          "name": "Chè thập cẩm",
+          "price_vnd": 20000
+        },
+        {
+          "name": "Sâm bổ lượng",
+          "price_vnd": 20000
+        },
+        {
+          "name": "Trái vải",
+          "price_vnd": 20000
+        },
+        {
+          "name": "Chè dưỡng nhan",
+          "price_vnd": 25000
+        },
+        {
+          "name": "Thập cẩm trái cây",
+          "price_vnd": 25000
+        },
+        {
+          "name": "Hột vịt lộn/xào me",
+          "price_vnd": null
+        },
+        {
+          "name": "Cút lộn luộc/xào me",
+          "price_vnd": null
+        },
+        {
+          "name": "Bánh Flan",
+          "price_vnd": null
+        },
+        {
+          "name": "Nước mía",
+          "price_vnd": null
+        },
+        {
+          "name": "Rau má",
+          "price_vnd": null
+        },
+        {
+          "name": "Đậu xanh",
+          "price_vnd": 16000
+        },
+        {
+          "name": "Đậu xanh cà",
+          "price_vnd": 16000
+        },
+        {
+          "name": "Đậu đen",
+          "price_vnd": 16000
+        },
+        {
+          "name": "Đậu đỏ",
+          "price_vnd": 16000
+        },
+        {
+          "name": "Đậu trắng",
+          "price_vnd": 16000
+        },
+        {
+          "name": "Sương sáo",
+          "price_vnd": 16000
+        },
+        {
+          "name": "Cocktail",
+          "price_vnd": 16000
+        },
+        {
+          "name": "Thạch dừa",
+          "price_vnd": 16000
+        },
+        {
+          "name": "Bánh lọt hạt lựu",
+          "price_vnd": 16000
+        },
+        {
+          "name": "Chè Thái",
+          "price_vnd": 28000
+        },
+        {
+          "name": "Chè bi",
+          "price_vnd": 17000
+        },
+        {
+          "name": "Nhãn nhục",
+          "price_vnd": 17000
+        },
+        {
+          "name": "Củ năng",
+          "price_vnd": 17000
+        },
+        {
+          "name": "Củ sen",
+          "price_vnd": 17000
+        }
+      ],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "mixed",
+      "category": "an",
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "0934160966"
+        }
+      ],
+      "evidence": [
+        {
+          "text": "CHÈ - BÁNH FLAN - CHÈ THÁI HÀ TRÂM C200/8 Xóm Chiếu, P.14, Q.4",
+          "source": "onscreen_text",
+          "timestamp": "00:16"
+        },
+        {
+          "text": "Menu quán Chè Hà Trâm với các món chè và ăn vặt",
+          "source": "visual",
+          "timestamp": "00:27"
+        }
+      ],
+      "amenities": [],
+      "confidence": 1,
+      "highlights": [
+        "Quán chè hẻm đa dạng các loại topping tự chọn",
+        "Giá cả bình dân phù hợp học sinh sinh viên",
+        "Phục vụ nhanh chóng và nhiệt tình"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "C200/8 Xóm Chiếu, P14, Q4",
+      "district_raw": "Q.4",
+      "sub_category": "chè",
+      "suitable_for": [
+        "mot_minh",
+        "cap_doi",
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": 28000,
+      "price_min_vnd": 16000,
+      "group_size_max": 5,
+      "group_size_min": 1,
+      "opening_hours_raw": "14h đến 23h",
+      "reservation_required": false,
+      "visit_duration_max_minutes": 45,
+      "visit_duration_min_minutes": 20
+    }
+  ],
+  "is_relevant": true,
+  "video_summary": "Video giới thiệu quán Chè Hà Trâm ở Xóm Chiếu, Quận 4 với nhiều loại chè đa dạng và giá cả bình dân."
+}

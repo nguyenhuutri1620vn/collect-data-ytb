@@ -1,0 +1,73 @@
+{
+  "places": [
+    {
+      "name": "Bún Bò Hoa Lâm",
+      "tips": [
+        "Sân quán rộng có thể đậu xe ngay trước cửa"
+      ],
+      "items": [
+        {
+          "name": "bún chả",
+          "price_vnd": 35000
+        },
+        {
+          "name": "bún đặc biệt",
+          "price_vnd": 71000
+        }
+      ],
+      "vibes": [
+        "binh_dan"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "Bún Bò Hoa Lâm",
+          "source": "onscreen_text",
+          "timestamp": "00:08"
+        },
+        {
+          "text": "69/54 Nguyễn Gia Trí, Thạnh Mỹ Tây, Hồ Chí Minh",
+          "source": "onscreen_text",
+          "timestamp": "00:17"
+        }
+      ],
+      "amenities": [
+        "cho_dau_xe_may"
+      ],
+      "confidence": 0.95,
+      "highlights": [
+        "Nước dùng thơm mùi sả và ruế",
+        "Thịt bò tươi mềm",
+        "Không gian rộng rãi, sạch sẽ"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "69/54 Nguyễn Gia Trí, Thạnh Mỹ Tây, Hồ Chí Minh",
+      "district_raw": "Bình Thạnh",
+      "sub_category": "bún bò",
+      "suitable_for": [
+        "mot_minh",
+        "cap_doi",
+        "nhom_nho",
+        "gia_dinh"
+      ],
+      "price_max_vnd": 71000,
+      "price_min_vnd": 35000,
+      "group_size_max": 6,
+      "group_size_min": 1,
+      "opening_hours_raw": "06:30-12:30, 16:30-21:30",
+      "reservation_required": false,
+      "visit_duration_max_minutes": 60,
+      "visit_duration_min_minutes": 30
+    }
+  ],
+  "is_relevant": true,
+  "video_summary": "Video giới thiệu quán bún bò Hoa Lâm ở quận Bình Thạnh với mức giá bình dân và nước dùng đậm đà."
+}

@@ -1,0 +1,347 @@
+{
+  "generated_at": "2026-11-03T07:35:53.863346+00:00",
+  "prompt_version": "1",
+  "schema_version": "1",
+  "model": "gemini-3.5-flash-lite",
+  "media_resolution": "low",
+  "name_match_threshold": 0.8,
+  "scored_videos": 16,
+  "relevance_accuracy": 1.0,
+  "invalid_outputs": 0,
+  "errors": [],
+  "stopped": null,
+  "metrics": {
+    "name": {
+      "tp": 42,
+      "fp": 2,
+      "fn": 2,
+      "precision": 0.9545454545454546,
+      "recall": 0.9545454545454546,
+      "hallucination_rate": null,
+      "hallucinated": 0,
+      "gold_empty": 0
+    },
+    "category": {
+      "tp": 41,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.9761904761904762,
+      "recall": 0.9761904761904762,
+      "hallucination_rate": null,
+      "hallucinated": 0,
+      "gold_empty": 0
+    },
+    "price": {
+      "tp": 15,
+      "fp": 2,
+      "fn": 2,
+      "precision": 0.8823529411764706,
+      "recall": 0.8823529411764706,
+      "hallucination_rate": 0.0,
+      "hallucinated": 0,
+      "gold_empty": 25
+    },
+    "district": {
+      "tp": 37,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "hallucination_rate": 0.0,
+      "hallucinated": 0,
+      "gold_empty": 5
+    },
+    "setting": {
+      "tp": 36,
+      "fp": 2,
+      "fn": 6,
+      "precision": 0.9473684210526315,
+      "recall": 0.8571428571428571,
+      "hallucination_rate": null,
+      "hallucinated": 0,
+      "gold_empty": 0
+    },
+    "time_slots": {
+      "tp": 125,
+      "fp": 3,
+      "fn": 7,
+      "precision": 0.9765625,
+      "recall": 0.946969696969697,
+      "hallucination_rate": null,
+      "hallucinated": 0,
+      "gold_empty": 0
+    },
+    "suitable_for": {
+      "tp": 97,
+      "fp": 16,
+      "fn": 23,
+      "precision": 0.8584070796460177,
+      "recall": 0.8083333333333333,
+      "hallucination_rate": null,
+      "hallucinated": 0,
+      "gold_empty": 0
+    },
+    "vibes": {
+      "tp": 45,
+      "fp": 5,
+      "fn": 8,
+      "precision": 0.9,
+      "recall": 0.8490566037735849,
+      "hallucination_rate": 1.0,
+      "hallucinated": 1,
+      "gold_empty": 1
+    },
+    "amenities": {
+      "tp": 6,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.8571428571428571,
+      "recall": 1.0,
+      "hallucination_rate": 0.027777777777777776,
+      "hallucinated": 1,
+      "gold_empty": 36
+    },
+    "contacts": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "hallucination_rate": 0.0,
+      "hallucinated": 0,
+      "gold_empty": 40
+    }
+  },
+  "details": [
+    {
+      "video_id": "-CZK9Wf7ZRs",
+      "relevant_pred": true,
+      "relevant_gold": true,
+      "places_pred": [
+        "Bánh ruột heo",
+        "Cà ri Quảng",
+        "Cảo cảo Chanh Huy Ký",
+        "Hủ tiếu Anh Hai Sài Gòn",
+        "Hủ tiếu heo viên Chú Hồng"
+      ],
+      "places_gold": [
+        "Bánh ruột heo",
+        "Cà ri Quảng",
+        "Cảo cảo Chanh Huy Kỳ",
+        "Hủ tiếu Anh Hai Sài Gòn",
+        "Hủ tiếu heo viên Chú Hồng"
+      ]
+    },
+    {
+      "video_id": "-sOb1hnERns",
+      "relevant_pred": true,
+      "relevant_gold": true,
+      "places_pred": [
+        "Chay Rau Củ Nấm"
+      ],
+      "places_gold": [
+        "Chay Rau Củ Nấm Vegan"
+      ]
+    },
+    {
+      "video_id": "1MATRRU3CSk",
+      "relevant_pred": true,
+      "relevant_gold": true,
+      "places_pred": [
+        "Trộn - Bánh Tráng Hẻm 61",
+        "Flan - Tàu Hũ Sáng",
+        "Môchi Mochi Pasta"
+      ],
+      "places_gold": [
+        "Mê Trộn Nu - Bánh tráng hẻm 61",
+        "Tàu Hũ Sing",
+        "Môchi Môchi Pasta"
+      ]
+    },
+    {
+      "video_id": "40OJRy3KyAM",
+      "relevant_pred": true,
+      "relevant_gold": true,
+      "places_pred": [
+        "Bún Riêu Cạnh Bún Cua Đồng",
+        "Tiệm Hủ Tiếu Sài Gòn Xin",
+        "Bún Bò Cay 3A",
+        "Bánh Canh Bột Lọc - Bột Gạo Nha Bột",
+        "Yang Quán"
+      ],
+      "places_gold": [
+        "Bún Riêu Cạnh Bún Cua Đồng",
+        "Tiệm Hủ Tiếu Sài Gòn Xịn",
+        "Bún Bò Cay 3A",
+        "Bánh Canh Bột Lọc - Bột Gạo Nhà Bột",
+        "Yang Quán"
+      ]
+    },
+    {
+      "video_id": "Hepi0RF-oUg",
+      "relevant_pred": true,
+      "relevant_gold": true,
+      "places_pred": [
+        "Gu Dimsum"
+      ],
+      "places_gold": [
+        "Gu Dimsum"
+      ]
+    },
+    {
+      "video_id": "MW9z0YgwQ8o",
+      "relevant_pred": true,
+      "relevant_gold": true,
+      "places_pred": [
+        "Chè Hà Trâm"
+      ],
+      "places_gold": [
+        "Chè Hà Trâm"
+      ]
+    },
+    {
+      "video_id": "TANMj-3Rlog",
+      "relevant_pred": false,
+      "relevant_gold": false,
+      "places_pred": [],
+      "places_gold": []
+    },
+    {
+      "video_id": "VYBmqXFV0OY",
+      "relevant_pred": true,
+      "relevant_gold": true,
+      "places_pred": [
+        "Bún Bò Hoa Lâm"
+      ],
+      "places_gold": [
+        "Bún Bò Hoa Lâm"
+      ]
+    },
+    {
+      "video_id": "WM8TX-hViP0",
+      "relevant_pred": true,
+      "relevant_gold": true,
+      "places_pred": [
+        "Bún Riêu Cây Mận",
+        "Khải Ký Mì Gia",
+        "Cơm Tấm Nga",
+        "Sợi & Sốt - Mì Ý - Hoà Hảo"
+      ],
+      "places_gold": [
+        "Bún Riêu Cây Mận",
+        "Khải Ký Mì Gia",
+        "Cơm Tấm Nga",
+        "Sợi & Sốt - Mì Ý - Hòa Hảo"
+      ]
+    },
+    {
+      "video_id": "ZSjLeNv0UFA",
+      "relevant_pred": true,
+      "relevant_gold": true,
+      "places_pred": [
+        "Bún Quậy",
+        "Quán Vỹ Kỳ",
+        "Quán Ốc Nhi",
+        "Tiêm Bò Lắc Lư"
+      ],
+      "places_gold": [
+        "Bún Quậy",
+        "Hủ Tiếu Mì Hoa Sủi Cảo Vỹ Ký",
+        "Quán Ốc Nhi",
+        "Tiệm Bò Lắc Lư"
+      ]
+    },
+    {
+      "video_id": "bU9vXZPQz5M",
+      "relevant_pred": true,
+      "relevant_gold": true,
+      "places_pred": [
+        "Quán ăn Toàn Trí"
+      ],
+      "places_gold": [
+        "Quán ăn Toàn Trí"
+      ]
+    },
+    {
+      "video_id": "lclMBR6kJmw",
+      "relevant_pred": true,
+      "relevant_gold": true,
+      "places_pred": [
+        "Quán bún bò bình dân",
+        "Quán ăn vặt hai cô chú",
+        "Midori Matcha",
+        "Gánh tàu hũ đối diện chợ Nguyễn Văn Trỗi",
+        "Quán Thái",
+        "Quán bún riêu Nguyễn Đình Chiểu"
+      ],
+      "places_gold": [
+        "Quán bún bò bình dân",
+        "Quán ăn vặt",
+        "Midori",
+        "Gánh tàu hũ đối diện chợ Nguyễn Văn Trỗi",
+        "Quán Thái",
+        "Quán bún riêu Nguyễn Đình Chiểu"
+      ]
+    },
+    {
+      "video_id": "old6Wd5E0Qw",
+      "relevant_pred": true,
+      "relevant_gold": true,
+      "places_pred": [
+        "Bánh cuốn cô Vân",
+        "Ăn Vặt Bông",
+        "Út Ôi - Bò Nhúng",
+        "Tiệm trà Bất Ổn",
+        "Lò Đất BBQ"
+      ],
+      "places_gold": [
+        "Bánh cuốn cô Vân",
+        "Ăn vặt Bổng",
+        "Ốt Oiii - Bò nhúng",
+        "Tiệm trà Bất Ổn",
+        "Lò Đất BBQ"
+      ]
+    },
+    {
+      "video_id": "s42xorA1Yj8",
+      "relevant_pred": true,
+      "relevant_gold": true,
+      "places_pred": [
+        "Bếp Thái Koh Yam"
+      ],
+      "places_gold": [
+        "Bếp Thái Koh Yam"
+      ]
+    },
+    {
+      "video_id": "txo8F-fPt8Q",
+      "relevant_pred": true,
+      "relevant_gold": true,
+      "places_pred": [
+        "Quán Lẩu Hai Quang",
+        "Quán Ăn Út Ký",
+        "Bún Nước Lèo Sóc Trăng Cô Thúy",
+        "Lẩu Gà Lá É Nguyên Quán",
+        "Quán Ăn Tắc Ký"
+      ],
+      "places_gold": [
+        "Quán Lẩu Hai Quang",
+        "Quán Ăn Út Ký",
+        "Bún Nước Lèo Sóc Trăng Cô Thủy",
+        "Lẩu Gà Lá É Nguyên Quán",
+        "Quán Ăn Tắc Ký"
+      ]
+    },
+    {
+      "video_id": "w9RauARX_lA",
+      "relevant_pred": true,
+      "relevant_gold": true,
+      "places_pred": [
+        "Trương Hồng Ký"
+      ],
+      "places_gold": [
+        "Trương Hồng Ký"
+      ]
+    }
+  ]
+}

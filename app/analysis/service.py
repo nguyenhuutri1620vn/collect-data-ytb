@@ -43,13 +43,14 @@ def _parse(text: str) -> tuple[dict, VideoExtraction]:
         raise _InvalidOutput(str(exc)) from exc
 
 
-async def _call(
+async def call_gemini(
     session: AsyncSession,
     analyzer: VideoAnalyzer,
-    video: Video,
+    url: str,
     settings: Settings,
     now: datetime,
 ) -> GeminiResult:
+    """One Gemini call behind the quota guard (shared by Analysis and eval)."""
     day = quota_day(now, settings.quota_timezone)
     safety = settings.quota_safety_ratio
     await ensure_quota(
@@ -61,7 +62,7 @@ async def _call(
         limit=settings.gemini_daily_requests, safety_ratio=safety,
     )  # fmt: skip
     try:
-        result = await analyzer.analyze(video.url, build_prompt())
+        result = await analyzer.analyze(url, build_prompt())
     except GeminiQuotaExhausted as exc:
         raise QuotaExceeded(str(exc)) from exc
     await add_usage(session, day, "gemini", "requests", 1)
@@ -125,12 +126,12 @@ async def analyze_video(
     now = now or datetime.now(UTC)
     log = {"video_id": video.video_id}
     try:
-        result = await _call(session, analyzer, video, settings, now)
+        result = await call_gemini(session, analyzer, video.url, settings, now)
         try:
             raw, extraction = _parse(result.text)
         except _InvalidOutput:
             logger.warning("invalid gemini output, calling again", extra=log)
-            result = await _call(session, analyzer, video, settings, now)
+            result = await call_gemini(session, analyzer, video.url, settings, now)
             raw, extraction = _parse(result.text)  # FR-2.2: one extra call, not a retry
     except QuotaExceeded:
         raise

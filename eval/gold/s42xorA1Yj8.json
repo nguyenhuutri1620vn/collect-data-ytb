@@ -1,0 +1,80 @@
+{
+  "places": [
+    {
+      "name": "Bếp Thái Koh Yam",
+      "tips": [],
+      "items": [
+        {
+          "name": "Combo Vui vẻ 1",
+          "price_vnd": 550000
+        },
+        {
+          "name": "Combo Vui vẻ 2",
+          "price_vnd": 580000
+        }
+      ],
+      "vibes": [
+        "tre_trung",
+        "am_cung"
+      ],
+      "setting": "indoor",
+      "category": "an",
+      "contacts": [],
+      "evidence": [
+        {
+          "text": "111 HỒ TÙNG MẬU, Q.1",
+          "source": "onscreen_text",
+          "timestamp": "00:00"
+        },
+        {
+          "text": "bếp thái Koh Yam",
+          "source": "audio",
+          "timestamp": "00:01"
+        },
+        {
+          "text": "Combo Vui vẻ 1 550.000",
+          "source": "onscreen_text",
+          "timestamp": "00:07"
+        },
+        {
+          "text": "11:00-22:00",
+          "source": "onscreen_text",
+          "timestamp": "00:30"
+        }
+      ],
+      "amenities": [
+        "may_lanh"
+      ],
+      "confidence": 0.95,
+      "highlights": [
+        "Không gian quán thiết kế tông màu xanh mạ và nội thất gỗ ấm cúng, hiện đại",
+        "Các món ăn chuẩn vị Thái, đậm đà và kích thích vị giác"
+      ],
+      "price_unit": "per_item",
+      "time_slots": [
+        "sang",
+        "trua",
+        "chieu",
+        "toi"
+      ],
+      "address_raw": "111 Hồ Tùng Mậu",
+      "district_raw": "Quận 1",
+      "sub_category": "Món Thái",
+      "suitable_for": [
+        "nhom_nho",
+        "cap_doi",
+        "gia_dinh"
+      ],
+      "price_max_vnd": 580000,
+      "price_min_vnd": 550000,
+      "group_size_max": 4,
+      "group_size_min": 2,
+      "opening_hours_raw": "11:00-22:00",
+      "reservation_required": null,
+      "visit_duration_max_minutes": 90,
+      "visit_duration_min_minutes": 60
+    }
+  ],
+  "is_relevant": true,
+  "video_summary": "Video giới thiệu Bếp Thái Koh Yam tọa lạc tại số 111 Hồ Tùng Mậu, Quận 1, TP. Hồ Chí Minh với nhiều món ăn chuẩn vị Thái."
+}
