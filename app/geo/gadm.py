@@ -122,7 +122,16 @@ def _sub_area_geometries(features: list[tuple[str, dict]]) -> dict[str, list[dic
         sub_area = resolve_legacy_sub_area(name)
         if sub_area:
             found.setdefault(sub_area, []).append(geometry)
-    return found if _PRE2021_MARKERS <= found.keys() else None
+    if not _PRE2021_MARKERS & found.keys():
+        return None
+    # Pre-2021 layout: TP Thủ Đức is the union of all three, so a partial file would
+    # silently shrink it (and later mark real places out_of_scope).
+    missing = [s for s in LEGACY_SUB_AREAS if s not in found]
+    if missing:
+        raise BoundaryLoadError(
+            f"pre-2021 file lacks {', '.join(missing)}; TP Thủ Đức would be incomplete"
+        )
+    return found
 
 
 async def _set_geom(session: AsyncSession, table: str, name: str, geometries: list[dict]) -> None:

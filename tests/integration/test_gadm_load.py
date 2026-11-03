@@ -125,3 +125,16 @@ async def test_load_gadm41_spaceless_names(session: AsyncSession, tmp_path: Path
         session,
         f"SELECT ST_Intersects(geom, {dong_nai}) FROM legacy_districts WHERE name = 'Tân Phú'",
     )
+
+
+@pytest.mark.parametrize("dropped", ["Thủ Đức", "Quận 9"])
+async def test_partial_pre2021_file_raises(
+    session: AsyncSession, tmp_path: Path, dropped: str
+) -> None:
+    """A file with only some of Quận 2 / Quận 9 / Thủ Đức would load an incomplete TP Thủ Đức."""
+
+    def drop(features: list) -> None:
+        features[:] = [f for f in features if f["properties"]["NAME_2"] != dropped]
+
+    with pytest.raises(BoundaryLoadError, match="TP Thủ Đức"):
+        await load_boundaries(session, variant(tmp_path, PRE2021, drop))
